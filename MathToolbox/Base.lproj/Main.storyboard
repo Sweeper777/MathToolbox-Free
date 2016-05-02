@@ -24,11 +24,13 @@
                     <navigationItem key="navigationItem" title="Operations" id="idy-iG-hlh">
                         <barButtonItem key="backBarButtonItem" title=" " id="dHl-aU-mfk"/>
                         <barButtonItem key="leftBarButtonItem" image="Info-50" id="Azc-w5-Pa1">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="infoClicked:" destination="Qfp-k9-xta" id="D5o-oB-v57"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="?" id="asL-5S-VYF">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="lBq-bS-r2V" kind="show" id="LYg-aL-Gyk"/>
                             </connections>
@@ -96,6 +98,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="sectionIndexBackgroundColor" red="0.79215686269999996" green="1" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
                         <connections>
                             <outlet property="dataSource" destination="pOX-Vn-qAh" id="j5w-FQ-uuv"/>
                             <outlet property="delegate" destination="pOX-Vn-qAh" id="ueG-zi-v7l"/>
@@ -105,11 +108,13 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="lWQ-od-EeT"/>
                         <rightBarButtonItems>
                             <barButtonItem title="Calculate" style="done" id="Xpf-yQ-wX6">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <segue destination="xj0-bn-Clf" kind="show" identifier="showResults" id="5SY-JD-BjM"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem title="?" id="av6-Fy-W4j">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <segue destination="lBq-bS-r2V" kind="show" identifier="showOperationHelp" id="qab-G1-fNV"/>
                                 </connections>
@@ -165,6 +170,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="vAN-mt-wRu">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.35294117650000001" green="0.73333333329999995" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="Qfp-k9-xta" kind="relationship" relationship="rootViewController" id="6V1-L4-ggn"/>
@@ -181,6 +190,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="7CF-Jo-i7K">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.35294117650000001" green="0.73333333329999995" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="8m8-LU-hlA" kind="relationship" relationship="rootViewController" id="wgg-cT-NtD"/>
@@ -273,6 +286,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="About" id="VVS-kg-b9y">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="PYD-HW-u7w">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="aK8-U6-QPV" kind="unwind" unwindAction="unwindToMain:" id="u3o-Ja-Pnx"/>
                             </connections>

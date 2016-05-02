@@ -61,6 +61,7 @@ class OperationListViewController: UITableViewController, GADInterstitialDelegat
     }
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        tableView.tableHeaderView?.backgroundColor = UIColor(red: 0x5a / 0xff, green: 0xbb / 0xff, blue: 0x5a / 0xff, alpha: 1.0)
         return NSLocalizedString(operationsList[section].category, comment: "")
     }
     
@@ -79,6 +80,15 @@ class OperationListViewController: UITableViewController, GADInterstitialDelegat
     
     @IBAction func unwindToMain(segue: UIStoryboardSegue) {
         
+    }
+    
+    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UILabel(frame: CGRectMake(0, 0, tableView.bounds.size.width, 30))
+        headerView.backgroundColor = UIColor(red: 0xca / 0xff, green: 1, blue: 0xc7 / 0xff, alpha: 1.0)
+        headerView.text = "  " + self.tableView(tableView, titleForHeaderInSection: section)!
+        let fontD: UIFontDescriptor = headerView.font.fontDescriptor().fontDescriptorWithSymbolicTraits(.TraitBold)
+        headerView.font = UIFont(descriptor: fontD, size: 0)
+        return headerView
     }
     
     //==================AD STUFF=======================
@@ -125,6 +135,9 @@ class OperationListViewController: UITableViewController, GADInterstitialDelegat
         } else {
             self.performSelector(#selector(OperationListViewController.loadNewAd), withObject: nil, afterDelay: 60.0)
         }
+        
+        UINavigationBar.appearance().barStyle = .Black
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
     }
     
     override func viewDidAppear(animated: Bool) {

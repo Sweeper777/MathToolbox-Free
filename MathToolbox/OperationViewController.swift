@@ -36,7 +36,7 @@ class OperationViewController: UITableViewController, UITextFieldDelegate, UIGes
             ad.loadRequest(request)
         } else {
             self.performSelector(#selector(OperationViewController.loadNewAd), withObject: nil, afterDelay: 60.0)
-        }
+        }        
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
