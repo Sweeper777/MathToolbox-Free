@@ -1,0 +1,235 @@
+"2D Figures" = "2D 圖形";
+"Circles" = "圓形";
+"Triangles" = "三角形";
+"3D Figures" = "3D 圖形";
+"Factors and Multiples" = "因數和倍數";
+"General Numbers" = "一般數字";
+"Misc" = "其他";
+"Physics - Heat" = "物理 － 熱";
+
+"inputs" = "輸入";
+"Enter" = "輸入";
+"Degrees" = "度";
+"Radians" = "弧";
+"Gradians" = "百分度";
+"This operation accepts integers ONLY. Other forms of input will be ignored" = "這個操作只接受整數，其他類型的數字會被忽略";
+
+"From" = "從 %@ 得出";
+"No Results" = "無結果";
+"Success!" = "成功！";
+"The result" = "結果";
+"has been copied to the clipboard." = "已被複製到剪貼板。";
+"OK" = "確定";
+
+"Circle" = "圓形";
+"Radius of the circle" = "圓形的半徑";
+"Diameter of the circle" = "圓形的直徑";
+"Perimeter of the circle" = "圓形的周界";
+"Area of the circle" = "圓形的面積";
+"Radius" = "半徑";
+"Diameter" = "直徑";
+"Area" = "面積";
+"Perimeter" = "周界";
+
+"Trapizium" = "梯形";
+"The upper base of the trapizium" = "梯形的上底";
+"The lower base of the trapizium" = "梯形的下底";
+"The height (altitude) of the trapizium" = "梯形的高";
+"The length of the trapizium's left side" = "梯形左邊斜邊的長度";
+"The length of the trapizium's right side" = "梯形又邊斜邊的長度";
+"The perimeter of the trapizium" = "梯形的周界";
+"The area of the trapizium" = "梯形的面積";
+"Right Side Length" = "右邊斜邊長";
+"Left Side Length" = "左邊斜邊長";
+"Upper Base" = "上底";
+"Lower Base" = "下底";
+"Height" = "高";
+
+"Triangle" = "三角形";
+"The base of the triangle" = "三角形的底";
+"The height of the triangle" = "三角形的高";
+"The side length of the triangle" = "三角形的邊長";
+"The perimeter of the triangle" = "三角形的周界";
+"The area of the triangle" = "三角形的面積";
+"Base" = "底";
+"Side Length" = "邊長";
+
+"Degrees, Radians, Gradians" = "度、弧、百分度";
+"Angle in degrees" = "以度計算的角";
+"Angle in radians" = "以弧計算的角";
+"Angle in gradians" = "以百分度計算的角";
+
+"Prime Number" = "質數";
+"The number to test whether it is a prime" = "用來測試是否質數的數字";
+"Primality" = "是否質數";
+"True" = "是";
+"False" = "否";
+
+"Prime Factors" = "質因數分解";
+"The number to list all of its prime factors." = "這個數的所有質因數會被列出";
+"Multiplication of Prime Factors" = "質因數相乘";
+
+"Factors" = "因數";
+"All factors of this number and its greatest common factor with y will be calculated" = "這個數的所有因數和它與 y 的最大公因數會被列出";
+"All factors of this number and its greatest common factor with x will be calculated" = "這個數的所有因數和它與 x 的最大公因數會被列出";
+"Greatest Common Factor" = "最大公因數";
+
+"Trigonometry & Pythagoras Theorem" = "三角函數與畢德格拉斯定理";
+"Refer to figure" = "參考圖片";
+"Refer to figure, angle in ANGLE_MEASURE" = "參考圖片，此角以ANGLE_MEASURE計算";
+"Is Right Angled" = "是否直角三角形";
+
+"Factor Pairs" = "因數對";
+"The number to get all its factor pairs" = "這個數字的所有因數對會被列出";
+
+"Least Common Multiple" = "最小公倍數";
+"The first number" = "第一個數";
+"The second number" = "第二個數";
+
+"Oval/Ellipse" = "橢圓形";
+"The semi-major axis length" = "長半徑的長度";
+"The semi-minor axis length" = "短半徑的長度";
+"The height/length of the ellipse" = "橢圓形的長度";
+"The width of the ellipse" = "橢圓形的寬度";
+"The area of the ellipse" = "橢圓形的面積";
+"The perimeter of the ellipse, given by<br>2π√((a<sup>2</sup> + b<sup>2</sup>) / 2)" = "橢圓形的周界，公式：<br>2π√((a<sup>2</sup> + b<sup>2</sup>) / 2)";
+"Length" = "長度";
+"Width" = "寬度";
+"Semi-major Axis" = "長半徑";
+"Semi-minor Axis" = "短半徑";
+
+"Scientific Notation" = "科學計數法";
+"This number will be converted to scientific notation" = "這個數字會被轉換成科學計數法";
+"This number will be converted to normal notation" = "這個數字會被轉換成正常的計數法";
+"Normal Notation" = "正常計數法";
+"Scientific Notation Style 1" = "科學計數法 樣式 1";
+"Scientific Notation Style 2" = "科學計數法 樣式 2";
+
+"Triangle Inequality" = "三角形不等式";
+"Is Possible to Form Triangle?" = "能否形成三角形？";
+
+"Angles of Polygons" = "多邊形的角";
+"Number of interior angles of the polygon (Please enter an integer in this blank. Other forms of input will be ignored)" = "多邊形中內角的數量";
+"Sum of all interior angles of the polygon, in ANGLE_MEASURE" = "多邊形內角之和，以ANGLE_MEASURE計算";
+"The size of each interior angle of the polygon, in ANGLE_MEASURE (This is only applicable when the polygon is a regular polygon)" = "每個內角的大小，以ANGLE_MEASURE計算（只適用於正多邊形）";
+"Size of each exterior angle of the polygon, in ANGLE_MEASURE (This is only applicable when the polygon is a regular polygon)" = "每個外角的大小，以ANGLE_MEASURE計算（只適用於正多邊形）";
+"Sum of Interior Angles" = "內角和";
+"Each Interior Angle (if regular)" = "每個內角大小（只適用於正多邊形）";
+"Each Exterior Angle (if regular)" = "每個外角（只適用於正多邊形）";
+"Number of Angles (if regular)" ="內角數量（只適用於正多邊形）";
+"Sum of Interior Angles (if regular)" = "內角和（只適用於正多邊形）";
+
+"Arcs" = "圓弧";
+"The radius of the arc" = "圓弧的半徑";
+"The angle at the center, in ANGLE_MEASURE" = "圓心的角，以ANGLE_MEASURE計算";
+"The arc length" = "圓弧的長度";
+"Arc Length" = "圓弧長度";
+"Angle at the Center" = "圓心的角";
+
+"Sectors" = "扇形";
+"The radius of the sector" = "扇形的半徑";
+"The area of the sector" = "扇形的面積";
+
+"Random Number Generator" = "隨機數字生成器";
+"Number of numbers to be generated (default: 1)" = "生成隨機數的數量 （默認：1）";
+"The minimum value of the generated number(s) (default: 0.0, Valid range: -2147483647 ~ 2147483647)" = "所生成之隨機數的最小值（默認：0.0，有效範圍： -2147483647 ~ 2147483647）";
+"The maximum value of the generated number(s) (default: 10.0, Valid range: -2147483647 ~ 2147483647)" = "所生成之隨機數的最大值（默認：10.0，有效範圍： -2147483647 ~ 2147483647）";
+"Random Numbers" = "隨機數";
+
+"Sphere" = "球體";
+"The radius" = "半徑";
+"The diameter" = "直徑";
+"The total surface area" = "總表面積";
+"The volume" = "體積";
+"Total Surface Area" = "總表面積";
+"Volume" = "體積";
+
+"Regular Polygons" = "正多邊形";
+"Number of sides of the polygon" = "多邊形邊的數量";
+"Side length of the polygon" = "多邊形的邊長";
+"Circumradius of the polygon (Refer to figure)" = "多邊形的外接圓半徑（參考圖片）";
+"Perimeter of the polygon" = "多邊形的周界";
+"Circumradius" = "外接圓半徑";
+"Inradius" = "內徑";
+
+"Heat Capacity" = "熱容";
+"Energy" = "能量";
+"Change in temperature" = "溫度改變";
+"Change in Temperature" = "溫度改變";
+
+"Specific Heat Capacity" = "比熱容";
+"Mass" = "質量";
+
+"Ellipsoid" = "橢圓體";
+"One of the three semi-axes" = "其中一條半軸";
+"The volume of the ellipsoid" = "橢圓體的體積";
+"Semi-axis a" = "半軸 a";
+"Semi-axis b" = "半軸 b";
+"Semi-axis c" = "半軸 c";
+
+"Cylinder" = "圓柱體";
+"Base Radius" = "底半徑";
+"Base Area" = "底面積";
+"Lateral Surface Area" = "側表面積";
+"Total Surface Area" = "總表面積";
+
+"Decimal and Fraction Conversions" = "小數和分數轉換";
+"The denominator of the fraction that will be converted to decimal format" = "分數的分母";
+"The numerator of the fraction that will be converted to decimal format" = "分數的分子";
+"The decimal number that will be converted to a fraction" = "小數";
+"Decimal Format" = "小數格式";
+"Fraction" = "分數";
+
+"Cone" = "圓錐體";
+"Slant Height" = "斜面高";
+
+"Right Prism" = "直角稜柱";
+"Right Pyramid" = "直角稜錐";
+
+"General Operations" = "一般操作";
+"The first operand to perform addition on" = "被加數";
+"The second operand to perform addition on" = "加數";
+"The first operand to perform subtraction on" = "被減數";
+"The second operand to perform subtraction on" = "減數";
+"The first operand to perform multiplication on" = "被乘數";
+"The second operand to perform multiplication on" = "乘數";
+"The first operand to perform division on" = "被除數";
+"The second operand to perform division on" = "除數";
+"The number to be raised to power ^'" = "升到 ^' 次方的數";
+"The power that ^ will be raised" ="^ 會被升到的次方";
+"The number to square root" = "被平方根的數";
+"The number to cube root" = "被立方根的數";
+"The number to perform logarithm" = "被對數的數";
+"The subscript of the logarithm" = "對數的下標";
+
+"Sum" = "和";
+"Difference" = "差";
+"Product" = "積";
+"Quotient" = "商";
+"Power" = "次方";
+"Square Root" = "平方根";
+"Cube Root" = "立方根";
+"Logarithm" = "對數";
+
+"Distance Between 2 Points" = "兩點之間的距離";
+"The x coordinate of the first point" = "第一點的 X 坐標";
+"The y coordinate of the first point" = "第一點的 Y 坐標";
+"The x coordinate of the second point" = "第二點的 X 坐標";
+"The y coordinate of the second point" = "第二點的 Y 坐標";
+"The distance between the 2 points" = "兩點之間的距離";
+"Distance" = "距離";
+"or" = "或";
+
+"Base Conversions" = "進制轉換";
+"Number in decimal" = "十進制數字";
+"The base to convert to" = "轉換到進制";
+"Converted Number" = "已轉換數字";
+"format" = "%@ （%@ 進制）";
+
+"Get the Full Version!" = "獲取完整版";
+"About" = "關於";
+"Cancel" = "取消";
+
+"Version:" = "版本：";
+
+"helpText" = "<p><h1>歡迎來到數學工具箱！</h1> 現在教如何使用這個應用程式。</p><p>首先，你要在操作列表裡選出你要的操作，然後在操作頁面輸入你已知的值，再按「計算」 按鈕。接著，結果就會顯示出來。</p><p><h1>例子：</h1>比如你選擇了「圓形」操作，你可以輸入 r（半徑），d（直徑），A（面積）或 P（圓周），不過你不必輸入所有的空格。 假如你只輸入了半徑，應用就會計算出所有可能的結果，包括直徑、面積和圓周</p><p>如果你不懂操作中數學符號的意思，你可以按「？」按鈕查看幫助，應用程式便會顯示所有輸入的簡短說明。</p><p>請注意應用程式會自動忽略無效的輸入。</p><h1>小貼士</h1><p>如果你想把運算的結果複製到其他地方，你只要輕觸該結果，它便會被自動複製。</p><p>當你要輸入數字時，你可以以科學計數法表示：<br><pre>xey</pre> x 可以是小數或是整數，而 y 必須是一個整數。比如： 8e9, 1.234e5, -3.1e-9</p><p>但請注意，你不以用以下這種方式來表示科學計數法<br>1.234 × 10<sup>5</sup></p><p>此外，輸入的數值不可以超過17位數（包括小數位），否則，它／它們會被截成 17 位數。</p><p>當你在為操作輸入數字時，你可以選擇輸入一個表達式，比如 5 * 5. 你還可以用以下的常數和函數：</p><table><tr><td>常數／函數</td><td>描述</td></tr><tr><td>pi</td><td>π的值</td></tr><tr><td>phi</td><td>ϕ的值</td></tr><tr><td>e</td><td>e的值</td></tr><tr><td>tau</td><td>τ的值</td></tr><tr><td>sqrt2</td><td>2的平方根的值</td></tr><tr><td>sqrt(x)</td><td>x的平方根的值</td></tr><tr><td>log(x)</td><td>x的十進制對數</td></tr><tr><td>ln(x)</td><td>x的e進制的對數</td></tr><tr><td>exp(x)</td><td>e的x次方</td></tr><tr><td>cos(x) sin(x) tan(x)</td><td>三角函數</td></tr><tr><td>acos(x) asin(x) atan(x)</td><td>反向的三角函數</td></tr><tr><td>csc(x) sec(x) cotan(x)</td><td>三角函數的倒數</td></tr><tr><td>acsc(x) asec(x) acotan(x)</td><td>反向的三角函數的倒數</td></tr><tr><td colspan=\"2\">還包括雙曲三角函數！</td></tr><tr><td colspan=\"2\">還有很多！</td></tr></table><p>註：所有三角函數使用的角度單位都是度。</p>";

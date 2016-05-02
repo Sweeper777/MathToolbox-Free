@@ -1,0 +1,120 @@
+
+/* Class = "UILabel"; text = "Express Answer in Terms of π"; ObjectID = "0gA-gx-7WP"; */
+"0gA-gx-7WP.text" = "用π表示答案";
+
+/* Class = "UILabel"; text = "3.14"; ObjectID = "1Vh-0f-lsx"; */
+"1Vh-0f-lsx.text" = "3.14";
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "2Gi-BU-u9f"; */
+"2Gi-BU-u9f.title" = " ";
+
+/* Class = "UIViewController"; title = "About"; ObjectID = "5Ru-aD-HMv"; */
+"VVS-kg-b9y.title" = "关于本产品";
+
+/* Class = "UILabel"; text = "8 Significant Figures"; ObjectID = "8nZ-w3-yTu"; */
+"8nZ-w3-yTu.text" = "8个有效数字";
+
+/* Class = "UILabel"; text = "Math Toolbox"; ObjectID = "BZd-i1-xOV"; */
+"LtK-1q-MAU.text" = "数学工具箱";
+
+/* Class = "UITableViewSection"; headerTitle = "Significant figure options"; ObjectID = "Iox-oU-jxf"; */
+"Iox-oU-jxf.headerTitle" = "有效数字选项";
+
+/* Class = "UILabel"; text = "Gradians"; ObjectID = "Me2-XS-RdK"; */
+"Me2-XS-RdK.text" = "百分度";
+
+/* Class = "UILabel"; text = "Radians"; ObjectID = "PlL-Nw-S09"; */
+"PlL-Nw-S09.text" = "弧";
+
+/* Class = "UITableViewController"; title = "Operations"; ObjectID = "Qfp-k9-xta"; */
+"Qfp-k9-xta.title" = "操作列表";
+
+/* Class = "UILabel"; text = "22 / 7"; ObjectID = "TBt-Fr-6XF"; */
+"TBt-Fr-6XF.text" = "22 / 7";
+
+/* Class = "UILabel"; text = "Exact"; ObjectID = "W45-BI-sWG"; */
+"W45-BI-sWG.text" = "准确";
+
+/* Class = "UINavigationItem"; title = "Settings"; ObjectID = "WIY-Xc-hfM"; */
+"WIY-Xc-hfM.title" = "设置";
+
+/* Class = "UILabel"; text = "Producer: Su Mulang"; ObjectID = "WPe-3K-VeC"; */
+"ptv-EW-psU.text" = "开发者: Su Mulang";
+
+/* Class = "UILabel"; text = "About Math Toolbox"; ObjectID = "XUg-do-joU"; */
+"XUg-do-joU.text" = "关于数学工具箱";
+
+/* Class = "UIBarButtonItem"; title = "Calculate"; ObjectID = "Xpf-yQ-wX6"; */
+"Xpf-yQ-wX6.title" = "计算";
+
+/* Class = "UITableViewSection"; headerTitle = "angle measure"; ObjectID = "ZTL-DL-3qW"; */
+"ZTL-DL-3qW.headerTitle" = "角度单位";
+
+/* Class = "UILabel"; text = "4 Significant Figures"; ObjectID = "ZXk-lk-NjV"; */
+"ZXk-lk-NjV.text" = "4个有效数字";
+
+/* Class = "UIBarButtonItem"; title = "?"; ObjectID = "asL-5S-VYF"; */
+"asL-5S-VYF.title" = "?";
+
+/* Class = "UIBarButtonItem"; title = "?"; ObjectID = "av6-Fy-W4j"; */
+"av6-Fy-W4j.title" = "?";
+
+/* Class = "UILabel"; text = "3.141592653589793"; ObjectID = "cHV-lg-ezL"; */
+"cHV-lg-ezL.text" = "3.141592653589793";
+
+/* Class = "UILabel"; text = "7 Significant Figures"; ObjectID = "csN-Bo-k0a"; */
+"csN-Bo-k0a.text" = "7个有效数字";
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "dHl-aU-mfk"; */
+"dHl-aU-mfk.title" = " ";
+
+/* Class = "UINavigationItem"; title = "Title"; ObjectID = "dif-sJ-75Q"; */
+"dif-sJ-75Q.title" = "Title";
+
+/* Class = "UITableViewSection"; headerTitle = "value of PI (π)"; ObjectID = "ek2-C8-aZ3"; */
+"ek2-C8-aZ3.headerTitle" = "圆周率（π）的值";
+
+/* Class = "UILabel"; text = "Publisher: Xiu Cheng"; ObjectID = "eqg-DM-BR2"; */
+"I6h-zM-e9X.text" = "发布者: Xiu Cheng";
+
+/* Class = "UILabel"; text = "2 Significant Figures"; ObjectID = "fe5-Iz-Nms"; */
+"fe5-Iz-Nms.text" = "2个有效数字";
+
+/* Class = "UILabel"; text = "6 Significant Figures"; ObjectID = "gIo-Me-jin"; */
+"gIo-Me-jin.text" = "6个有效数字";
+
+/* Class = "UINavigationItem"; title = "Operations"; ObjectID = "idy-iG-hlh"; */
+"idy-iG-hlh.title" = "操作列表";
+
+/* Class = "UILabel"; text = "3 Significant Figures"; ObjectID = "j3j-B5-irB"; */
+"j3j-B5-irB.text" = "3个有效数字";
+
+/* Class = "UINavigationItem"; title = "Results"; ObjectID = "kk3-fX-zLg"; */
+"kk3-fX-zLg.title" = "结果";
+
+/* Class = "UIViewController"; title = "Help"; ObjectID = "lBq-bS-r2V"; */
+"lBq-bS-r2V.title" = "帮助";
+
+/* Class = "UILabel"; text = "1 Significant Figure"; ObjectID = "mfY-3F-i7I"; */
+"mfY-3F-i7I.text" = "1个有效数字";
+
+/* Class = "UITableViewController"; title = "OperationTable"; ObjectID = "pOX-Vn-qAh"; */
+"pOX-Vn-qAh.title" = "OperationTable";
+
+/* Class = "UINavigationItem"; title = "Help"; ObjectID = "q5Z-vf-Ap5"; */
+"q5Z-vf-Ap5.title" = "帮助";
+
+/* Class = "UILabel"; text = "5 Significant Figures"; ObjectID = "qrn-Zm-gQb"; */
+"qrn-Zm-gQb.text" = "5个有效数字";
+
+/* Class = "UILabel"; text = "Degrees"; ObjectID = "uel-mS-zq9"; */
+"uel-mS-zq9.text" = "度";
+
+/* Class = "UILabel"; text = "9 Significant Figures"; ObjectID = "upH-gZ-FZO"; */
+"upH-gZ-FZO.text" = "9个有效数字";
+
+/* Class = "UITableViewController"; title = "Settings"; ObjectID = "v4K-91-eNd"; */
+"v4K-91-eNd.title" = "设置";
+
+/* Class = "UIViewController"; title = "Results"; ObjectID = "xj0-bn-Clf"; */
+"xj0-bn-Clf.title" = "结果";

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "OperationViewController.keyboardWillShow(NSNotification) -&gt; ():OperationViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "focusedTextField!.frame">
+            </PersistentString>
+            <PersistentString
+               value = "keyboardSize">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "OperationViewController.(getResults in _7C86529E3DFB07BAD3D298D29C0B189A)() -&gt; [(name : String, from : String, result : String)]?:OperationViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "operation.operationAvailableInputs">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "GLOBAL">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.parentViewController">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "OperationViewController.textFieldDidBeginEditing(UITextField) -&gt; ():OperationViewController.swift">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

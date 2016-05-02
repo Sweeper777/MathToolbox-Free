@@ -1,0 +1,10 @@
+PODS:
+  - DDMathParser (2.0.0)
+
+DEPENDENCIES:
+  - DDMathParser
+
+SPEC CHECKSUMS:
+  DDMathParser: 74cddd0aa652cfed79e68fdd076f1ee63ab43a16
+
+COCOAPODS: 0.39.0

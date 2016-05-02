@@ -1,0 +1,235 @@
+"2D Figures" = "2D Figures";
+"Circles" = "Circles";
+"Triangles" = "Triangles";
+"3D Figures" = "3D Figures";
+"Factors and Multiples" = "Factors and Multiples";
+"General Numbers" = "General Numbers";
+"Misc" = "Misc";
+"Physics - Heat" = "Physics - Heat";
+
+"inputs" = "inputs";
+"Enter" = "Enter";
+"Degrees" = "Degrees";
+"Radians" = "Radians";
+"Gradians" = "Gradians";
+"This operation accepts integers ONLY. Other forms of input will be ignored" = "This operation accepts integers ONLY. Other forms of input will be ignored";
+
+"From" = "From %@";
+"No Results" = "No Results";
+"Success!" = "Success!";
+"The result" = "The result";
+"has been copied to the clipboard." = "has been copied to the clipboard.";
+"OK" = "OK";
+
+"Circle" = "Circle";
+"Radius of the circle" = "Radius of the circle";
+"Diameter of the circle" = "Diameter of the circle";
+"Perimeter of the circle" = "Perimeter of the circle";
+"Area of the circle" = "Area of the circle";
+"Radius" = "Radius";
+"Diameter" = "Diameter";
+"Area" = "Area";
+"Perimeter" = "Perimeter";
+
+"Trapizium" = "Trapezium";
+"The upper base of the trapizium" = "The upper base of the trapezium";
+"The lower base of the trapizium" = "The lower base of the trapezium";
+"The height (altitude) of the trapizium" = "The height (altitude) of the trapezium";
+"The length of the trapizium's left side" = "The length of the trapezium's left side";
+"The length of the trapizium's right side" = "The length of the trapezium's right side";
+"The perimeter of the trapizium" = "The perimeter of the trapezium";
+"The area of the trapizium" = "The area of the trapezium";
+"Right Side Length" = "Right Side Length";
+"Left Side Length" = "Left Side Length";
+"Upper Base" = "Upper Base";
+"Lower Base" = "Lower Base";
+"Height" = "Height";
+
+"Triangle" = "Triangle";
+"The base of the triangle" = "The base of the triangle";
+"The height of the triangle" = "The height of the triangle";
+"The side length of the triangle" = "The side length of the triangle";
+"The perimeter of the triangle" = "The perimeter of the triangle";
+"The area of the triangle" = "The area of the triangle";
+"Base" = "Base";
+"Side Length" = "Side Length";
+
+"Degrees, Radians, Gradians" = "Degrees, Radians, Gradians";
+"Angle in degrees" = "Angle in degrees";
+"Angle in radians" = "Angle in radians";
+"Angle in gradians" = "Angle in gradians";
+
+"Prime Number" = "Prime Number";
+"The number to test whether it is a prime" = "The number to test whether it is a prime";
+"Primality" = "Primality";
+"True" = "True";
+"False" = "False";
+
+"Prime Factors" = "Prime Factors";
+"The number to list all of its prime factors." = "The number to list all of its prime factors";
+"Multiplication of Prime Factors" = "Multiplication of Prime Factors";
+
+"Factors" = "Factors";
+"All factors of this number and its greatest common factor with y will be calculated" = "All factors of this number and its greatest common factor with y will be calculated";
+"All factors of this number and its greatest common factor with x will be calculated" = "All factors of this number and its greatest common factor with x will be calculated";
+"Greatest Common Factor" = "Greatest Common Factor";
+
+"Trigonometry & Pythagoras Theorem" = "Trigonometry & Pythagoras Theorem";
+"Refer to figure" = "Refer to figure";
+"Refer to figure, angle in ANGLE_MEASURE" = "Refer to figure, angle in ANGLE_MEASURE";
+"Is Right Angled" = "Is Right Angled";
+
+"Factor Pairs" = "Factor Pairs";
+"The number to get all its factor pairs" = "The number to get all its factor pairs";
+
+"Least Common Multiple" = "Least Common Multiple";
+"The first number" = "The first number";
+"The second number" = "The second number";
+
+"Oval/Ellipse" = "Oval/Ellipse";
+"The semi-major axis length" = "The semi-major axis length";
+"The semi-minor axis length" = "The semi-minor axis length";
+"The height/length of the ellipse" = "The height/length of the ellipse";
+"The width of the ellipse" = "The width of the ellipse";
+"The area of the ellipse" = "The area of the ellipse";
+"The perimeter of the ellipse, given by<br>2π√((a<sup>2</sup> + b<sup>2</sup>) / 2)" = "The perimeter of the ellipse, given by<br>2π√((a<sup>2</sup> + b<sup>2</sup>) / 2)";
+"Length" = "Length";
+"Width" = "Width";
+"Semi-major Axis" = "Semi-major Axis";
+"Semi-minor Axis" = "Semi-minor Axis";
+
+"Scientific Notation" = "Scientific Notation";
+"This number will be converted to scientific notation" = "This number will be converted to scientific notation";
+"This number will be converted to normal notation" = "This number will be converted to normal notation";
+"Scientific Notation Style 1" = "Scientific Notation Style 1";
+"Normal Notation" = "Normal Notation";
+"Scientific Notation Style 2" = "Scientific Notation Style 2";
+
+"Triangle Inequality" = "Triangle Inequality";
+"Is Possible to Form Triangle?" = "Is Possible to Form Triangle?";
+
+"Angles of Polygons" = "Angles of Polygons";
+"Number of interior angles of the polygon (Please enter an integer in this blank. Other forms of input will be ignored)";
+"Sum of all interior angles of the polygon, in ANGLE_MEASURE" = "Sum of all interior angles of the polygon, in ANGLE_MEASURE";
+"The size of each interior angle of the polygon, in ANGLE_MEASURE (This is only applicable when the polygon is a regular polygon)" = "The size of each interior angle of the polygon, in ANGLE_MEASURE (This is only applicable when the polygon is a regular polygon)";
+"Size of each exterior angle of the polygon, in ANGLE_MEASURE (This is only applicable when the polygon is a regular polygon)" = "Size of each exterior angle of the polygon, in ANGLE_MEASURE (This is only applicable when the polygon is a regular polygon)";
+"Sum of Interior Angles" = "Sum of Interior Angles";
+"Each Interior Angle (if regular)" = "Each Interior Angle (if regular)";
+"Each Exterior Angle (if regular)" = "Each Exterior Angle (if regular)";
+"Number of Angles (if regular)" ="Number of Angles (if regular)";
+"Sum of Interior Angles (if regular)" = "Sum of Interior Angles (if regular)";
+
+"Arcs" = "Arcs";
+"The radius of the arc" = "The radius of the arc";
+"The angle at the center, in ANGLE_MEASURE" = "The angle at the center, in ANGLE_MEASURE";
+"The arc length" = "The arc length";
+"Arc Length" = "Arc Length";
+"Angle at the Center" = "Angle at the Center";
+
+"Sectors" = "Sectors";
+"The radius of the sector" = "The radius of the sector";
+"The area of the sector" = "The area of the sector";
+
+"Random Number Generator" = "Random Number Generator";
+"Number of numbers to be generated (default: 1)" = "Number of numbers to be generated (default: 1)";
+"The minimum value of the generated number(s) (default: 0.0, Valid range: -2147483647 ~ 2147483647)" = "The minimum value of the generated number(s) (default: 0.0, Valid range: -2147483647 ~ 2147483647)";
+"The maximum value of the generated number(s) (default: 10.0, Valid range: -2147483647 ~ 2147483647)" = "The maximum value of the generated number(s) (default: 10.0, Valid range: -2147483647 ~ 2147483647)";
+"Random Numbers" = "Random Numbers";
+
+"Sphere" = "Sphere";
+"The radius" = "The radius";
+"The diameter" = "The diameter";
+"The total surface area" = "The total surface area";
+"The volume" = "The volume";
+"Total Surface Area" = "Total Surface Area";
+"Volume" = "Volume";
+
+"Regular Polygons" = "Regular Polygons";
+"Number of sides of the polygon" = "Number of sides of the polygon";
+"Side length of the polygon" = "Side length of the polygon";
+"Circumradius of the polygon" = "Circumradius of the polygon";
+"Perimeter of the polygon" = "Perimeter of the polygon";
+"Circumradius" = "Circumradius";
+"Inradius" = "Inradius";
+
+"Heat Capacity" = "Heat Capacity";
+"Energy" = "Energy";
+"Change in temperature" = "Change in temperature";
+"Change in Temperature" = "Change in Temperature";
+
+"Specific Heat Capacity" = "Specific Heat Capacity";
+"Mass" = "Mass";
+
+"Ellipsoid" = "Ellipsoid";
+"One of the three semi-axes" = "One of the three semi-axes";
+"The volume of the ellipsoid" = "The volume of the ellipsoid";
+"Semi-axis a" = "Semi-axis a";
+"Semi-axis b" = "Semi-axis b";
+"Semi-axis c" = "Semi-axis c";
+
+"Cylinder" = "Cylinder";
+"Base Radius" = "Base Radius";
+"Base Area" = "Base Area";
+"Lateral Surface Area" = "Lateral Surface Area";
+"Total Surface Area" = "Total Surface Area";
+
+"Decimal and Fraction Conversions" = "Decimal and Fraction Conversions";
+"The denominator of the fraction that will be converted to decimal format" = "The denominator of the fraction that will be converted to decimal format";
+"The numerator of the fraction that will be converted to decimal format" = "The numerator of the fraction that will be converted to decimal format";
+"The decimal number that will be converted to a fraction" = "The decimal number that will be converted to a fraction";
+"Decimal Format" = "Decimal Format";
+"Fraction" = "Fraction";
+
+"Cone" = "Cone";
+"Slant Height" = "Slant Height";
+
+"Right Prism" = "Right Prism";
+"Right Pyramid" = "Right Pyramid";
+
+"General Operations" = "General Operations";
+"The first operand to perform addition on" = "The first operand to perform addition on";
+"The second operand to perform addition on" = "The second operand to perform addition on";
+"The first operand to perform subtraction on" = "The first operand to perform subtraction on";
+"The second operand to perform subtraction on" = "The second operand to perform subtraction on";
+"The first operand to perform multiplication on" = "The first operand to perform multiplication on";
+"The second operand to perform multiplication on" = "The second operand to perform multiplication on";
+"The first operand to perform division on" = "The first operand to perform division on";
+"The second operand to perform division on" = "The second operand to perform division on";
+"The number to be raised to power ^'" = "The number to be raised to power ^'";
+"The power that ^ will be raised" ="The power that ^ will be raised";
+"The number to square root" = "The number to square root";
+"The number to cube root" = "The number to cube root";
+"The number to perform logarithm" = "The number to perform logarithm";
+"The subscript of the logarithm" = "The subscript of the logarithm";
+
+"Sum" = "Sum";
+"Difference" = "Difference";
+"Product" = "Product";
+"Quotient" = "Quotient";
+"Power" = "Power";
+"Square Root" = "Square Root";
+"Cube Root" = "Cube Root";
+"Logarithm" = "Logarithm";
+
+"Distance Between 2 Points" = "Distance Between 2 Points";
+"The x coordinate of the first point" = "The x coordinate of the first point";
+"The y coordinate of the first point" = "The y coordinate of the first point";
+"The x coordinate of the second point" = "The x coordinate of the second point";
+"The y coordinate of the second point" = "The y coordinate of the second point";
+"The distance between the 2 points" = "The distance between the 2 points";
+"Distance" = "Distance";
+"or" = "or";
+
+"Base Conversions" = "Base Conversions";
+"Number in decimal" = "Number in decimal";
+"The base to convert to" = "The base to convert to";
+"Converted Number" = "Converted Number";
+"format" = "%@ (In Base %@)";
+
+"Get the Full Version!" = "Get the Full Version!";
+"About" = "About";
+"Cancel" = "Cancel";
+
+"Version:" = "Version:";
+
+"helpText" = "<style>table td {border: black solid 1px;}</style><p><h1>Welcome to Math Toolbox!</h1> Here is how to use this app.</p><p>First, you need to select your intended operation from the operations list. Then in the operations screen, input the numbers and tap the Calculate button. The results will be shown accordingly.</p><p><h1>Example:</h1>You can select the \"Circle\" operation. You can then enter r (radius), d (diameter), A (Area), and P (Perimeter) into the corresponding blanks. You don't need to enter all of them. Let's say you only enter the radius. The app will automatically calculate all possible results involving your inputs. In this example, the results will show the diameter, the perimeter, and the area.</p><p>In case you don't understand what the input symbols mean, you can tap on the help button in the operation screen where a brief explanation will be shown.</p><p>If invalid inputs are detected, they will be ignored.</p><h1>Tips:</h1><p>You can click on a result and it will be automatically saved to the clipboard. This can be useful if you want to use the result in somewhere else.</p><p>When you enter a number, you can express it in scientific notation in the form of <br><pre>xey</pre> where x can be an integer or a decimal and y must be an integer. For example, 8e9, 1.234e5, -3.1e-9</p><p>You cannot express scientific notation like this:<br>1.234 × 10<sup5</sup></p><p>Please do not input any number that contains more than 17 digits (including decimal places). If this kind of input is detected, they/it will be truncated to 17 digits.</p><p>When you are inputting numbers for an operation, you can enter expressions instead of numbers, e.g. 5 * 5. You can also use the following constants and functions:</p><table><tr><td>Constant / Function</td><td>Description</td></tr><tr><td>pi</td><td>The value of π</td></tr><tr><td>phi</td><td>The value of ϕ</td></tr><tr><td>e</td><td>The value of e</td></tr><tr><td>tau</td><td>The value of τ</td></tr><tr><td>sqrt2</td><td>The value of square root of 2</td></tr><tr><td>sqrt(x)</td><td>The square root of x</td></tr><tr><td>log(x)</td><td>The base 10 log of x</td></tr><tr><td>ln(x)</td><td>The base e log of x</td></tr><tr><td>exp(x)</td><td>The value e raised to power x</td></tr><tr><td>cos(x) sin(x) tan(x)</td><td>Trigonometric functions</td></tr><tr><td>acos(x) asin(x) atan(x)</td><td>Inverse of the trigonometric functions</td></tr><tr><td>csc(x) sec(x) cotan(x)</td><td>Reciprocals of the trigonometric functions</td></tr><tr><td>acsc(x) asec(x) acotan(x)</td><td>Inverse of the reciprocals of the trigonometric functions</td></tr><tr><td colspan=\"2\">And the hyperbolic variations!</td></tr><tr><td colspan=\"2\">And many more!</td></tr></table><p>Note: All the trigonometric functions use degrees as the angle measure.</p>";
