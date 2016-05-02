@@ -43,14 +43,6 @@ class TrigAndPyth : Operation {
             result.append(("θb", "b, c", correctToSigFigAndPi(UserSettings.convertToPref(acos(b / c)), false)))
         }
         
-        if let a = inputs["a"], let b = inputs["b"], let c = inputs["c"] {
-            if a * a + b * b == c * c {
-                result.append(("Is Right Angled", "a, b, c", NSLocalizedString("True", comment: "")))
-            } else {
-                result.append(("Is Right Angled", "a, b , c", NSLocalizedString("False", comment: "")))
-            }
-        }
-        
         if let θa = inputs["θa"] {
             result.append(("θb", "θa", correctToSigFigAndPi(UserSettings.pref90Degrees - θa, false)))
             if let a = inputs["a"] {
