@@ -45,16 +45,16 @@ class Triangle: Operation {
                 result.append(("Area", "s1, s2, s3", correctToSigFigAndPi(sqrt(3) * s1 * s1 / 4.0, false)))
             }
             
-            if let a = inputs["s1"], let b = inputs["s2"], let c = inputs["s3"] {
-                if a * a + b * b == c * c || a * a + c * c == b * b || b * b + c * c == a * a {
-                    result.append(("Is Right Angled", "a, b, c", NSLocalizedString("True", comment: "")))
-                    let sorted = [a, b, c].sort()
-                    let area = sorted[0] * sorted[1] / 2
-                    
-                    result.append(("Area", "a, b, c", correctToSigFigAndPi(area, false)))
-                } else {
-                    result.append(("Is Right Angled", "a, b , c", NSLocalizedString("False", comment: "")))
-                }
+            let a = s1, b = s2, c = s3
+            
+            if a * a + b * b == c * c || a * a + c * c == b * b || b * b + c * c == a * a {
+                result.append(("Is Right Angled", "a, b, c", NSLocalizedString("True", comment: "")))
+                let sorted = [a, b, c].sort()
+                let area = sorted[0] * sorted[1] / 2
+                
+                result.append(("Area", "a, b, c", correctToSigFigAndPi(area, false)))
+            } else {
+                result.append(("Is Right Angled", "a, b , c", NSLocalizedString("False", comment: "")))
             }
             
         } else {
