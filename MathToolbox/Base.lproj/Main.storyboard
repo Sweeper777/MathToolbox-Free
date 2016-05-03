@@ -214,7 +214,7 @@
                         <sections>
                             <tableViewSection id="x2x-r0-6gz">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="495" id="Uhc-Iz-ifz">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="495" id="Uhc-Iz-ifz">
                                         <rect key="frame" x="0.0" y="44" width="600" height="495"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Uhc-Iz-ifz" id="DLU-Ba-5V8">
