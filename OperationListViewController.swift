@@ -3,9 +3,9 @@ import GoogleMobileAds
 
 class OperationListViewController: UITableViewController, GADInterstitialDelegate, SKStoreProductViewControllerDelegate {
     let operationsList: [(category: String, operations: [Operation])] = [
-        ("2D Figures", [Trapizium(), Triangle(), PolygonAngles()]),
+        ("2D Figures", [Trapizium(), PolygonAngles()]),
         ("Circles", [Circle(), Arc(), Sector()]),
-        ("Triangles", [TriangleInequality(), TrigAndPyth()]),
+        ("Triangles", [Triangle(), TriangleInequality(), TrigAndPyth()]),
         ("Factors and Multiples", [Factors(), PrimeFactors(), FactorPairs(), LeastCommonMultiple()]),
         ("General Numbers", [PrimeNumber(), SciNotation()]),
         ("Misc", [DegreesRadiansGradians(), HexDecBinOct()])
