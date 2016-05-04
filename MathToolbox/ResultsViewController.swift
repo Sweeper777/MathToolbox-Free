@@ -100,10 +100,18 @@ class ResultsViewController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UILabel(frame: CGRectMake(0, 0, tableView.bounds.size.width, 30))
         headerView.backgroundColor = UIColor(red: 0xca / 0xff, green: 1, blue: 0xc7 / 0xff, alpha: 1.0)
-        headerView.text = "  " + self.tableView(tableView, titleForHeaderInSection: section)!
+        headerView.text = "  " + (self.tableView(tableView, titleForHeaderInSection: section) ?? "")
         let fontD: UIFontDescriptor = headerView.font.fontDescriptor().fontDescriptorWithSymbolicTraits(.TraitBold)
         headerView.font = UIFont(descriptor: fontD, size: 0)
         return headerView
+    }
+    
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if noResult {
+            return 0
+        }
+        
+        return UITableViewAutomaticDimension
     }
     
     //==================AD STUFF=======================

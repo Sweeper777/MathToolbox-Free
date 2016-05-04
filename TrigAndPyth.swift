@@ -32,7 +32,7 @@ class TrigAndPyth : Operation {
         }
         
         if let a = inputs["a"], let b = inputs["b"] {
-            result.append(("b", "a, b", correctToSigFigAndPi(pythTheorm(a: a, b: b, c: nil)!, false)))
+            result.append(("c", "a, b", correctToSigFigAndPi(pythTheorm(a: a, b: b, c: nil)!, false)))
             result.append(("θa", "a, b", correctToSigFigAndPi(UserSettings.convertToPref(atan(b / a)), false)))
             result.append(("θb", "a, b", correctToSigFigAndPi(UserSettings.convertToPref(atan(a / b)), false)))
         }
