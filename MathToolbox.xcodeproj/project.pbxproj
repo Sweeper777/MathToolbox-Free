@@ -35,6 +35,7 @@
 		5AF361E21C5C48C10004DCF8 /* Arc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF361E11C5C48C10004DCF8 /* Arc.swift */; };
 		5AF361E41C5C51950004DCF8 /* Sector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF361E31C5C51950004DCF8 /* Sector.swift */; };
 		5AF368CF1C8984F300311FF1 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF368CE1C8984F300311FF1 /* GoogleMobileAds.framework */; };
+		5AFBBD481CDB0966009B805B /* RandomNumGen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFBBD471CDB0966009B805B /* RandomNumGen.swift */; };
 		5AFD2B471C54528400085372 /* LeastCommonMultiple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFD2B461C54528400085372 /* LeastCommonMultiple.swift */; };
 		5AFD2B4B1C54C19500085372 /* SciNotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFD2B4A1C54C19500085372 /* SciNotation.swift */; };
 		5AFDBDC01C5A03F800E46757 /* TriangleInequality.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFDBDBF1C5A03F800E46757 /* TriangleInequality.swift */; };
@@ -100,6 +101,7 @@
 		5AF361E11C5C48C10004DCF8 /* Arc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Arc.swift; sourceTree = "<group>"; };
 		5AF361E31C5C51950004DCF8 /* Sector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sector.swift; sourceTree = "<group>"; };
 		5AF368CE1C8984F300311FF1 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
+		5AFBBD471CDB0966009B805B /* RandomNumGen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RandomNumGen.swift; path = ../../MathToolbox/MathToolbox/RandomNumGen.swift; sourceTree = "<group>"; };
 		5AFD2B461C54528400085372 /* LeastCommonMultiple.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeastCommonMultiple.swift; sourceTree = "<group>"; };
 		5AFD2B4A1C54C19500085372 /* SciNotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SciNotation.swift; sourceTree = "<group>"; };
 		5AFDBDBF1C5A03F800E46757 /* TriangleInequality.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriangleInequality.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 				5AFDBDBF1C5A03F800E46757 /* TriangleInequality.swift */,
 				5AFDBDC11C5A161300E46757 /* PolygonAngles.swift */,
 				5AF361E11C5C48C10004DCF8 /* Arc.swift */,
+				5AFBBD471CDB0966009B805B /* RandomNumGen.swift */,
 				5AF361E31C5C51950004DCF8 /* Sector.swift */,
 			);
 			path = MathToolbox;
@@ -425,6 +428,7 @@
 				5A10E9A01C92C549005E54F2 /* HexDecBinOct.swift in Sources */,
 				5A8FF5FF1C4099B000C9566E /* OperationViewController.swift in Sources */,
 				5ABF45B81C4B7B98005616F9 /* UserSettings.swift in Sources */,
+				5AFBBD481CDB0966009B805B /* RandomNumGen.swift in Sources */,
 				5AFDBDC21C5A161300E46757 /* PolygonAngles.swift in Sources */,
 				5AF22D761C535AF6001E21EE /* FactorPairs.swift in Sources */,
 				5AF22D741C530742001E21EE /* TrigAndPyth.swift in Sources */,

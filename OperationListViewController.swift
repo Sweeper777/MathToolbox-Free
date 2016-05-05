@@ -7,7 +7,7 @@ class OperationListViewController: UITableViewController, GADInterstitialDelegat
         ("Circles", [Circle(), Arc(), Sector()]),
         ("Triangles", [Triangle(), TriangleInequality(), TrigAndPyth()]),
         ("Factors and Multiples", [Factors(), PrimeFactors(), FactorPairs(), LeastCommonMultiple()]),
-        ("General Numbers", [PrimeNumber(), SciNotation()]),
+        ("General Numbers", [PrimeNumber(), SciNotation(), RandomNumGen()]),
         ("Misc", [DegreesRadiansGradians(), HexDecBinOct()])
     ]
     var operationToPass: Operation?
