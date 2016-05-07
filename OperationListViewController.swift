@@ -48,24 +48,43 @@ class OperationListViewController: UITableViewController, GADInterstitialDelegat
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
+        if indexPath.section == operationsList.endIndex {
+            cell.textLabel!.text = NSLocalizedString("Custom Operations", comment: "")
+            cell.accessoryType = .DisclosureIndicator
+            return cell
+        }
         cell.textLabel?.text = NSLocalizedString(operationsList[indexPath.section].operations[indexPath.row].operationName, comment: "")
         return cell
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == operationsList.endIndex {
+            return 1
+        }
+        
         return operationsList[section].operations.count
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return operationsList.count
+        return operationsList.count + 1
     }
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         tableView.tableHeaderView?.backgroundColor = UIColor(red: 0x5a / 0xff, green: 0xbb / 0xff, blue: 0x5a / 0xff, alpha: 1.0)
+        
+        if section == operationsList.endIndex {
+            return NSLocalizedString("Custom", comment: "")
+        }
+        
         return NSLocalizedString(operationsList[section].category, comment: "")
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.section == operationsList.endIndex {
+            performSegueWithIdentifier("showCustomOperations", sender: self)
+            return
+        }
+        
         operationToPass = operationsList[indexPath.section].operations[indexPath.row]
         performSegueWithIdentifier("showOperation", sender: tableView)
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
