@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '1C335E67F48C7BD07098E529'
-               BlueprintName = 'Pods-MathToolbox'
+               BlueprintIdentifier = 'F05697D1561159DBE02E627C'
+               BlueprintName = 'MGSwipeTableCell'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'Pods_MathToolbox.framework'>
+               BuildableName = 'MGSwipeTableCell.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
