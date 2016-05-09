@@ -81,7 +81,25 @@ class OperationListViewController: UITableViewController, GADInterstitialDelegat
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.section == operationsList.endIndex {
-            performSegueWithIdentifier("showCustomOperations", sender: self)
+            var showAlert = true
+            if !UserSettings.prefHideWarning {
+                let alert = UIAlertController(title: NSLocalizedString("Warning", comment: ""), message: NSLocalizedString("This feature is for experienced users only", comment: ""), preferredStyle: .Alert)
+                
+                alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .Default, handler: nil))
+                alert.addAction(UIAlertAction(title: NSLocalizedString("Do not show again", comment: ""), style: .Default) {
+                    (_) in UserSettings.prefHideWarning = true
+                })
+                alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .Cancel) {
+                    _ in showAlert = false
+                })
+                
+                self.presentViewController(alert, animated: true, completion: nil)
+            }
+            
+            if showAlert {
+                performSegueWithIdentifier("showCustomOperations", sender: self)
+            }
+            tableView.deselectRowAtIndexPath(indexPath, animated: true)
             return
         }
         
