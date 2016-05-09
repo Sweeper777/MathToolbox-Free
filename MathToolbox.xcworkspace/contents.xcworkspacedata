@@ -2,6 +2,24 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:MathToolbox/OperationResult+CoreDataProperties.swift">
+   </FileRef>
+   <FileRef
+      location = "group:MathToolbox/OperationResult.swift">
+   </FileRef>
+   <FileRef
+      location = "group:MathToolbox/OperationEntity+CoreDataProperties.swift">
+   </FileRef>
+   <FileRef
+      location = "group:MathToolbox/OperationEntity.swift">
+   </FileRef>
+   <FileRef
+      location = "group:MathToolbox/OperationInput+CoreDataProperties.swift">
+   </FileRef>
+   <FileRef
+      location = "group:OperationInput.swift">
+   </FileRef>
+   <FileRef
       location = "group:MathToolbox.xcodeproj">
    </FileRef>
    <FileRef

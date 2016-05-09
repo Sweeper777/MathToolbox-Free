@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10171" systemVersion="15B42" minimumToolsVersion="Xcode 7.0">
-    <entity name="OperationEntity" syncable="YES">
+    <entity name="OperationEntity" representedClassName=".OperationEntity" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="rejectFloatingPoint" optional="YES" attributeType="Boolean" syncable="YES"/>
         <relationship name="availableInputs" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="OperationInput" inverseName="operation" inverseEntity="OperationInput" syncable="YES"/>
         <relationship name="results" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="OperationResult" inverseName="operation" inverseEntity="OperationResult" syncable="YES"/>
     </entity>
-    <entity name="OperationInput" syncable="YES">
+    <entity name="OperationInput" representedClassName=".OperationInput" syncable="YES">
         <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="operation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="OperationEntity" inverseName="availableInputs" inverseEntity="OperationEntity" syncable="YES"/>
     </entity>
-    <entity name="OperationResult" syncable="YES">
+    <entity name="OperationResult" representedClassName=".OperationResult" syncable="YES">
         <attribute name="formula" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="operation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="OperationEntity" inverseName="results" inverseEntity="OperationEntity" syncable="YES"/>

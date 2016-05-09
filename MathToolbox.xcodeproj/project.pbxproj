@@ -43,6 +43,12 @@
 		5AFDBDC01C5A03F800E46757 /* TriangleInequality.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFDBDBF1C5A03F800E46757 /* TriangleInequality.swift */; };
 		5AFDBDC21C5A161300E46757 /* PolygonAngles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFDBDC11C5A161300E46757 /* PolygonAngles.swift */; };
 		5AFDCA4E1CE08051008B9618 /* MGSwipeTableCell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AFDCA4D1CE08051008B9618 /* MGSwipeTableCell.framework */; };
+		5AFDCA631CE0AB43008B9618 /* OperationResult+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFDCA5D1CE0AB43008B9618 /* OperationResult+CoreDataProperties.swift */; };
+		5AFDCA641CE0AB43008B9618 /* OperationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFDCA5E1CE0AB43008B9618 /* OperationResult.swift */; };
+		5AFDCA651CE0AB43008B9618 /* OperationEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFDCA5F1CE0AB43008B9618 /* OperationEntity+CoreDataProperties.swift */; };
+		5AFDCA661CE0AB43008B9618 /* OperationEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFDCA601CE0AB43008B9618 /* OperationEntity.swift */; };
+		5AFDCA671CE0AB43008B9618 /* OperationInput+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFDCA611CE0AB43008B9618 /* OperationInput+CoreDataProperties.swift */; };
+		5AFDCA681CE0AB43008B9618 /* OperationInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFDCA621CE0AB43008B9618 /* OperationInput.swift */; };
 		5AFDF8181CD1CE3A000EA485 /* AboutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFDF8171CD1CE3A000EA485 /* AboutController.swift */; };
 /* End PBXBuildFile section */
 
@@ -112,6 +118,12 @@
 		5AFDBDBF1C5A03F800E46757 /* TriangleInequality.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriangleInequality.swift; sourceTree = "<group>"; };
 		5AFDBDC11C5A161300E46757 /* PolygonAngles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolygonAngles.swift; sourceTree = "<group>"; };
 		5AFDCA4D1CE08051008B9618 /* MGSwipeTableCell.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MGSwipeTableCell.framework; path = "Pods/../build/Debug-iphoneos/MGSwipeTableCell.framework"; sourceTree = "<group>"; };
+		5AFDCA5D1CE0AB43008B9618 /* OperationResult+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "OperationResult+CoreDataProperties.swift"; path = "MathToolbox/OperationResult+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		5AFDCA5E1CE0AB43008B9618 /* OperationResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OperationResult.swift; path = MathToolbox/OperationResult.swift; sourceTree = "<group>"; };
+		5AFDCA5F1CE0AB43008B9618 /* OperationEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "OperationEntity+CoreDataProperties.swift"; path = "MathToolbox/OperationEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		5AFDCA601CE0AB43008B9618 /* OperationEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OperationEntity.swift; path = MathToolbox/OperationEntity.swift; sourceTree = "<group>"; };
+		5AFDCA611CE0AB43008B9618 /* OperationInput+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "OperationInput+CoreDataProperties.swift"; path = "MathToolbox/OperationInput+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		5AFDCA621CE0AB43008B9618 /* OperationInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationInput.swift; sourceTree = "<group>"; };
 		5AFDF8171CD1CE3A000EA485 /* AboutController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AboutController.swift; path = ../AboutController.swift; sourceTree = "<group>"; };
 		A15C0326C287D9938F9210D0 /* Pods-MathToolbox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MathToolbox.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MathToolbox/Pods-MathToolbox.debug.xcconfig"; sourceTree = "<group>"; };
 		AD9DA1B2033A9DD534A0E91B /* Pods_MathToolbox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MathToolbox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -149,6 +161,12 @@
 		5AF083D71C37B76F0076AC41 = {
 			isa = PBXGroup;
 			children = (
+				5AFDCA5D1CE0AB43008B9618 /* OperationResult+CoreDataProperties.swift */,
+				5AFDCA5E1CE0AB43008B9618 /* OperationResult.swift */,
+				5AFDCA5F1CE0AB43008B9618 /* OperationEntity+CoreDataProperties.swift */,
+				5AFDCA601CE0AB43008B9618 /* OperationEntity.swift */,
+				5AFDCA611CE0AB43008B9618 /* OperationInput+CoreDataProperties.swift */,
+				5AFDCA621CE0AB43008B9618 /* OperationInput.swift */,
 				5AF368CE1C8984F300311FF1 /* GoogleMobileAds.framework */,
 				5A78E6581C6DD0ED0072A20F /* Localizable.strings */,
 				5AF083E21C37B76F0076AC41 /* MathToolbox */,
@@ -441,13 +459,18 @@
 				5AFBBD481CDB0966009B805B /* RandomNumGen.swift in Sources */,
 				5AFDBDC21C5A161300E46757 /* PolygonAngles.swift in Sources */,
 				5AF22D761C535AF6001E21EE /* FactorPairs.swift in Sources */,
+				5AFDCA631CE0AB43008B9618 /* OperationResult+CoreDataProperties.swift in Sources */,
 				5AF22D741C530742001E21EE /* TrigAndPyth.swift in Sources */,
+				5AFDCA661CE0AB43008B9618 /* OperationEntity.swift in Sources */,
 				5AD7E5741C4142880033A9AC /* ResultsViewController.swift in Sources */,
 				5ABF45B61C4B76D0005616F9 /* DegreesRadiansGradians.swift in Sources */,
 				5AF083E41C37B76F0076AC41 /* AppDelegate.swift in Sources */,
+				5AFDCA641CE0AB43008B9618 /* OperationResult.swift in Sources */,
+				5AFDCA651CE0AB43008B9618 /* OperationEntity+CoreDataProperties.swift in Sources */,
 				5ABF45BA1C4B97A7005616F9 /* Triangle.swift in Sources */,
 				5A8FF5FD1C40924F00C9566E /* OperationListViewController.swift in Sources */,
 				5A9362ED1C522C0700838D3F /* Factors.swift in Sources */,
+				5AFDCA681CE0AB43008B9618 /* OperationInput.swift in Sources */,
 				5AFA741E1CDD7C00007C3B7C /* CustOpListController.swift in Sources */,
 				5AF361E41C5C51950004DCF8 /* Sector.swift in Sources */,
 				5ABF45BE1C4BC829005616F9 /* PrimeFactors.swift in Sources */,
@@ -457,6 +480,7 @@
 				5AFDBDC01C5A03F800E46757 /* TriangleInequality.swift in Sources */,
 				5AFD2B4B1C54C19500085372 /* SciNotation.swift in Sources */,
 				5AFDF8181CD1CE3A000EA485 /* AboutController.swift in Sources */,
+				5AFDCA671CE0AB43008B9618 /* OperationInput+CoreDataProperties.swift in Sources */,
 				5AFA74211CDD826E007C3B7C /* MathToolbox.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
