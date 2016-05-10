@@ -197,7 +197,20 @@
                             <outlet property="delegate" destination="7z9-2j-M7x" id="68l-1O-xcy"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="Ej3-Yi-glU"/>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="Ej3-Yi-glU">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="jWG-I2-L76">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="cancel:" destination="7z9-2j-M7x" id="6aB-Tb-jYo"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="KQc-wc-0lK">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="done:" destination="7z9-2j-M7x" id="jzp-x3-iF6"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gcp-De-DuO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

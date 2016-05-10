@@ -178,4 +178,12 @@ class CustOpEditorController: UITableViewController, UITextFieldDelegate {
         view.endEditing(true)
         return true
     }
+    
+    @IBAction func cancel(sender: UIBarButtonItem) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    @IBAction func done(sender: UIBarButtonItem) {
+        // TODO: validate input
+    }
 }
