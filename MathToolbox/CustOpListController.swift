@@ -5,6 +5,7 @@ import MGSwipeTableCell
 class CustOpListController: UITableViewController {
     var operations = [OperationEntity]()
     let dataContext: NSManagedObjectContext! = (UIApplication.sharedApplication().delegate as? AppDelegate)?.managedObjectContext
+    var operationToPass: OperationEntity!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +47,8 @@ class CustOpListController: UITableViewController {
         
         let editBtn = MGSwipeButton(title: "Edit", backgroundColor: UIColor.lightGrayColor()) {
             _ in
-            // TODO: edit button
+            self.operationToPass = self.operations[indexPath.row]
+            self.performSegueWithIdentifier("showEditor", sender: self)
             return true
         }
         
@@ -56,7 +58,13 @@ class CustOpListController: UITableViewController {
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // TODO: prepareForSegue
+        if let vc = segue.destinationViewController as? DataPasserController {
+            vc.operationEntity = operationToPass
+        }
+    }
+    
+    @IBAction func addNew(sender: UIBarButtonItem) {
+        performSegueWithIdentifier("showEditor", sender: self)
     }
 }
 
