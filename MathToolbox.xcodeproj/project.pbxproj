@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0D5B7634A7D0FE41CBD9C449 /* Pods_MathToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD9DA1B2033A9DD534A0E91B /* Pods_MathToolbox.framework */; };
+		5A027A9B1CE1917E0012E2F3 /* CustomOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A027A9A1CE1917E0012E2F3 /* CustomOperation.swift */; };
 		5A10E9A01C92C549005E54F2 /* HexDecBinOct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A10E99F1C92C549005E54F2 /* HexDecBinOct.swift */; };
 		5A608CED1CD62F0E004BDD8B /* MathParser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A608CEC1CD62F0E004BDD8B /* MathParser.framework */; };
 		5A78E6561C6DD0ED0072A20F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5A78E6581C6DD0ED0072A20F /* Localizable.strings */; };
@@ -71,6 +72,7 @@
 
 /* Begin PBXFileReference section */
 		4E7C8132A4CD5FB1DA27FE1D /* Pods-MathToolbox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MathToolbox.release.xcconfig"; path = "Pods/Target Support Files/Pods-MathToolbox/Pods-MathToolbox.release.xcconfig"; sourceTree = "<group>"; };
+		5A027A9A1CE1917E0012E2F3 /* CustomOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomOperation.swift; sourceTree = "<group>"; };
 		5A10E99F1C92C549005E54F2 /* HexDecBinOct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HexDecBinOct.swift; sourceTree = "<group>"; };
 		5A608CEC1CD62F0E004BDD8B /* MathParser.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MathParser.framework; path = "Pods/../build/Release-iphoneos/MathParser.framework"; sourceTree = "<group>"; };
 		5A78E6501C6DCFA50072A20F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 				5AF083EF1C37B76F0076AC41 /* Info.plist */,
 				5ABF45B71C4B7B98005616F9 /* UserSettings.swift */,
 				5AF084111C37B7F00076AC41 /* Operation.swift */,
+				5A027A9A1CE1917E0012E2F3 /* CustomOperation.swift */,
 				5A10E99F1C92C549005E54F2 /* HexDecBinOct.swift */,
 				5A8FF6001C409B1000C9566E /* Circle.swift */,
 				5AF2AB8F1C4A362B005342DC /* Trapizium.swift */,
@@ -465,6 +468,7 @@
 				5AF22D741C530742001E21EE /* TrigAndPyth.swift in Sources */,
 				5AFDCA711CE0B5B5008B9618 /* OperationInput.swift in Sources */,
 				5AD7E5741C4142880033A9AC /* ResultsViewController.swift in Sources */,
+				5A027A9B1CE1917E0012E2F3 /* CustomOperation.swift in Sources */,
 				5ABF45B61C4B76D0005616F9 /* DegreesRadiansGradians.swift in Sources */,
 				5AF083E41C37B76F0076AC41 /* AppDelegate.swift in Sources */,
 				5ABF45BA1C4B97A7005616F9 /* Triangle.swift in Sources */,

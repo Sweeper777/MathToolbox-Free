@@ -1,76 +1,73 @@
 import UIKit
+import CoreData
+import MGSwipeTableCell
 
 class CustOpListController: UITableViewController {
+    var operations = [OperationEntity]()
+    let dataContext: NSManagedObjectContext! = (UIApplication.sharedApplication().delegate as? AppDelegate)?.managedObjectContext
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.clearsSelectionOnViewWillAppear = false
-        self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        if dataContext != nil {
+            let entity = NSEntityDescription.entityForName("OperationEntity", inManagedObjectContext: dataContext)
+            let request = NSFetchRequest()
+            request.entity = entity
+            let operations = try? dataContext.executeFetchRequest(request)
+            if operations != nil {
+                for item in operations! {
+                    self.operations.append(item as! OperationEntity)
+                }
+            }
+        }
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return operations.count
     }
 
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
-        // Configure the cell...
-
+        let cell = MGSwipeTableCell()
+        cell.textLabel?.text = operations[indexPath.row].name
+        let deleteBtn = MGSwipeButton(title: "Delete", backgroundColor: UIColor.redColor()) {
+            _ in
+            self.dataContext.deleteObject(self.operations[indexPath.row])
+            self.dataContext.saveData()
+            self.operations.removeAtIndex(indexPath.row)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Top)
+            return true
+        }
+        
+        let editBtn = MGSwipeButton(title: "Edit", backgroundColor: UIColor.lightGrayColor()) {
+            _ in
+            // TODO: edit button
+            return true
+        }
+        
+        cell.rightButtons = [deleteBtn, editBtn]
+        cell.rightSwipeSettings.transition = .Drag
         return cell
     }
-    */
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        // TODO: prepareForSegue
     }
-    */
+}
 
+extension NSManagedObjectContext {
+    func saveData() -> Bool {
+        do {
+            try self.save()
+            return true
+        } catch let error as NSError {
+            print(error)
+            return false;
+        }
+    }
 }
