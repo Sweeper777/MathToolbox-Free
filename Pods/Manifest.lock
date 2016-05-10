@@ -1,13 +1,16 @@
 PODS:
   - DDMathParser (2.0.0)
   - MGSwipeTableCell (1.5.5)
+  - TableViewModel (0.1.2)
 
 DEPENDENCIES:
   - DDMathParser
   - MGSwipeTableCell
+  - TableViewModel
 
 SPEC CHECKSUMS:
   DDMathParser: 74cddd0aa652cfed79e68fdd076f1ee63ab43a16
   MGSwipeTableCell: bafeb5f351124544c9364ecbdf24c7b06a37d340
+  TableViewModel: c33085e5e2e87dd8942a974e1eecbc2569a0a5c5
 
 COCOAPODS: 0.39.0

@@ -86,8 +86,10 @@ strip_invalid_archs() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-MathToolbox/MathParser.framework"
   install_framework "Pods-MathToolbox/MGSwipeTableCell.framework"
+  install_framework "Pods-MathToolbox/TableViewModel.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-MathToolbox/MathParser.framework"
   install_framework "Pods-MathToolbox/MGSwipeTableCell.framework"
+  install_framework "Pods-MathToolbox/TableViewModel.framework"
 fi

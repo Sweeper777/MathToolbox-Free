@@ -19,10 +19,25 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>TableViewModel-TableViewModel.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>TableViewModel.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>4BDD4AAB8015498F371E9579C42E1902</key>
+		<key>0807201DF667186C4FBD48D1A0E516B3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>39594ED66C2D367A7A4CA6C02B784713</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -33,6 +48,11 @@
 			<true/>
 		</dict>
 		<key>E6C879477FED53079B99C06823BF1870</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FB90A1E023000EAEF292F2F13783AD66</key>
 		<dict>
 			<key>primary</key>
 			<true/>
