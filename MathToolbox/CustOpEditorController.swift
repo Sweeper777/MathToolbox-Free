@@ -179,11 +179,109 @@ class CustOpEditorController: UITableViewController, UITextFieldDelegate {
         return true
     }
     
+    func showError(errStr: String) {
+        let alert = UIAlertController(title: NSLocalizedString("Error", comment: ""), message: NSLocalizedString(errStr, comment: ""), preferredStyle: .Alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .Default, handler: nil))
+        presentViewController(alert, animated: true, completion: nil)
+    }
+    
     @IBAction func cancel(sender: UIBarButtonItem) {
         dismissViewControllerAnimated(true, completion: nil)
     }
     
     @IBAction func done(sender: UIBarButtonItem) {
-        // TODO: validate input
+        var shouldReturn = false
+        txtInputs.forEach {
+            tuple in
+            if tuple.0.text?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()) == "" || tuple.1.text?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()) == "" {
+                shouldReturn = true
+            }
+        }
+        
+        if shouldReturn {
+            self.showError("Please fill in all the blanks")
+            return
+        }
+        
+        txtResults.forEach {
+            tuple in
+            if tuple.0.text?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()) == "" || tuple.1.text?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()) == "" {
+                shouldReturn = true
+            }
+
+        }
+        
+        if shouldReturn {
+            self.showError("Please fill in all the blanks")
+            return
+        }
+        
+        if txtName.text?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()) == "" {
+            self.showError("Please fill in all the blanks")
+            return
+        }
+        
+        if txtInputs.isEmpty {
+            self.showError("Please add at least one input")
+            return
+        }
+        
+        if txtResults.isEmpty {
+            self.showError("Please add at least one result")
+        }
+        
+        txtInputs.forEach {
+            tuple in
+            if tuple.0.text?.characters.count > 2 {
+                shouldReturn = true
+            }
+        }
+        
+        if shouldReturn {
+            self.showError("Input names cannot be longer than 2 characters")
+            return
+        }
+        
+        txtInputs.forEach {
+            tuple in
+            let txt = tuple.0.text!
+            if txt.containsString(" ") || txt.containsString("'") || txt.containsString("$") {
+                shouldReturn = true
+            }
+        }
+        
+        if shouldReturn {
+            self.showError("Input names cannot contain spaces, single quotes, or dollar signs")
+            return
+        }
+        
+        for (_, formula) in txtResults {
+            if countCharatcersInString(formula.text!, c: "'") % 2 == 1 || countCharatcersInString(formula.text!, c: "(") != countCharatcersInString(formula.text!, c: ")") {
+                self.showError("Parentheses and quotes must be balanced in formulas")
+                return
+            } else if formula.text!.containsString("$") {
+                self.showError("Formulas cannot contain dollar signs")
+                return
+            }
+        }
+        
+        let mappedInputNames = txtInputs.map { $0.0.text! }
+        
+        if Set<String>(mappedInputNames).count != mappedInputNames.count {
+            self.showError("Input names must not contain duplicates")
+            return
+        }
+        
+        // TODO: Save to Core Data
     }
+}
+
+func countCharatcersInString(str: String, c: Character) -> Int {
+    var counter = 0
+    for char in str.characters {
+        if char == c {
+            counter += 1
+        }
+    }
+    return counter
 }
