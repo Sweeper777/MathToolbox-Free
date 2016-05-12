@@ -27,7 +27,7 @@ class CustomOperation : Operation {
             let x = try? evaluator.evaluate(Expression(string: item.formula!), substitutions: inputs)
             
             if x != nil {
-                let froms = findAllStringsInQuotes(string: item.formula!)
+                let froms = Set<String>(findAllStringsInQuotes(string: item.formula!))
                 let from = froms.joinWithSeparator(", ")
                 let hasPi = item.formula!.lowercaseString.containsString("pi") || item.formula!.lowercaseString.containsString("π")
                 result.append((item.name!, from, correctToSigFigAndPi(x!, hasPi)))
