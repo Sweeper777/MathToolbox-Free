@@ -1,6 +1,7 @@
 import UIKit
 import TableViewModel
 import MGSwipeTableCell
+import CoreData
 
 class CustOpEditorController: UITableViewController, UITextFieldDelegate {
     var tbModel: TableViewModel!
@@ -47,6 +48,38 @@ class CustOpEditorController: UITableViewController, UITextFieldDelegate {
         
         let section2 = TableSection()
         
+        cell = TableRow(cellIdentifier: "button")
+        cell.configureCell { (cell) in
+            cell.textLabel!.text = NSLocalizedString("Add New Input", comment: "")
+        }
+        
+        cell.onSelect { (row) in
+            let newRow = TableRow(cellIdentifier: "doubleText")
+            newRow.configureCell { c in
+                let name = c.viewWithTag(1) as! UITextField
+                let description = c.viewWithTag(2) as! UITextField
+                name.placeholder = NSLocalizedString("Name", comment: "")
+                description.placeholder = NSLocalizedString("Description", comment: "")
+                name.text = ""
+                description.text = ""
+                name.delegate = self
+                description.delegate = self
+                self.txtInputs.append((name, description))
+                
+                let swipeCell = c as! MGSwipeTableCell
+                let deleteBtn = MGSwipeButton(title: NSLocalizedString("Delete", comment: ""), backgroundColor: UIColor.redColor(), callback: { _ in
+                    section2.removeRow(newRow)
+                    self.txtInputs.removeAtIndex(self.txtInputs.indexOf{$0.0 == name && $0.1 == description}!)
+                    return true
+                })
+                swipeCell.rightButtons = [deleteBtn]
+            }
+            
+            row.tableSection?.addRow(newRow)
+        }
+        
+        section2.addRow(cell)
+        
         if let inputs = operationEntity?.availableInputs {
             for input in inputs {
                 let realInput = input as! OperationInput
@@ -74,69 +107,10 @@ class CustOpEditorController: UITableViewController, UITextFieldDelegate {
             }
         }
         
-        cell = TableRow(cellIdentifier: "button")
-        cell.configureCell { (cell) in
-            cell.textLabel!.text = NSLocalizedString("Add New Input", comment: "")
-        }
-        
-        cell.onSelect { (row) in
-            let newRow = TableRow(cellIdentifier: "doubleText")
-            newRow.configureCell { c in
-                let name = c.viewWithTag(1) as! UITextField
-                let description = c.viewWithTag(2) as! UITextField
-                name.placeholder = NSLocalizedString("Name", comment: "")
-                description.placeholder = NSLocalizedString("Description", comment: "")
-                name.text = ""
-                description.text = ""
-                name.delegate = self
-                description.delegate = self
-                self.txtInputs.append((name, description))
-                
-                let swipeCell = c as! MGSwipeTableCell
-                let deleteBtn = MGSwipeButton(title: NSLocalizedString("Delete", comment: ""), backgroundColor: UIColor.redColor(), callback: { _ in
-                    section2.removeRow(newRow)
-                    self.txtInputs.removeAtIndex(self.txtInputs.indexOf{$0.0 == name && $0.1 == description}!)
-                    return true
-                })
-                swipeCell.rightButtons = [deleteBtn]
-            }
-
-            row.tableSection?.addRow(newRow)
-        }
-        
-        section2.addRow(cell)
-        
         section2.headerTitle = NSLocalizedString("Available Inputs", comment: "")
         tbModel.addSection(section2)
         
         let section3 = TableSection()
-        
-        if let results = operationEntity?.results {
-            for result in results {
-                let realResult = result as! OperationResult
-                cell = TableRow(cellIdentifier: "doubleText")
-                cell.configureCell { c in
-                    let name = c.viewWithTag(1) as! UITextField
-                    let formula = c.viewWithTag(2) as! UITextField
-                    name.placeholder = NSLocalizedString("Name", comment: "")
-                    formula.placeholder = NSLocalizedString("Formula", comment: "")
-                    name.text = realResult.name!
-                    formula.text = realResult.formula!
-                    name.delegate = self
-                    formula.delegate = self
-                    self.txtResults.append((name, formula))
-                    
-                    let swipeCell = c as! MGSwipeTableCell
-                    let deleteBtn = MGSwipeButton(title: NSLocalizedString("Delete", comment: ""), backgroundColor: UIColor.redColor(), callback: { _ in
-                        section3.removeRow(cell)
-                        self.txtResults.removeAtIndex(self.txtResults.indexOf{$0.0 == name && $0.1 == formula}!)
-                        return true
-                    })
-                    swipeCell.rightButtons = [deleteBtn]
-                }
-                section3.addRow(cell)
-            }
-        }
         
         cell = TableRow(cellIdentifier: "button")
         cell.configureCell { (cell) in
@@ -169,6 +143,33 @@ class CustOpEditorController: UITableViewController, UITextFieldDelegate {
         }
         
         section3.addRow(cell)
+        
+        if let results = operationEntity?.results {
+            for result in results {
+                let realResult = result as! OperationResult
+                cell = TableRow(cellIdentifier: "doubleText")
+                cell.configureCell { c in
+                    let name = c.viewWithTag(1) as! UITextField
+                    let formula = c.viewWithTag(2) as! UITextField
+                    name.placeholder = NSLocalizedString("Name", comment: "")
+                    formula.placeholder = NSLocalizedString("Formula", comment: "")
+                    name.text = realResult.name!
+                    formula.text = realResult.formula!
+                    name.delegate = self
+                    formula.delegate = self
+                    self.txtResults.append((name, formula))
+                    
+                    let swipeCell = c as! MGSwipeTableCell
+                    let deleteBtn = MGSwipeButton(title: NSLocalizedString("Delete", comment: ""), backgroundColor: UIColor.redColor(), callback: { _ in
+                        section3.removeRow(cell)
+                        self.txtResults.removeAtIndex(self.txtResults.indexOf{$0.0 == name && $0.1 == formula}!)
+                        return true
+                    })
+                    swipeCell.rightButtons = [deleteBtn]
+                }
+                section3.addRow(cell)
+            }
+        }
         
         section3.headerTitle = NSLocalizedString("Results", comment: "")
         tbModel.addSection(section3)
@@ -272,7 +273,43 @@ class CustOpEditorController: UITableViewController, UITextFieldDelegate {
             return
         }
         
-        // TODO: Save to Core Data
+        let dataContext: NSManagedObjectContext! = (UIApplication.sharedApplication().delegate as? AppDelegate)?.managedObjectContext
+        let entityOp = NSEntityDescription.entityForName("OperationEntity", inManagedObjectContext: dataContext)!
+        let entityInput = NSEntityDescription.entityForName("OperationInput", inManagedObjectContext: dataContext)
+        let entityResult = NSEntityDescription.entityForName("OperationResult", inManagedObjectContext: dataContext)
+        
+        var objToSave: OperationEntity!
+        if operationEntity != nil {
+            for input in operationEntity!.availableInputs! {
+                dataContext.deleteObject(input as! NSManagedObject)
+            }
+            
+            for result in operationEntity!.results! {
+                dataContext.deleteObject(result as! NSManagedObject)
+            }
+            objToSave = operationEntity
+            objToSave.name = txtName.text!
+            objToSave.rejectFloatingPoint = switchRejectFloatingPoint.on
+        } else {
+            objToSave = OperationEntity(entity: entityOp, insertIntoManagedObjectContext: dataContext, name: txtName.text!, rejectFloatingPoint: switchRejectFloatingPoint.on)
+        }
+        
+        var inputArr = [OperationInput]()
+        for (name, desc) in txtInputs {
+            let input = OperationInput(entity: entityInput!, insertIntoManagedObjectContext: dataContext, name: name.text!, desc: desc.text!, operation: objToSave)
+            inputArr.append(input)
+        }
+        objToSave.availableInputs = NSSet(array: inputArr)
+        
+        var resultArr = [OperationResult]()
+        for (name, formula) in txtResults {
+            let result = OperationResult(entity: entityResult!, insertIntoManagedObjectContext: dataContext, formula: formula.text!, name: name.text!, operation: objToSave)
+            resultArr.append(result)
+        }
+        objToSave.results = NSSet(array: resultArr)
+        
+        dataContext.saveData()
+        performSegueWithIdentifier("custOpSaved", sender: self)
     }
 }
 

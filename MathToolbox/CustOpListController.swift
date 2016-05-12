@@ -6,12 +6,10 @@ class CustOpListController: UITableViewController {
     var operations = [OperationEntity]()
     let dataContext: NSManagedObjectContext! = (UIApplication.sharedApplication().delegate as? AppDelegate)?.managedObjectContext
     var operationToPass: OperationEntity!
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.clearsSelectionOnViewWillAppear = false
-        
+    
+    func reloadData() {
         if dataContext != nil {
+            self.operations.removeAll()
             let entity = NSEntityDescription.entityForName("OperationEntity", inManagedObjectContext: dataContext)
             let request = NSFetchRequest()
             request.entity = entity
@@ -22,6 +20,12 @@ class CustOpListController: UITableViewController {
                 }
             }
         }
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.clearsSelectionOnViewWillAppear = false
+        reloadData()
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -64,7 +68,13 @@ class CustOpListController: UITableViewController {
     }
     
     @IBAction func addNew(sender: UIBarButtonItem) {
+        operationToPass = nil
         performSegueWithIdentifier("showEditor", sender: self)
+    }
+    
+    @IBAction func unwind(segue: UIStoryboardSegue) {
+        reloadData()
+        tableView.reloadData()
     }
 }
 
