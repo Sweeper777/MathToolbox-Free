@@ -60,10 +60,18 @@ class CustOpListController: UITableViewController {
         cell.rightSwipeSettings.transition = .Drag
         return cell
     }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        operationToPass = operations[indexPath.row]
+        performSegueWithIdentifier("enterCustOp", sender: self)
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let vc = segue.destinationViewController as? DataPasserController {
             vc.operationEntity = operationToPass
+        } else if let vc = segue.destinationViewController as? OperationViewController {
+            vc.operation = CustomOperation(entity: operationToPass)
         }
     }
     

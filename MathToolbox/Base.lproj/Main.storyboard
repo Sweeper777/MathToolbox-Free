@@ -71,6 +71,7 @@
                     </navigationItem>
                     <connections>
                         <segue destination="DGB-R0-Mn8" kind="presentation" identifier="showEditor" modalPresentationStyle="formSheet" id="8qX-Rg-T5c"/>
+                        <segue destination="pOX-Vn-qAh" kind="show" identifier="enterCustOp" id="fLo-ud-diu"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RSD-nC-PoA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -499,6 +500,7 @@
         <image name="logo" width="180" height="180"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="fLo-ud-diu"/>
         <segue reference="LYg-aL-Gyk"/>
     </inferredMetricsTieBreakers>
 </document>

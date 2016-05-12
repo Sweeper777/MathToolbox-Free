@@ -24,7 +24,7 @@ class CustomOperation : Operation {
             let item = $0 as! OperationResult
             var evaluator = Evaluator(caseSensitive: false)
             evaluator.angleMeasurementMode = .Degrees
-            let x = try? evaluator.evaluate(Expression(string: item.formula!))
+            let x = try? evaluator.evaluate(Expression(string: item.formula!), substitutions: inputs)
             
             if x != nil {
                 let froms = findAllStringsInQuotes(string: item.formula!)
