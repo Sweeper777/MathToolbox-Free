@@ -39,6 +39,7 @@
 		5AF361E21C5C48C10004DCF8 /* Arc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF361E11C5C48C10004DCF8 /* Arc.swift */; };
 		5AF361E41C5C51950004DCF8 /* Sector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF361E31C5C51950004DCF8 /* Sector.swift */; };
 		5AF368CF1C8984F300311FF1 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF368CE1C8984F300311FF1 /* GoogleMobileAds.framework */; };
+		5AF9D3851CE61F6500B6FCEB /* CustOpEditorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF9D3841CE61F6500B6FCEB /* CustOpEditorUtils.swift */; };
 		5AFA741E1CDD7C00007C3B7C /* CustOpListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFA741D1CDD7C00007C3B7C /* CustOpListController.swift */; };
 		5AFA74211CDD826E007C3B7C /* MathToolbox.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5AFA741F1CDD826E007C3B7C /* MathToolbox.xcdatamodeld */; };
 		5AFBBD481CDB0966009B805B /* RandomNumGen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFBBD471CDB0966009B805B /* RandomNumGen.swift */; };
@@ -118,6 +119,7 @@
 		5AF361E11C5C48C10004DCF8 /* Arc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Arc.swift; sourceTree = "<group>"; };
 		5AF361E31C5C51950004DCF8 /* Sector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sector.swift; sourceTree = "<group>"; };
 		5AF368CE1C8984F300311FF1 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
+		5AF9D3841CE61F6500B6FCEB /* CustOpEditorUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustOpEditorUtils.swift; sourceTree = "<group>"; };
 		5AFA741D1CDD7C00007C3B7C /* CustOpListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustOpListController.swift; sourceTree = "<group>"; };
 		5AFA74201CDD826E007C3B7C /* MathToolbox.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MathToolbox.xcdatamodel; sourceTree = "<group>"; };
 		5AFBBD471CDB0966009B805B /* RandomNumGen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RandomNumGen.swift; path = ../../MathToolbox/MathToolbox/RandomNumGen.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 				5AF083EC1C37B76F0076AC41 /* LaunchScreen.storyboard */,
 				5AF083EF1C37B76F0076AC41 /* Info.plist */,
 				5ABF45B71C4B7B98005616F9 /* UserSettings.swift */,
+				5AF9D3841CE61F6500B6FCEB /* CustOpEditorUtils.swift */,
 				5AF084111C37B7F00076AC41 /* Operation.swift */,
 				5A027A9A1CE1917E0012E2F3 /* CustomOperation.swift */,
 				5A10E99F1C92C549005E54F2 /* HexDecBinOct.swift */,
@@ -489,6 +492,7 @@
 				5AF361E41C5C51950004DCF8 /* Sector.swift in Sources */,
 				5ABF45BE1C4BC829005616F9 /* PrimeFactors.swift in Sources */,
 				5AF084121C37B7F00076AC41 /* Operation.swift in Sources */,
+				5AF9D3851CE61F6500B6FCEB /* CustOpEditorUtils.swift in Sources */,
 				5AF361E21C5C48C10004DCF8 /* Arc.swift in Sources */,
 				5A027A9D1CE1AF520012E2F3 /* DataPasserController.swift in Sources */,
 				5AF2AB901C4A362B005342DC /* Trapizium.swift in Sources */,

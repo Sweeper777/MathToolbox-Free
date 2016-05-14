@@ -180,6 +180,16 @@ class CustOpEditorController: UITableViewController, UITextFieldDelegate {
         return true
     }
     
+    func textFieldDidEndEditing(textField: UITextField) {
+        var listOfInputNames = [UITextField]()
+        txtInputs.forEach { listOfInputNames.append($0.0) }
+        if listOfInputNames.contains(textField) {
+            if let symbol = CustOpEditorUtils.symbolsDict[textField.text!] {
+                textField.text = symbol
+            }
+        }
+    }
+    
     func showError(errStr: String) {
         let alert = UIAlertController(title: NSLocalizedString("Error", comment: ""), message: NSLocalizedString(errStr, comment: ""), preferredStyle: .Alert)
         alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .Default, handler: nil))
