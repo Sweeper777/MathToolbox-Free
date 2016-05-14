@@ -40,7 +40,7 @@ class CustOpListController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = MGSwipeTableCell()
         cell.textLabel?.text = operations[indexPath.row].name
-        let deleteBtn = MGSwipeButton(title: "Delete", backgroundColor: UIColor.redColor()) {
+        let deleteBtn = MGSwipeButton(title: NSLocalizedString("Delete", comment: ""), backgroundColor: UIColor.redColor()) {
             _ in
             self.dataContext.deleteObject(self.operations[indexPath.row])
             self.dataContext.saveData()
@@ -49,7 +49,7 @@ class CustOpListController: UITableViewController {
             return true
         }
         
-        let editBtn = MGSwipeButton(title: "Edit", backgroundColor: UIColor.lightGrayColor()) {
+        let editBtn = MGSwipeButton(title: NSLocalizedString("Edit", comment: ""), backgroundColor: UIColor.lightGrayColor()) {
             _ in
             self.operationToPass = self.operations[indexPath.row]
             self.performSegueWithIdentifier("showEditor", sender: self)

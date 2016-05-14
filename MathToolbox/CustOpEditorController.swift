@@ -239,6 +239,7 @@ class CustOpEditorController: UITableViewController, UITextFieldDelegate {
         
         if txtResults.isEmpty {
             self.showError("Please add at least one result")
+            return
         }
         
         txtInputs.forEach {
