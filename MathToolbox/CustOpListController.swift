@@ -72,6 +72,8 @@ class CustOpListController: UITableViewController {
             vc.operationEntity = operationToPass
         } else if let vc = segue.destinationViewController as? OperationViewController {
             vc.operation = CustomOperation(entity: operationToPass)
+        } else if let vc = segue.destinationViewController as? HelpViewController {
+            vc.helpString = NSLocalizedString("custOpHelp", comment: "")
         }
     }
     

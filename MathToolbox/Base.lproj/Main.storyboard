@@ -62,12 +62,20 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Custom Operations" id="hbT-BW-PWL">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="LL7-au-kzr">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <action selector="addNew:" destination="IlT-l2-7Rf" id="VLM-v8-LPv"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="LL7-au-kzr">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="addNew:" destination="IlT-l2-7Rf" id="VLM-v8-LPv"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="?" id="7WT-BT-k64">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <segue destination="lBq-bS-r2V" kind="show" identifier="custOpHelp" id="ahC-dZ-a11"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <segue destination="DGB-R0-Mn8" kind="presentation" identifier="showEditor" modalPresentationStyle="formSheet" id="8qX-Rg-T5c"/>
@@ -500,7 +508,7 @@
         <image name="logo" width="180" height="180"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="ahC-dZ-a11"/>
         <segue reference="fLo-ud-diu"/>
-        <segue reference="LYg-aL-Gyk"/>
     </inferredMetricsTieBreakers>
 </document>
