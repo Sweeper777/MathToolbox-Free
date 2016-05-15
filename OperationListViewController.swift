@@ -92,6 +92,8 @@ class OperationListViewController: UITableViewController, GADInterstitialDelegat
                 alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .Cancel, handler: nil))
                 
                 self.presentViewController(alert, animated: true, completion: nil)
+            } else {
+                self.performSegueWithIdentifier("showCustomOperations", sender: self)
             }
             
             tableView.deselectRowAtIndexPath(indexPath, animated: true)
