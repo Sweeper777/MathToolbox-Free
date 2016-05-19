@@ -1,0 +1,6 @@
+framework module TableViewModel {
+  umbrella header "TableViewModel-umbrella.h"
+
+  export *
+  module * { export * }
+}
