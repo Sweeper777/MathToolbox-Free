@@ -11,6 +11,8 @@ class OperationListViewController: UITableViewController, GADInterstitialDelegat
         ("Misc", [DegreesRadiansGradians(), HexDecBinOct()])
     ]
     var operationToPass: Operation?
+    let storeViewController = SKStoreProductViewController()
+    var storeViewLoaded = false
     
     @IBAction func infoClicked(sender: UIBarButtonItem) {
         func fullVerisonClick (sender: UIAlertAction) {
@@ -30,15 +32,12 @@ class OperationListViewController: UITableViewController, GADInterstitialDelegat
     }
     
     func openStoreProductWithiTunesItemIdentifier(identifier: String) {
-        let storeViewController = SKStoreProductViewController()
-        storeViewController.delegate = self
-        
-        let parameters = [ SKStoreProductParameterITunesItemIdentifier : identifier]
-        storeViewController.loadProductWithParameters(parameters) { [weak self] (loaded, error) -> Void in
-            if loaded {
-                // Parent class of self is UIViewContorller
-                self?.presentViewController(storeViewController, animated: true, completion: nil)
-            }
+        if storeViewLoaded {
+            self.presentViewController(storeViewController, animated: true, completion: nil)
+        } else {
+            let alert = UIAlertController(title: NSLocalizedString("Loading", comment: ""), message: NSLocalizedString("Still Loading App Store... Please try again later. This may be caused by slow or no Internet connection.", comment: ""), preferredStyle: .Alert)
+            alert.addAction(UIAlertAction(title:NSLocalizedString("OK", comment: ""), style: .Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
         }
     }
     
@@ -172,6 +171,13 @@ class OperationListViewController: UITableViewController, GADInterstitialDelegat
         
         UINavigationBar.appearance().barStyle = .Black
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        
+        storeViewController.delegate = self
+        
+        let parameters = [ SKStoreProductParameterITunesItemIdentifier : "1080075778"]
+        storeViewController.loadProductWithParameters(parameters) { (loaded, error) in
+            self.storeViewLoaded = loaded
+        }
     }
     
     override func viewDidAppear(animated: Bool) {
