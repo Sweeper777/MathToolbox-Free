@@ -2,6 +2,7 @@ import UIKit
 import MGSwipeTableCell
 import CoreData
 
+// (╯°□°）╯︵ ┻━┻ Oh... sad memories...
 class CustOpEditorController: UITableViewController, UITextFieldDelegate {
     var cells: [[UITableViewCell]] = [[], [], []]
     
