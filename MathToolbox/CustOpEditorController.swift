@@ -1,10 +1,9 @@
 import UIKit
-import TableViewModel
 import MGSwipeTableCell
 import CoreData
 
 class CustOpEditorController: UITableViewController, UITextFieldDelegate {
-    var tbModel: TableViewModel!
+    var cells: [[UITableViewCell]] = [[], [], []]
     
     var operationEntity: OperationEntity?
     
@@ -23,134 +22,68 @@ class CustOpEditorController: UITableViewController, UITextFieldDelegate {
             navigationItem.title = operationEntity!.name!
         }
         
-        tbModel = TableViewModel(tableView: self.tableView)
+        let cell1 = tableView.dequeueReusableCellWithIdentifier("normalText")!
         
-        let section1 = TableSection()
+        self.txtName = cell1.viewWithTag(1) as! UITextField
+        self.txtName.placeholder = NSLocalizedString("Name", comment: "")
+        self.txtName.text = self.operationEntity?.name ?? ""
+        self.txtName.delegate = self
         
-        var cell = TableRow(cellIdentifier: "normalText")
-        cell.configureCell { cell in
-            self.txtName = cell.viewWithTag(1) as! UITextField
-            self.txtName.placeholder = NSLocalizedString("Name", comment: "")
-            self.txtName.text = self.operationEntity?.name ?? ""
-            self.txtName.delegate = self
-        }
-        section1.addRow(cell)
+        addCellToSection(0, cell: cell1)
+
+        let cell2 = tableView.dequeueReusableCellWithIdentifier("switch")!
         
-        cell = TableRow(cellIdentifier: "switch")
-        cell.configureCell { cell in
-            self.switchRejectFloatingPoint = cell.viewWithTag(2) as! UISwitch
-            self.switchRejectFloatingPoint.on = self.operationEntity?.rejectFloatingPoint?.boolValue ?? false
-        }
-        section1.addRow(cell)
+        self.switchRejectFloatingPoint = cell2.viewWithTag(2) as! UISwitch
+        self.switchRejectFloatingPoint.on = self.operationEntity?.rejectFloatingPoint?.boolValue ?? false
         
-        section1.headerTitle = NSLocalizedString("Basic Information", comment: "")
-        tbModel.addSection(section1)
+        addCellToSection(0, cell: cell2)
         
-        let section2 = TableSection()
+        let cell3 = tableView.dequeueReusableCellWithIdentifier("button")!
+        cell3.textLabel!.text = NSLocalizedString("Add New Input", comment: "")
         
-        cell = TableRow(cellIdentifier: "button")
-        cell.configureCell { (cell) in
-            cell.textLabel!.text = NSLocalizedString("Add New Input", comment: "")
-        }
-        
-        cell.onSelect { (row) in
-            let newRow = TableRow(cellIdentifier: "doubleText")
-            newRow.configureCell { c in
-                let name = c.viewWithTag(1) as! UITextField
-                let description = c.viewWithTag(2) as! UITextField
-                name.placeholder = NSLocalizedString("Name", comment: "")
-                description.placeholder = NSLocalizedString("Description", comment: "")
-                name.text = ""
-                description.text = ""
-                name.delegate = self
-                description.delegate = self
-                self.txtInputs.append((name, description))
-                
-                let swipeCell = c as! MGSwipeTableCell
-                let deleteBtn = MGSwipeButton(title: NSLocalizedString("Delete", comment: ""), backgroundColor: UIColor.redColor(), callback: { _ in
-                    section2.removeRow(newRow)
-                    self.txtInputs.removeAtIndex(self.txtInputs.indexOf{$0.0 == name && $0.1 == description}!)
-                    return true
-                })
-                swipeCell.rightButtons = [deleteBtn]
-            }
-            
-            row.tableSection?.addRow(newRow)
-        }
-        
-        section2.addRow(cell)
+        addCellToSection(1, cell: cell3)
         
         if let inputs = operationEntity?.availableInputs {
             for input in inputs {
                 let realInput = input as! OperationInput
-                cell = TableRow(cellIdentifier: "doubleText")
-                cell.configureCell { c in
-                    let name = c.viewWithTag(1) as! UITextField
-                    let description = c.viewWithTag(2) as! UITextField
-                    name.placeholder = NSLocalizedString("Name", comment: "")
-                    description.placeholder = NSLocalizedString("Description", comment: "")
-                    name.text = realInput.name!
-                    description.text = realInput.desc!
-                    name.delegate = self
-                    description.delegate = self
-                    self.txtInputs.append((name, description))
-                    
-                    let swipeCell = c as! MGSwipeTableCell
-                    let deleteBtn = MGSwipeButton(title: NSLocalizedString("Delete", comment: ""), backgroundColor: UIColor.redColor(), callback: { _ in
-                        section2.removeRow(cell)
-                        self.txtInputs.removeAtIndex(self.txtInputs.indexOf{$0.0 == name && $0.1 == description}!)
-                        return true
-                    })
-                    swipeCell.rightButtons = [deleteBtn]
-                }
-                section2.addRow(cell)
-            }
-        }
-        
-        section2.headerTitle = NSLocalizedString("Available Inputs", comment: "")
-        tbModel.addSection(section2)
-        
-        let section3 = TableSection()
-        
-        cell = TableRow(cellIdentifier: "button")
-        cell.configureCell { (cell) in
-            cell.textLabel!.text = NSLocalizedString("Add New Result", comment: "")
-        }
-        
-        cell.onSelect { (row) in
-            let newRow = TableRow(cellIdentifier: "doubleText")
-            newRow.configureCell { c in
-                let name = c.viewWithTag(1) as! UITextField
-                let formula = c.viewWithTag(2) as! UITextField
-                name.placeholder = NSLocalizedString("Name", comment: "")
-                formula.placeholder = NSLocalizedString("Formula", comment: "")
-                name.text = ""
-                formula.text = ""
-                name.delegate = self
-                formula.delegate = self
-                self.txtResults.append((name, formula))
+                let cell4 = tableView.dequeueReusableCellWithIdentifier("doubleText")!
                 
-                let swipeCell = c as! MGSwipeTableCell
+                let name = cell4.viewWithTag(1) as! UITextField
+                let description = cell4.viewWithTag(2) as! UITextField
+                name.placeholder = NSLocalizedString("Name", comment: "")
+                description.placeholder = NSLocalizedString("Description", comment: "")
+                name.text = realInput.name!
+                description.text = realInput.desc!
+                name.delegate = self
+                description.delegate = self
+                self.txtInputs.append((name, description))
+                
+                let swipeCell = cell4 as! MGSwipeTableCell
                 let deleteBtn = MGSwipeButton(title: NSLocalizedString("Delete", comment: ""), backgroundColor: UIColor.redColor(), callback: { _ in
-                    section3.removeRow(newRow)
-                    self.txtResults.removeAtIndex(self.txtResults.indexOf{$0.0 == name && $0.1 == formula}!)
+                    let cellIndex = self.cells.indicesOf(swipeCell)!.1
+                    self.removeCellFromSection(1, index: cellIndex)
+                    self.txtInputs.removeAtIndex(cellIndex - 1)
                     return true
                 })
                 swipeCell.rightButtons = [deleteBtn]
+                
+                addCellToSection(1, cell: cell4)
             }
-            
-            row.tableSection?.addRow(newRow)
         }
         
-        section3.addRow(cell)
+        let cell5 = tableView.dequeueReusableCellWithIdentifier("button")!
+        
+        cell5.textLabel!.text = NSLocalizedString("Add New Result", comment: "")
+        
+        addCellToSection(2, cell: cell5)
         
         if let results = operationEntity?.results {
             for result in results {
                 let realResult = result as! OperationResult
-                cell = TableRow(cellIdentifier: "doubleText")
-                cell.configureCell { c in
-                    let name = c.viewWithTag(1) as! UITextField
-                    let formula = c.viewWithTag(2) as! UITextField
+                let cell6 = tableView.dequeueReusableCellWithIdentifier("doubleText")!
+                
+                    let name = cell6.viewWithTag(1) as! UITextField
+                    let formula = cell6.viewWithTag(2) as! UITextField
                     name.placeholder = NSLocalizedString("Name", comment: "")
                     formula.placeholder = NSLocalizedString("Formula", comment: "")
                     name.text = realResult.name!
@@ -159,20 +92,108 @@ class CustOpEditorController: UITableViewController, UITextFieldDelegate {
                     formula.delegate = self
                     self.txtResults.append((name, formula))
                     
-                    let swipeCell = c as! MGSwipeTableCell
+                    let swipeCell = cell6 as! MGSwipeTableCell
                     let deleteBtn = MGSwipeButton(title: NSLocalizedString("Delete", comment: ""), backgroundColor: UIColor.redColor(), callback: { _ in
-                        section3.removeRow(cell)
-                        self.txtResults.removeAtIndex(self.txtResults.indexOf{$0.0 == name && $0.1 == formula}!)
+                        let cellIndex = self.cells.indicesOf(swipeCell)!.1
+                        self.removeCellFromSection(2, index: cellIndex)
+                        self.txtResults.removeAtIndex(cellIndex)
                         return true
                     })
                     swipeCell.rightButtons = [deleteBtn]
-                }
-                section3.addRow(cell)
+                
+                addCellToSection(2, cell: cell6)
             }
         }
-        
-        section3.headerTitle = NSLocalizedString("Results", comment: "")
-        tbModel.addSection(section3)
+    }
+    
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return cells.count
+    }
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return cells[section].count
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        return cells[indexPath.section][indexPath.row]
+    }
+    
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case 0:
+            return NSLocalizedString("Basic Information", comment: "")
+        case 1:
+            return NSLocalizedString("Available Inputs", comment: "")
+        case 2:
+            return NSLocalizedString("Results", comment: "")
+        default:
+            return nil
+        }
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        switch (indexPath.section, indexPath.row) {
+        case (1, 0):
+            let newRow = tableView.dequeueReusableCellWithIdentifier("doubleText")!
+            
+            let name = newRow.viewWithTag(1) as! UITextField
+            let description = newRow.viewWithTag(2) as! UITextField
+            name.placeholder = NSLocalizedString("Name", comment: "")
+            description.placeholder = NSLocalizedString("Description", comment: "")
+            name.text = ""
+            description.text = ""
+            name.delegate = self
+            description.delegate = self
+            self.txtInputs.append((name, description))
+            
+            let swipeCell = newRow as! MGSwipeTableCell
+            let deleteBtn = MGSwipeButton(title: NSLocalizedString("Delete", comment: ""), backgroundColor: UIColor.redColor(), callback: { _ in
+                let cellIndex = self.cells.indicesOf(swipeCell)!.1
+                self.removeCellFromSection(1, index: cellIndex)
+                self.txtInputs.removeAtIndex(cellIndex - 1)
+                return true
+            })
+            swipeCell.rightButtons = [deleteBtn]
+            
+            
+            addCellToSection(1, cell: newRow)
+        case (2, 0):
+            let newRow = tableView.dequeueReusableCellWithIdentifier("doubleText")!
+            
+            let name = newRow.viewWithTag(1) as! UITextField
+            let formula = newRow.viewWithTag(2) as! UITextField
+            name.placeholder = NSLocalizedString("Name", comment: "")
+            formula.placeholder = NSLocalizedString("Formula", comment: "")
+            name.text = ""
+            formula.text = ""
+            name.delegate = self
+            formula.delegate = self
+            self.txtResults.append((name, formula))
+            
+            let swipeCell = newRow as! MGSwipeTableCell
+            let deleteBtn = MGSwipeButton(title: NSLocalizedString("Delete", comment: ""), backgroundColor: UIColor.redColor(), callback: { _ in
+                let cellIndex = self.cells.indicesOf(swipeCell)!.1
+                self.removeCellFromSection(2, index: cellIndex)
+                self.txtResults.removeAtIndex(cellIndex - 1)
+                return true
+            })
+            swipeCell.rightButtons = [deleteBtn]
+            
+            addCellToSection(2, cell: newRow)
+        default:
+            break;
+        }
+    }
+    
+    func addCellToSection(section: Int, cell: UITableViewCell) {
+        cells[section].append(cell)
+        tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: cells[section].endIndex - 1, inSection: section)], withRowAnimation: .Top)
+    }
+    
+    func removeCellFromSection(section: Int, index: Int) {
+        cells[section].removeAtIndex(index)
+        tableView.deleteRowsAtIndexPaths([NSIndexPath(forRow: index, inSection: section)], withRowAnimation: .Left)
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -321,6 +342,18 @@ class CustOpEditorController: UITableViewController, UITextFieldDelegate {
         
         dataContext.saveData()
         performSegueWithIdentifier("custOpSaved", sender: self)
+    }
+}
+
+extension Array where Element : CollectionType,
+Element.Generator.Element : Equatable, Element.Index == Int {
+    func indicesOf(x: Element.Generator.Element) -> (Int, Int)? {
+        for (i, row) in self.enumerate() {
+            if let j = row.indexOf(x) {
+                return (i, j)
+            }
+        }
+        return nil
     }
 }
 

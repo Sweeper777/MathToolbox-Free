@@ -11,7 +11,6 @@
 		5A027A9B1CE1917E0012E2F3 /* CustomOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A027A9A1CE1917E0012E2F3 /* CustomOperation.swift */; };
 		5A027A9D1CE1AF520012E2F3 /* DataPasserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A027A9C1CE1AF520012E2F3 /* DataPasserController.swift */; };
 		5A027A9F1CE1AFFD0012E2F3 /* CustOpEditorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A027A9E1CE1AFFD0012E2F3 /* CustOpEditorController.swift */; };
-		5A027AA11CE1C4390012E2F3 /* TableViewModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A027AA01CE1C4390012E2F3 /* TableViewModel.framework */; };
 		5A10E9A01C92C549005E54F2 /* HexDecBinOct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A10E99F1C92C549005E54F2 /* HexDecBinOct.swift */; };
 		5A608CED1CD62F0E004BDD8B /* MathParser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A608CEC1CD62F0E004BDD8B /* MathParser.framework */; };
 		5A78E6561C6DD0ED0072A20F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5A78E6581C6DD0ED0072A20F /* Localizable.strings */; };
@@ -79,7 +78,6 @@
 		5A027A9A1CE1917E0012E2F3 /* CustomOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomOperation.swift; sourceTree = "<group>"; };
 		5A027A9C1CE1AF520012E2F3 /* DataPasserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataPasserController.swift; sourceTree = "<group>"; };
 		5A027A9E1CE1AFFD0012E2F3 /* CustOpEditorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustOpEditorController.swift; sourceTree = "<group>"; };
-		5A027AA01CE1C4390012E2F3 /* TableViewModel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TableViewModel.framework; path = "Pods/../build/Debug-iphoneos/TableViewModel.framework"; sourceTree = "<group>"; };
 		5A10E99F1C92C549005E54F2 /* HexDecBinOct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HexDecBinOct.swift; sourceTree = "<group>"; };
 		5A608CEC1CD62F0E004BDD8B /* MathParser.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MathParser.framework; path = "Pods/../build/Release-iphoneos/MathParser.framework"; sourceTree = "<group>"; };
 		5A78E6501C6DCFA50072A20F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
@@ -144,7 +142,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A027AA11CE1C4390012E2F3 /* TableViewModel.framework in Frameworks */,
 				5AFDCA4E1CE08051008B9618 /* MGSwipeTableCell.framework in Frameworks */,
 				5A608CED1CD62F0E004BDD8B /* MathParser.framework in Frameworks */,
 				5AF368CF1C8984F300311FF1 /* GoogleMobileAds.framework in Frameworks */,
@@ -271,7 +268,6 @@
 		754D654E7C2759143F7E7E4F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5A027AA01CE1C4390012E2F3 /* TableViewModel.framework */,
 				5AFDCA4D1CE08051008B9618 /* MGSwipeTableCell.framework */,
 				5A608CEC1CD62F0E004BDD8B /* MathParser.framework */,
 				AD9DA1B2033A9DD534A0E91B /* Pods_MathToolbox.framework */,
