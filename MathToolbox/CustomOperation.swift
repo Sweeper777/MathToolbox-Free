@@ -7,7 +7,7 @@ class CustomOperation : Operation {
     var operationName: String { return operationEntity.name! }
     
     var operationAvailableInputs: [(name: String, desc: String)]  {
-        let array = operationEntity.availableInputs?.allObjects
+        let array = operationEntity.availableInputs?.array
         return array!.map {
             let input = $0 as! OperationInput
             return (name: input.name!, desc: input.desc!)

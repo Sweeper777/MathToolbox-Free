@@ -12,7 +12,7 @@ class OperationEntity: NSManagedObject {
         self.init(entity: entity, insertIntoManagedObjectContext: context)
         self.name = name
         self.rejectFloatingPoint = NSNumber(bool: rejectFloatingPoint)
-        self.availableInputs = NSSet()
-        self.results = NSSet()
+        self.availableInputs = NSOrderedSet()
+        self.results = NSOrderedSet()
     }
 }

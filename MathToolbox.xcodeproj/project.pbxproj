@@ -121,6 +121,7 @@
 		5AFA741D1CDD7C00007C3B7C /* CustOpListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustOpListController.swift; sourceTree = "<group>"; };
 		5AFA74201CDD826E007C3B7C /* MathToolbox.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MathToolbox.xcdatamodel; sourceTree = "<group>"; };
 		5AFBBD471CDB0966009B805B /* RandomNumGen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RandomNumGen.swift; path = ../../MathToolbox/MathToolbox/RandomNumGen.swift; sourceTree = "<group>"; };
+		5AFBDA611CF12C5800E0CC30 /* MathToolbox 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "MathToolbox 2.xcdatamodel"; sourceTree = "<group>"; };
 		5AFD2B461C54528400085372 /* LeastCommonMultiple.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeastCommonMultiple.swift; sourceTree = "<group>"; };
 		5AFD2B4A1C54C19500085372 /* SciNotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SciNotation.swift; sourceTree = "<group>"; };
 		5AFDBDBF1C5A03F800E46757 /* TriangleInequality.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriangleInequality.swift; sourceTree = "<group>"; };
@@ -784,9 +785,10 @@
 		5AFA741F1CDD826E007C3B7C /* MathToolbox.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				5AFBDA611CF12C5800E0CC30 /* MathToolbox 2.xcdatamodel */,
 				5AFA74201CDD826E007C3B7C /* MathToolbox.xcdatamodel */,
 			);
-			currentVersion = 5AFA74201CDD826E007C3B7C /* MathToolbox.xcdatamodel */;
+			currentVersion = 5AFBDA611CF12C5800E0CC30 /* MathToolbox 2.xcdatamodel */;
 			path = MathToolbox.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

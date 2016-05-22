@@ -332,14 +332,14 @@ class CustOpEditorController: UITableViewController, UITextFieldDelegate {
             let input = OperationInput(entity: entityInput!, insertIntoManagedObjectContext: dataContext, name: name.text!, desc: desc.text!, operation: objToSave)
             inputArr.append(input)
         }
-        objToSave.availableInputs = NSSet(array: inputArr)
+        objToSave.availableInputs = NSOrderedSet(array: inputArr)
         
         var resultArr = [OperationResult]()
         for (name, formula) in txtResults {
             let result = OperationResult(entity: entityResult!, insertIntoManagedObjectContext: dataContext, formula: formula.text!, name: name.text!, operation: objToSave)
             resultArr.append(result)
         }
-        objToSave.results = NSSet(array: resultArr)
+        objToSave.results = NSOrderedSet(array: resultArr)
         
         dataContext.saveData()
         performSegueWithIdentifier("custOpSaved", sender: self)
