@@ -6,6 +6,7 @@ use_frameworks!
 target 'MathToolbox' do
     pod 'DDMathParser'
     pod 'MGSwipeTableCell'
+    pod 'Firebase'
 end
 
 target 'MathToolboxTests' do

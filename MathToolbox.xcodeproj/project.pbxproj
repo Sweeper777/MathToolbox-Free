@@ -42,6 +42,7 @@
 		5AFA741E1CDD7C00007C3B7C /* CustOpListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFA741D1CDD7C00007C3B7C /* CustOpListController.swift */; };
 		5AFA74211CDD826E007C3B7C /* MathToolbox.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5AFA741F1CDD826E007C3B7C /* MathToolbox.xcdatamodeld */; };
 		5AFBBD481CDB0966009B805B /* RandomNumGen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFBBD471CDB0966009B805B /* RandomNumGen.swift */; };
+		5AFCD5C41CF5EB94001731B0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5AFCD5C31CF5EB94001731B0 /* GoogleService-Info.plist */; };
 		5AFD2B471C54528400085372 /* LeastCommonMultiple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFD2B461C54528400085372 /* LeastCommonMultiple.swift */; };
 		5AFD2B4B1C54C19500085372 /* SciNotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFD2B4A1C54C19500085372 /* SciNotation.swift */; };
 		5AFDBDC01C5A03F800E46757 /* TriangleInequality.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFDBDBF1C5A03F800E46757 /* TriangleInequality.swift */; };
@@ -122,6 +123,7 @@
 		5AFA74201CDD826E007C3B7C /* MathToolbox.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MathToolbox.xcdatamodel; sourceTree = "<group>"; };
 		5AFBBD471CDB0966009B805B /* RandomNumGen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RandomNumGen.swift; path = ../../MathToolbox/MathToolbox/RandomNumGen.swift; sourceTree = "<group>"; };
 		5AFBDA611CF12C5800E0CC30 /* MathToolbox 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "MathToolbox 2.xcdatamodel"; sourceTree = "<group>"; };
+		5AFCD5C31CF5EB94001731B0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		5AFD2B461C54528400085372 /* LeastCommonMultiple.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeastCommonMultiple.swift; sourceTree = "<group>"; };
 		5AFD2B4A1C54C19500085372 /* SciNotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SciNotation.swift; sourceTree = "<group>"; };
 		5AFDBDBF1C5A03F800E46757 /* TriangleInequality.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriangleInequality.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 		5AF083E21C37B76F0076AC41 /* MathToolbox */ = {
 			isa = PBXGroup;
 			children = (
+				5AFCD5C31CF5EB94001731B0 /* GoogleService-Info.plist */,
 				5AFDCA691CE0B5B5008B9618 /* OperationEntity.swift */,
 				5AFDCA6A1CE0B5B5008B9618 /* OperationEntity+CoreDataProperties.swift */,
 				5AFDCA6B1CE0B5B5008B9618 /* OperationInput.swift */,
@@ -388,6 +391,7 @@
 			files = (
 				5AF083EE1C37B76F0076AC41 /* LaunchScreen.storyboard in Resources */,
 				5A78E6561C6DD0ED0072A20F /* Localizable.strings in Resources */,
+				5AFCD5C41CF5EB94001731B0 /* GoogleService-Info.plist in Resources */,
 				5AF083EB1C37B76F0076AC41 /* Assets.xcassets in Resources */,
 				5AF083E91C37B76F0076AC41 /* Main.storyboard in Resources */,
 			);
