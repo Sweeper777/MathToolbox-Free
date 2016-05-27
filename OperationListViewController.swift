@@ -2,7 +2,7 @@ import UIKit
 import GoogleMobileAds
 
 class OperationListViewController: UITableViewController, GADInterstitialDelegate, SKStoreProductViewControllerDelegate {
-    let operationsList: [(category: String, operations: [Operation])] = [
+    lazy var operationsList: [(category: String, operations: [Operation])] = [
         ("2D Figures", [Trapizium(), PolygonAngles()]),
         ("Circles", [Circle(), Arc(), Sector()]),
         ("Triangles", [Triangle(), TriangleInequality(), TrigAndPyth()]),
