@@ -70,7 +70,7 @@ class OperationViewController: UITableViewController, UITextFieldDelegate, UIGes
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == sectionIndexForInputs {
-            return operation.operationAvailableInputs.count
+            return operation.operationAvailableInputs.count + 1
         }
         return 1
     }
