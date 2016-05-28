@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>EZSwiftExtensions.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>MGSwipeTableCell.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -22,12 +27,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>4BDD4AAB8015498F371E9579C42E1902</key>
+		<key>3BE060305CF2EDBEEA24CB6B207A1F0E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>4E1263BFF45F6446CF3DE29AE234C893</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CC2C6E66CADF0C9F76F897D03F533C69</key>
 		<dict>
 			<key>primary</key>
 			<true/>
