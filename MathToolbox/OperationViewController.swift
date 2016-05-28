@@ -36,7 +36,7 @@ class OperationViewController: UITableViewController, UITextFieldDelegate, UIGes
             ad.loadRequest(request)
         } else {
             self.performSelector(#selector(OperationViewController.loadNewAd), withObject: nil, afterDelay: 60.0)
-        }        
+        }
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -46,16 +46,24 @@ class OperationViewController: UITableViewController, UITextFieldDelegate, UIGes
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if indexPath.section == sectionIndexForInputs - 1 {
             let cell = UITableViewCell()
+            cell.selectionStyle = .None
             let imageView = UIImageView.init(frame: CGRectMake(100, 0, 140, 140))
             imageView.image = operation.operationImage
             cell.contentView.addSubview(imageView)
             return cell
         }
         
-        let cell = UITableViewCell()
+        if indexPath.row == 0 {
+            let cell = tableView.dequeueReusableCellWithIdentifier("button")!
+            cell.selectionStyle = .Gray
+            return cell
+        }
         
-        cell.contentView.addSubview(views[indexPath.row].label)
-        cell.contentView.addSubview(views[indexPath.row].textField)
+        let cell = UITableViewCell()
+        cell.selectionStyle = .None
+        
+        cell.contentView.addSubview(views[indexPath.row - 1].label)
+        cell.contentView.addSubview(views[indexPath.row - 1].textField)
         return cell
     }
     
@@ -93,7 +101,14 @@ class OperationViewController: UITableViewController, UITextFieldDelegate, UIGes
         view.endEditing(true)
     }
     
-    @IBAction func tapped(sender: AnyObject) {
+    @IBAction func tapped(sender: UITapGestureRecognizer) {
+        let cell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: sectionIndexForInputs))
+        let pos = sender.locationOfTouch(0, inView: cell)
+        if cell!.bounds.contains(pos) {
+            views.forEach {
+                $0.textField.text = ""
+            }
+        }
         view.endEditing(true)
     }
     
@@ -139,6 +154,7 @@ class OperationViewController: UITableViewController, UITextFieldDelegate, UIGes
             textBox.borderStyle = .None
             textBox.delegate = self
             textBox.keyboardType = .NumbersAndPunctuation
+            textBox.clearButtonMode = .WhileEditing
             views.append((label, textBox))
         }
     }
