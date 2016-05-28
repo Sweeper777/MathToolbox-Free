@@ -38,6 +38,7 @@
 		5AF361E21C5C48C10004DCF8 /* Arc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF361E11C5C48C10004DCF8 /* Arc.swift */; };
 		5AF361E41C5C51950004DCF8 /* Sector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF361E31C5C51950004DCF8 /* Sector.swift */; };
 		5AF368CF1C8984F300311FF1 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF368CE1C8984F300311FF1 /* GoogleMobileAds.framework */; };
+		5AF96ABD1CF99D330035F48C /* EZSwiftExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF96ABC1CF99D330035F48C /* EZSwiftExtensions.framework */; };
 		5AF9D3851CE61F6500B6FCEB /* CustOpEditorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF9D3841CE61F6500B6FCEB /* CustOpEditorUtils.swift */; };
 		5AFA741E1CDD7C00007C3B7C /* CustOpListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFA741D1CDD7C00007C3B7C /* CustOpListController.swift */; };
 		5AFA74211CDD826E007C3B7C /* MathToolbox.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5AFA741F1CDD826E007C3B7C /* MathToolbox.xcdatamodeld */; };
@@ -118,6 +119,7 @@
 		5AF361E11C5C48C10004DCF8 /* Arc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Arc.swift; sourceTree = "<group>"; };
 		5AF361E31C5C51950004DCF8 /* Sector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sector.swift; sourceTree = "<group>"; };
 		5AF368CE1C8984F300311FF1 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
+		5AF96ABC1CF99D330035F48C /* EZSwiftExtensions.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EZSwiftExtensions.framework; path = "../../Library/Developer/Xcode/DerivedData/MathToolbox-gcebbmdgidxucegehqfzyzqihove/Build/Products/Debug-iphonesimulator/EZSwiftExtensions.framework"; sourceTree = "<group>"; };
 		5AF9D3841CE61F6500B6FCEB /* CustOpEditorUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustOpEditorUtils.swift; sourceTree = "<group>"; };
 		5AFA741D1CDD7C00007C3B7C /* CustOpListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustOpListController.swift; sourceTree = "<group>"; };
 		5AFA74201CDD826E007C3B7C /* MathToolbox.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MathToolbox.xcdatamodel; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5AF96ABD1CF99D330035F48C /* EZSwiftExtensions.framework in Frameworks */,
 				5AFDCA4E1CE08051008B9618 /* MGSwipeTableCell.framework in Frameworks */,
 				5A608CED1CD62F0E004BDD8B /* MathParser.framework in Frameworks */,
 				5AF368CF1C8984F300311FF1 /* GoogleMobileAds.framework in Frameworks */,
@@ -272,6 +275,7 @@
 		754D654E7C2759143F7E7E4F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5AF96ABC1CF99D330035F48C /* EZSwiftExtensions.framework */,
 				5AFDCA4D1CE08051008B9618 /* MGSwipeTableCell.framework */,
 				5A608CEC1CD62F0E004BDD8B /* MathParser.framework */,
 				AD9DA1B2033A9DD534A0E91B /* Pods_MathToolbox.framework */,

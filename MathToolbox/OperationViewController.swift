@@ -1,6 +1,7 @@
 import UIKit
 import GoogleMobileAds
 import MathParser
+import EZSwiftExtensions
 
 class OperationViewController: UITableViewController, UITextFieldDelegate, UIGestureRecognizerDelegate, GADInterstitialDelegate {
     var operation: Operation!
@@ -110,6 +111,11 @@ class OperationViewController: UITableViewController, UITextFieldDelegate, UIGes
             }
         }
         view.endEditing(true)
+        
+        tableView.selectRowAtIndexPath(NSIndexPath(forRow: 0, inSection: sectionIndexForInputs), animated: false, scrollPosition: .None)
+        NSTimer.runThisAfterDelay(seconds: 0.1) {
+            self.tableView.deselectRowAtIndexPath(NSIndexPath(forRow: 0, inSection: self.sectionIndexForInputs), animated: true)
+        }
     }
     
     private func getResults () -> [(name: String, from: String, result: String)]? {
