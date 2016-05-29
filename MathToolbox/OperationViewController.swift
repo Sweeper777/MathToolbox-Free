@@ -121,11 +121,23 @@ class OperationViewController: UITableViewController, UITextFieldDelegate, UIGes
     }
     
     @IBAction func calculateClick(sender: UIBarButtonItem) {
+        shouldShowAd = false
+        
+        let overlay = UIView(frame: ((UIApplication.sharedApplication().delegate as! AppDelegate).window?.frame)!)
+        overlay.tag = 1
+        overlay.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0)
+        self.parentViewController!.view.addSubview(overlay)
+        overlay.animate(duration: 0.2, animations: {overlay.backgroundColor = overlay.backgroundColor?.colorWithAlphaComponent(0.5)}, completion: nil)
+        
         EZLoadingActivity.show(NSLocalizedString("Calculating...", comment: ""), disableUI: true);
         { self.getResults() } ~> {
             result in
             EZLoadingActivity.hide()
+            self.shouldShowAd = true
             self.results = result
+            let overlay = self.parentViewController!.view.viewWithTag(1)!
+            overlay.animate(duration: 0.2, animations: {overlay.backgroundColor = overlay.backgroundColor?.colorWithAlphaComponent(0)}, completion: nil)
+            overlay.removeFromSuperview()
             self.performSegueWithIdentifier("showResults", sender: self)
         };
     }
@@ -198,6 +210,7 @@ class OperationViewController: UITableViewController, UITextFieldDelegate, UIGes
     
     var ad = GADInterstitial(adUnitID: adId)
     var appearCallCount: Int!
+    var shouldShowAd = true
     
     func interstitialDidReceiveAd(ad: GADInterstitial!) {
         ad.presentFromRootViewController(self)
@@ -209,7 +222,7 @@ class OperationViewController: UITableViewController, UITextFieldDelegate, UIGes
     
     func loadNewAd() {
         if let parentVC = self.parentViewController {
-            if (parentVC as! UINavigationController).topViewController !== self {
+            if (parentVC as! UINavigationController).topViewController !== self || !shouldShowAd {
                 return
             }
         } else {
