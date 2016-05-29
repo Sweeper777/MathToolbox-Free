@@ -8,6 +8,7 @@ target 'MathToolbox' do
     pod 'MGSwipeTableCell'
     pod 'Firebase'
     pod 'EZSwiftExtensions'
+    pod 'EZLoadingActivity'
 end
 
 target 'MathToolboxTests' do

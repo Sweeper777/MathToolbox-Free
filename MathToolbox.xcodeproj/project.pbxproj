@@ -43,6 +43,7 @@
 		5AFA741E1CDD7C00007C3B7C /* CustOpListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFA741D1CDD7C00007C3B7C /* CustOpListController.swift */; };
 		5AFA74211CDD826E007C3B7C /* MathToolbox.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5AFA741F1CDD826E007C3B7C /* MathToolbox.xcdatamodeld */; };
 		5AFBBD481CDB0966009B805B /* RandomNumGen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFBBD471CDB0966009B805B /* RandomNumGen.swift */; };
+		5AFBE98F1CFAA5F500BC1366 /* EZLoadingActivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AFBE98E1CFAA5F500BC1366 /* EZLoadingActivity.framework */; };
 		5AFCD5C41CF5EB94001731B0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5AFCD5C31CF5EB94001731B0 /* GoogleService-Info.plist */; };
 		5AFD2B471C54528400085372 /* LeastCommonMultiple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFD2B461C54528400085372 /* LeastCommonMultiple.swift */; };
 		5AFD2B4B1C54C19500085372 /* SciNotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFD2B4A1C54C19500085372 /* SciNotation.swift */; };
@@ -125,6 +126,7 @@
 		5AFA74201CDD826E007C3B7C /* MathToolbox.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MathToolbox.xcdatamodel; sourceTree = "<group>"; };
 		5AFBBD471CDB0966009B805B /* RandomNumGen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RandomNumGen.swift; path = ../../MathToolbox/MathToolbox/RandomNumGen.swift; sourceTree = "<group>"; };
 		5AFBDA611CF12C5800E0CC30 /* MathToolbox 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "MathToolbox 2.xcdatamodel"; sourceTree = "<group>"; };
+		5AFBE98E1CFAA5F500BC1366 /* EZLoadingActivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EZLoadingActivity.framework; path = "../../Library/Developer/Xcode/DerivedData/MathToolbox-gcebbmdgidxucegehqfzyzqihove/Build/Products/Debug-iphonesimulator/EZLoadingActivity.framework"; sourceTree = "<group>"; };
 		5AFCD5C31CF5EB94001731B0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		5AFD2B461C54528400085372 /* LeastCommonMultiple.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeastCommonMultiple.swift; sourceTree = "<group>"; };
 		5AFD2B4A1C54C19500085372 /* SciNotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SciNotation.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5AFBE98F1CFAA5F500BC1366 /* EZLoadingActivity.framework in Frameworks */,
 				5AF96ABD1CF99D330035F48C /* EZSwiftExtensions.framework in Frameworks */,
 				5AFDCA4E1CE08051008B9618 /* MGSwipeTableCell.framework in Frameworks */,
 				5A608CED1CD62F0E004BDD8B /* MathParser.framework in Frameworks */,
@@ -275,6 +278,7 @@
 		754D654E7C2759143F7E7E4F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5AFBE98E1CFAA5F500BC1366 /* EZLoadingActivity.framework */,
 				5AF96ABC1CF99D330035F48C /* EZSwiftExtensions.framework */,
 				5AFDCA4D1CE08051008B9618 /* MGSwipeTableCell.framework */,
 				5A608CEC1CD62F0E004BDD8B /* MathParser.framework */,

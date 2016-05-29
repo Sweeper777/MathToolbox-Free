@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>EZLoadingActivity.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>EZSwiftExtensions.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,12 +32,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>3BE060305CF2EDBEEA24CB6B207A1F0E</key>
+		<key>4E1263BFF45F6446CF3DE29AE234C893</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4E1263BFF45F6446CF3DE29AE234C893</key>
+		<key>903A108934E1A089B76F443DC34C8E54</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -43,6 +48,11 @@
 			<true/>
 		</dict>
 		<key>E6C879477FED53079B99C06823BF1870</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F0BDEBC7B875A52669A27332A7223874</key>
 		<dict>
 			<key>primary</key>
 			<true/>
