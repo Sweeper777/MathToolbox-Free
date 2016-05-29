@@ -1,6 +1,8 @@
 import UIKit
 import CoreData
 import Firebase
+import EZSwiftExtensions
+import EZLoadingActivity
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -9,8 +11,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        window?.tintColor = UIColor(red: 0x5a / 0xff, green: 0xbb / 0xff, blue: 0x5a / 0xff, alpha: 1.0)
+        window?.tintColor = UIColor(hexString: "5abb5a")
         FIRApp.configure()
+        
+        EZLoadingActivity.Settings.BackgroundColor = UIColor(hexString: "5abb5a")!
+        EZLoadingActivity.Settings.ActivityColor = UIColor.whiteColor()
+        EZLoadingActivity.Settings.TextColor = UIColor.whiteColor()
+        
         return true
     }
 
