@@ -332,7 +332,7 @@
                             <barButtonItem title="Calculate" style="done" id="Xpf-yQ-wX6">
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
-                                    <segue destination="xj0-bn-Clf" kind="show" identifier="showResults" id="5SY-JD-BjM"/>
+                                    <action selector="calculateClick:" destination="pOX-Vn-qAh" id="HYL-vR-iIx"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem title="?" id="av6-Fy-W4j">
@@ -343,6 +343,9 @@
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
+                    <connections>
+                        <segue destination="xj0-bn-Clf" kind="show" identifier="showResults" id="bBF-t2-Jwh"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="olb-aI-X1Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -2,12 +2,14 @@ import UIKit
 import GoogleMobileAds
 import MathParser
 import EZSwiftExtensions
+import EZLoadingActivity
 
 class OperationViewController: UITableViewController, UITextFieldDelegate, UIGestureRecognizerDelegate, GADInterstitialDelegate {
     var operation: Operation!
     var hasImage = false
     var views: [(label: UILabel, textField: UITextField)] = []
     var sectionIndexForInputs = 0
+    var results: [(name: String, from: String, result: String)]?
     
     override func viewDidLoad() {
         title = NSLocalizedString(operation.operationName, comment: "")
@@ -118,6 +120,16 @@ class OperationViewController: UITableViewController, UITextFieldDelegate, UIGes
         }
     }
     
+    @IBAction func calculateClick(sender: UIBarButtonItem) {
+        EZLoadingActivity.show(NSLocalizedString("Calculating...", comment: ""), disableUI: true);
+        { self.getResults() } ~> {
+            result in
+            EZLoadingActivity.hide()
+            self.results = result
+            self.performSegueWithIdentifier("showResults", sender: self)
+        };
+    }
+    
     private func getResults () -> [(name: String, from: String, result: String)]? {
         var input: [String: Double] = [:]
         for i in 0  ..< views.count  {
@@ -176,8 +188,8 @@ class OperationViewController: UITableViewController, UITextFieldDelegate, UIGes
             helpString += operation.operationRejectFloatingPoint ? NSLocalizedString("This operation accepts integers ONLY. Other forms of input will be ignored", comment: "") : ""
             vc.helpString = helpString
         } else if segue.identifier == "showResults" {
-            let vc = segue.destinationViewController as! ResultsViewController
-            vc.results = getResults()
+            let vc = segue.destinationViewController as! ResultsViewController;
+            vc.results = self.results
         }
         view.endEditing(true)
     }
