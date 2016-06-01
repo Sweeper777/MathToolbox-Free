@@ -1,6 +1,7 @@
 import UIKit
 import MGSwipeTableCell
 import CoreData
+import TextFieldEffects
 
 // (╯°□°）╯︵ ┻━┻ Oh... sad memories...
 class CustOpEditorController: UITableViewController, UITextFieldDelegate {
@@ -8,9 +9,9 @@ class CustOpEditorController: UITableViewController, UITextFieldDelegate {
     
     var operationEntity: OperationEntity?
     
-    var txtInputs = [(UITextField, UITextField)]()
-    var txtResults = [(UITextField, UITextField)]()
-    var txtName: UITextField!
+    var txtInputs = [(JiroTextField, JiroTextField)]()
+    var txtResults = [(JiroTextField, JiroTextField)]()
+    var txtName: JiroTextField!
     var switchRejectFloatingPoint: UISwitch!
     
     var editingInput = false
@@ -25,7 +26,7 @@ class CustOpEditorController: UITableViewController, UITextFieldDelegate {
         
         let cell1 = tableView.dequeueReusableCellWithIdentifier("normalText")!
         
-        self.txtName = cell1.viewWithTag(1) as! UITextField
+        self.txtName = cell1.viewWithTag(1) as! JiroTextField
         self.txtName.placeholder = NSLocalizedString("Name", comment: "")
         self.txtName.text = self.operationEntity?.name ?? ""
         self.txtName.delegate = self
@@ -49,8 +50,8 @@ class CustOpEditorController: UITableViewController, UITextFieldDelegate {
                 let realInput = input as! OperationInput
                 let cell4 = tableView.dequeueReusableCellWithIdentifier("doubleText")!
                 
-                let name = cell4.viewWithTag(1) as! UITextField
-                let description = cell4.viewWithTag(2) as! UITextField
+                let name = cell4.viewWithTag(1) as! JiroTextField
+                let description = cell4.viewWithTag(2) as! JiroTextField
                 name.placeholder = NSLocalizedString("Name", comment: "")
                 description.placeholder = NSLocalizedString("Description", comment: "")
                 name.text = realInput.name!
@@ -83,8 +84,8 @@ class CustOpEditorController: UITableViewController, UITextFieldDelegate {
                 let realResult = result as! OperationResult
                 let cell6 = tableView.dequeueReusableCellWithIdentifier("doubleText")!
                 
-                    let name = cell6.viewWithTag(1) as! UITextField
-                    let formula = cell6.viewWithTag(2) as! UITextField
+                    let name = cell6.viewWithTag(1) as! JiroTextField
+                    let formula = cell6.viewWithTag(2) as! JiroTextField
                     name.placeholder = NSLocalizedString("Name", comment: "")
                     formula.placeholder = NSLocalizedString("Formula", comment: "")
                     name.text = realResult.name!
@@ -138,8 +139,8 @@ class CustOpEditorController: UITableViewController, UITextFieldDelegate {
         case (1, 0):
             let newRow = tableView.dequeueReusableCellWithIdentifier("doubleText")!
             
-            let name = newRow.viewWithTag(1) as! UITextField
-            let description = newRow.viewWithTag(2) as! UITextField
+            let name = newRow.viewWithTag(1) as! JiroTextField
+            let description = newRow.viewWithTag(2) as! JiroTextField
             name.placeholder = NSLocalizedString("Name", comment: "")
             description.placeholder = NSLocalizedString("Description", comment: "")
             name.text = ""
@@ -162,8 +163,8 @@ class CustOpEditorController: UITableViewController, UITextFieldDelegate {
         case (2, 0):
             let newRow = tableView.dequeueReusableCellWithIdentifier("doubleText")!
             
-            let name = newRow.viewWithTag(1) as! UITextField
-            let formula = newRow.viewWithTag(2) as! UITextField
+            let name = newRow.viewWithTag(1) as! JiroTextField
+            let formula = newRow.viewWithTag(2) as! JiroTextField
             name.placeholder = NSLocalizedString("Name", comment: "")
             formula.placeholder = NSLocalizedString("Formula", comment: "")
             name.text = ""
@@ -186,6 +187,17 @@ class CustOpEditorController: UITableViewController, UITextFieldDelegate {
             break;
         }
     }
+    
+    /*override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        switch (indexPath.section, indexPath.row) {
+        case (0, 0):
+            return 66
+        case (let x, let y) where y >= 1 && x > 0:
+            return 66
+        default:
+            return 44
+        }
+    }*/
     
     func addCellToSection(section: Int, cell: UITableViewCell) {
         cells[section].append(cell)
