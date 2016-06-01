@@ -1,6 +1,7 @@
 import UIKit
 import MGSwipeTableCell
 import CoreData
+import JVFloatLabeledTextField
 
 // (╯°□°）╯︵ ┻━┻ Oh... sad memories...
 class CustOpEditorController: UITableViewController, UITextFieldDelegate {
@@ -8,9 +9,9 @@ class CustOpEditorController: UITableViewController, UITextFieldDelegate {
     
     var operationEntity: OperationEntity?
     
-    var txtInputs = [(UITextField, UITextField)]()
-    var txtResults = [(UITextField, UITextField)]()
-    var txtName: UITextField!
+    var txtInputs = [(JVFloatLabeledTextField, JVFloatLabeledTextField)]()
+    var txtResults = [(JVFloatLabeledTextField, JVFloatLabeledTextField)]()
+    var txtName: JVFloatLabeledTextField!
     var switchRejectFloatingPoint: UISwitch!
     
     var editingInput = false
@@ -25,8 +26,8 @@ class CustOpEditorController: UITableViewController, UITextFieldDelegate {
         
         let cell1 = tableView.dequeueReusableCellWithIdentifier("normalText")!
         
-        self.txtName = cell1.viewWithTag(1) as! UITextField
-        self.txtName.placeholder = NSLocalizedString("Name", comment: "")
+        self.txtName = cell1.viewWithTag(1) as! JVFloatLabeledTextField
+        self.txtName.setPlaceholder(NSLocalizedString("Name", comment: ""), floatingTitle: NSLocalizedString("Name", comment: ""))
         self.txtName.text = self.operationEntity?.name ?? ""
         self.txtName.delegate = self
         
@@ -49,10 +50,10 @@ class CustOpEditorController: UITableViewController, UITextFieldDelegate {
                 let realInput = input as! OperationInput
                 let cell4 = tableView.dequeueReusableCellWithIdentifier("doubleText")!
                 
-                let name = cell4.viewWithTag(1) as! UITextField
-                let description = cell4.viewWithTag(2) as! UITextField
-                name.placeholder = NSLocalizedString("Name", comment: "")
-                description.placeholder = NSLocalizedString("Description", comment: "")
+                let name = cell4.viewWithTag(1) as! JVFloatLabeledTextField
+                let description = cell4.viewWithTag(2) as! JVFloatLabeledTextField
+                name.setPlaceholder(NSLocalizedString("Name", comment: ""), floatingTitle: NSLocalizedString("Name", comment: ""))
+                description.setPlaceholder(NSLocalizedString("Description", comment: ""), floatingTitle: NSLocalizedString("Description", comment: ""))
                 name.text = realInput.name!
                 description.text = realInput.desc!
                 name.delegate = self
@@ -83,10 +84,10 @@ class CustOpEditorController: UITableViewController, UITextFieldDelegate {
                 let realResult = result as! OperationResult
                 let cell6 = tableView.dequeueReusableCellWithIdentifier("doubleText")!
                 
-                    let name = cell6.viewWithTag(1) as! UITextField
-                    let formula = cell6.viewWithTag(2) as! UITextField
-                    name.placeholder = NSLocalizedString("Name", comment: "")
-                    formula.placeholder = NSLocalizedString("Formula", comment: "")
+                    let name = cell6.viewWithTag(1) as! JVFloatLabeledTextField
+                    let formula = cell6.viewWithTag(2) as! JVFloatLabeledTextField
+                    name.setPlaceholder(NSLocalizedString("Name", comment: ""), floatingTitle: NSLocalizedString("Name", comment: ""))
+                    formula.setPlaceholder(NSLocalizedString("Formula", comment: ""), floatingTitle: NSLocalizedString("Formula", comment: ""))
                     name.text = realResult.name!
                     formula.text = realResult.formula!
                     name.delegate = self
@@ -138,10 +139,10 @@ class CustOpEditorController: UITableViewController, UITextFieldDelegate {
         case (1, 0):
             let newRow = tableView.dequeueReusableCellWithIdentifier("doubleText")!
             
-            let name = newRow.viewWithTag(1) as! UITextField
-            let description = newRow.viewWithTag(2) as! UITextField
-            name.placeholder = NSLocalizedString("Name", comment: "")
-            description.placeholder = NSLocalizedString("Description", comment: "")
+            let name = newRow.viewWithTag(1) as! JVFloatLabeledTextField
+            let description = newRow.viewWithTag(2) as! JVFloatLabeledTextField
+            name.setPlaceholder(NSLocalizedString("Name", comment: ""), floatingTitle: NSLocalizedString("Name", comment: ""))
+            description.setPlaceholder(NSLocalizedString("Description", comment: ""), floatingTitle: NSLocalizedString("Description", comment: ""))
             name.text = ""
             description.text = ""
             name.delegate = self
@@ -162,10 +163,10 @@ class CustOpEditorController: UITableViewController, UITextFieldDelegate {
         case (2, 0):
             let newRow = tableView.dequeueReusableCellWithIdentifier("doubleText")!
             
-            let name = newRow.viewWithTag(1) as! UITextField
-            let formula = newRow.viewWithTag(2) as! UITextField
-            name.placeholder = NSLocalizedString("Name", comment: "")
-            formula.placeholder = NSLocalizedString("Formula", comment: "")
+            let name = newRow.viewWithTag(1) as! JVFloatLabeledTextField
+            let formula = newRow.viewWithTag(2) as! JVFloatLabeledTextField
+            name.setPlaceholder(NSLocalizedString("Name", comment: ""), floatingTitle: NSLocalizedString("Name", comment: ""))
+            formula.setPlaceholder(NSLocalizedString("Formula", comment: ""), floatingTitle: NSLocalizedString("Formula", comment: ""))
             name.text = ""
             formula.text = ""
             name.delegate = self
