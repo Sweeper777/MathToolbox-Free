@@ -45,7 +45,7 @@
 		5AFBBD481CDB0966009B805B /* RandomNumGen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFBBD471CDB0966009B805B /* RandomNumGen.swift */; };
 		5AFBE98F1CFAA5F500BC1366 /* EZLoadingActivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AFBE98E1CFAA5F500BC1366 /* EZLoadingActivity.framework */; };
 		5AFBE9911CFAA67000BC1366 /* Threading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFBE9901CFAA67000BC1366 /* Threading.swift */; };
-		5AFBFAD01CFD54AB00FB7FC0 /* TextFieldEffects.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AFBFACF1CFD54AB00FB7FC0 /* TextFieldEffects.framework */; };
+		5AFBFAD21CFEB16E00FB7FC0 /* JVFloatLabeledTextField.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AFBFAD11CFEB16E00FB7FC0 /* JVFloatLabeledTextField.framework */; };
 		5AFCD5C41CF5EB94001731B0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5AFCD5C31CF5EB94001731B0 /* GoogleService-Info.plist */; };
 		5AFD2B471C54528400085372 /* LeastCommonMultiple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFD2B461C54528400085372 /* LeastCommonMultiple.swift */; };
 		5AFD2B4B1C54C19500085372 /* SciNotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFD2B4A1C54C19500085372 /* SciNotation.swift */; };
@@ -131,6 +131,7 @@
 		5AFBE98E1CFAA5F500BC1366 /* EZLoadingActivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EZLoadingActivity.framework; path = "../../Library/Developer/Xcode/DerivedData/MathToolbox-gcebbmdgidxucegehqfzyzqihove/Build/Products/Debug-iphonesimulator/EZLoadingActivity.framework"; sourceTree = "<group>"; };
 		5AFBE9901CFAA67000BC1366 /* Threading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Threading.swift; sourceTree = "<group>"; };
 		5AFBFACF1CFD54AB00FB7FC0 /* TextFieldEffects.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TextFieldEffects.framework; path = "../../Library/Developer/Xcode/DerivedData/MathToolbox-gcebbmdgidxucegehqfzyzqihove/Build/Products/Debug-iphoneos/TextFieldEffects.framework"; sourceTree = "<group>"; };
+		5AFBFAD11CFEB16E00FB7FC0 /* JVFloatLabeledTextField.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JVFloatLabeledTextField.framework; path = "Pods/../build/Debug-iphoneos/JVFloatLabeledTextField.framework"; sourceTree = "<group>"; };
 		5AFCD5C31CF5EB94001731B0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		5AFD2B461C54528400085372 /* LeastCommonMultiple.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeastCommonMultiple.swift; sourceTree = "<group>"; };
 		5AFD2B4A1C54C19500085372 /* SciNotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SciNotation.swift; sourceTree = "<group>"; };
@@ -153,7 +154,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5AFBFAD01CFD54AB00FB7FC0 /* TextFieldEffects.framework in Frameworks */,
+				5AFBFAD21CFEB16E00FB7FC0 /* JVFloatLabeledTextField.framework in Frameworks */,
 				5AFBE98F1CFAA5F500BC1366 /* EZLoadingActivity.framework in Frameworks */,
 				5AF96ABD1CF99D330035F48C /* EZSwiftExtensions.framework in Frameworks */,
 				5AFDCA4E1CE08051008B9618 /* MGSwipeTableCell.framework in Frameworks */,
@@ -284,6 +285,7 @@
 		754D654E7C2759143F7E7E4F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5AFBFAD11CFEB16E00FB7FC0 /* JVFloatLabeledTextField.framework */,
 				5AFBFACF1CFD54AB00FB7FC0 /* TextFieldEffects.framework */,
 				5AFBE98E1CFAA5F500BC1366 /* EZLoadingActivity.framework */,
 				5AF96ABC1CF99D330035F48C /* EZSwiftExtensions.framework */,

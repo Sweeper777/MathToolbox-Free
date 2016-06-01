@@ -9,7 +9,7 @@ target 'MathToolbox' do
     pod 'Firebase'
     pod 'EZSwiftExtensions'
     pod 'EZLoadingActivity'
-    pod 'TextFieldEffects'
+    pod 'JVFloatLabeledTextField'
 end
 
 target 'MathToolboxTests' do

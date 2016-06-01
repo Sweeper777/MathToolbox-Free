@@ -87,13 +87,13 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-MathToolbox/MathParser.framework"
   install_framework "Pods-MathToolbox/EZLoadingActivity.framework"
   install_framework "Pods-MathToolbox/EZSwiftExtensions.framework"
+  install_framework "Pods-MathToolbox/JVFloatLabeledTextField.framework"
   install_framework "Pods-MathToolbox/MGSwipeTableCell.framework"
-  install_framework "Pods-MathToolbox/TextFieldEffects.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-MathToolbox/MathParser.framework"
   install_framework "Pods-MathToolbox/EZLoadingActivity.framework"
   install_framework "Pods-MathToolbox/EZSwiftExtensions.framework"
+  install_framework "Pods-MathToolbox/JVFloatLabeledTextField.framework"
   install_framework "Pods-MathToolbox/MGSwipeTableCell.framework"
-  install_framework "Pods-MathToolbox/TextFieldEffects.framework"
 fi

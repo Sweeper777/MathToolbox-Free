@@ -19,6 +19,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>JVFloatLabeledTextField.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>MGSwipeTableCell.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -29,25 +34,15 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>TextFieldEffects.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>2AD497A2A5AB7D65B10DA0042DE47162</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>4E1263BFF45F6446CF3DE29AE234C893</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>65950820C5653E8D7A6D3B13BC5659AC</key>
+		<key>735882DA95E7FCCEC084FC1C5384FF8A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -63,6 +58,11 @@
 			<true/>
 		</dict>
 		<key>E6C879477FED53079B99C06823BF1870</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EAD0C497AB1FC9DF5056A2E2544B551D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
