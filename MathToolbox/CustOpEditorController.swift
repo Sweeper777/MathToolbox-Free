@@ -188,7 +188,7 @@ class CustOpEditorController: UITableViewController, UITextFieldDelegate {
         }
     }
     
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    /*override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         switch (indexPath.section, indexPath.row) {
         case (0, 0):
             return 55
@@ -197,7 +197,7 @@ class CustOpEditorController: UITableViewController, UITextFieldDelegate {
         default:
             return 44
         }
-    }
+    }*/
     
     func addCellToSection(section: Int, cell: UITableViewCell) {
         cells[section].append(cell)
