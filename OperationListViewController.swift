@@ -180,6 +180,18 @@ class OperationListViewController: UITableViewController, GADInterstitialDelegat
         }
     }
     
+    func showRateMsg() {
+        let alert = UIAlertController(title: NSLocalizedString("Enjoying Math Toolbox?", comment: ""), message: NSLocalizedString("You can rate this app, or send me feedback!", comment: ""), preferredStyle: .Alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Rate!", comment: ""), style: .Default) { _ in
+                UIApplication.sharedApplication().openURL(NSURL(string: "https://itunes.apple.com/us/app/math-toolbox-free/id1080062807?ls=1&mt=8")!)
+            })
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Send Feedback", comment: ""), style: .Default) { _ in
+            UIApplication.sharedApplication().openURL(NSURL(string: "mailto://sumulang@gmail.com")!)
+            })
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Maybe Later", comment: ""), style: .Default, handler: nil))
+        self.presentVC(alert)
+    }
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -187,9 +199,13 @@ class OperationListViewController: UITableViewController, GADInterstitialDelegat
             appearCallCount = 0
         }
         
-        if appearCallCount == 0 && arc4random_uniform(100) < 10 {
+        if appearCallCount == 0 && arc4random_uniform(100) < 15 {
             loadNewAd()
         } else {
+            if arc4random_uniform(100) < 20 {
+                showRateMsg()
+            }
+            
             self.performSelector(#selector(OperationListViewController.loadNewAd), withObject: nil, afterDelay: 60.0)
         }
         
