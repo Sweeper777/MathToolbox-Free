@@ -40,7 +40,7 @@ class ResultsViewController: UIViewController, UITableViewDataSource, UITableVie
             request.testDevices = [kGADSimulatorID]
             ad.loadRequest(request)
         } else {
-            self.performSelector(#selector(ResultsViewController.loadNewAd), withObject: nil, afterDelay: 60.0)
+            self.performSelector(#selector(ResultsViewController.loadNewAd), withObject: nil, afterDelay: 120)
         }
     }
     
@@ -144,7 +144,7 @@ class ResultsViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func interstitialDidDismissScreen(ad: GADInterstitial!) {
-        self.performSelector(#selector(ResultsViewController.loadNewAd), withObject: nil, afterDelay: 60.0)
+        self.performSelector(#selector(ResultsViewController.loadNewAd), withObject: nil, afterDelay: 120)
     }
     
     func showRateMsg() {
@@ -173,7 +173,7 @@ class ResultsViewController: UIViewController, UITableViewDataSource, UITableVie
                 showRateMsg()
             }
             
-            self.performSelector(#selector(ResultsViewController.loadNewAd), withObject: nil, afterDelay: 60.0)
+            self.performSelector(#selector(ResultsViewController.loadNewAd), withObject: nil, afterDelay: 120)
         }
         
         appearCallCount! += 1

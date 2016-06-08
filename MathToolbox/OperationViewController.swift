@@ -38,7 +38,7 @@ class OperationViewController: UITableViewController, UITextFieldDelegate, UIGes
             request.testDevices = [kGADSimulatorID]
             ad.loadRequest(request)
         } else {
-            self.performSelector(#selector(OperationViewController.loadNewAd), withObject: nil, afterDelay: 60.0)
+            self.performSelector(#selector(OperationViewController.loadNewAd), withObject: nil, afterDelay: 120)
         }
     }
     
@@ -148,7 +148,8 @@ class OperationViewController: UITableViewController, UITextFieldDelegate, UIGes
             var candidate = 0.0
             var evaluator = Evaluator()
             evaluator.angleMeasurementMode = .Degrees
-            let evaluatedResult = try? evaluator.evaluate(Expression(string: views[i].textField.text!))
+            let variables: [String: Double] = ["A": UserSettings.aValue, "B": UserSettings.bValue, "C": UserSettings.cValue]
+            let evaluatedResult: Double? = try? evaluator.evaluate(Expression(string: views[i].textField.text!), substitutions: variables)
             
             if evaluatedResult == nil {
                 continue
@@ -237,7 +238,7 @@ class OperationViewController: UITableViewController, UITextFieldDelegate, UIGes
     }
     
     func interstitialDidDismissScreen(ad: GADInterstitial!) {
-        self.performSelector(#selector(OperationViewController.loadNewAd), withObject: nil, afterDelay: 60.0)
+        self.performSelector(#selector(OperationViewController.loadNewAd), withObject: nil, afterDelay: 120)
     }
     
     func showRateMsg() {
@@ -266,7 +267,7 @@ class OperationViewController: UITableViewController, UITextFieldDelegate, UIGes
                 showRateMsg()
             }
             
-            self.performSelector(#selector(OperationViewController.loadNewAd), withObject: nil, afterDelay: 60.0)
+            self.performSelector(#selector(OperationViewController.loadNewAd), withObject: nil, afterDelay: 120)
         }
         
         appearCallCount! += 1

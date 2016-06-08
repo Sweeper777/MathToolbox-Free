@@ -154,7 +154,7 @@ class OperationListViewController: UITableViewController, GADInterstitialDelegat
     }
     
     func interstitialDidDismissScreen(ad: GADInterstitial!) {
-        self.performSelector(#selector(OperationListViewController.loadNewAd), withObject: nil, afterDelay: 60.0)
+        self.performSelector(#selector(OperationListViewController.loadNewAd), withObject: nil, afterDelay: 120.0)
     }
     
     override func viewDidLoad() {
@@ -166,7 +166,7 @@ class OperationListViewController: UITableViewController, GADInterstitialDelegat
             request.testDevices = [kGADSimulatorID]
             ad.loadRequest(request)
         } else {
-            self.performSelector(#selector(OperationListViewController.loadNewAd), withObject: nil, afterDelay: 60.0)
+            self.performSelector(#selector(OperationListViewController.loadNewAd), withObject: nil, afterDelay: 120.0)
         }
         
         UINavigationBar.appearance().barStyle = .Black
@@ -206,7 +206,7 @@ class OperationListViewController: UITableViewController, GADInterstitialDelegat
                 showRateMsg()
             }
             
-            self.performSelector(#selector(OperationListViewController.loadNewAd), withObject: nil, afterDelay: 60.0)
+            self.performSelector(#selector(OperationListViewController.loadNewAd), withObject: nil, afterDelay: 120.0)
         }
         
         appearCallCount! += 1
