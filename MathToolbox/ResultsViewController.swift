@@ -153,7 +153,7 @@ class ResultsViewController: UIViewController, UITableViewDataSource, UITableVie
             UIApplication.sharedApplication().openURL(NSURL(string: "https://itunes.apple.com/us/app/math-toolbox-free/id1080062807?ls=1&mt=8")!)
             })
         alert.addAction(UIAlertAction(title: NSLocalizedString("Send Feedback", comment: ""), style: .Default) { _ in
-            UIApplication.sharedApplication().openURL(NSURL(string: "mailto://sumulang@gmail.com")!)
+            UIApplication.sharedApplication().openURL(NSURL(string: "mailto:sumulang@gmail.com?subject=Math Toolbox Feedback".stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding))!)
             })
         alert.addAction(UIAlertAction(title: NSLocalizedString("Maybe Later", comment: ""), style: .Default, handler: nil))
         self.presentVC(alert)
