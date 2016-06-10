@@ -3,7 +3,7 @@
 "Triangles" = "Triangles";
 "3D Figures" = "3D Figures";
 "Factors and Multiples" = "Factors and Multiples";
-"General Numbers" = "General Numbers";
+"General Numbers" = "General";
 "Misc" = "Misc";
 "Physics - Heat" = "Physics - Heat";
 
@@ -74,7 +74,7 @@
 "All factors of this number and its greatest common factor with x will be calculated" = "All factors of this number and its greatest common factor with x will be calculated";
 "Greatest Common Factor" = "Greatest Common Factor";
 
-"Trigonometry & Pythagoras Theorem" = "Trigonometry & Pythagoras Theorem";
+"Trigonometry & Pythagoras Theorem" = "Right-angled Triangles"";
 "Refer to figure" = "Refer to figure";
 "Refer to figure, angle in ANGLE_MEASURE" = "Refer to figure, angle in ANGLE_MEASURE";
 "Is Right Angled" = "Is Right Angled";
