@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '0DA5F43263398E64C6E05ABF'
+               BlueprintIdentifier = '6C1643CF45E8502A7C0160E7'
                BlueprintName = 'Pods-MathToolbox'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Pods_MathToolbox.framework'>

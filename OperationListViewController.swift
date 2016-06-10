@@ -5,7 +5,7 @@ class OperationListViewController: UITableViewController, GADInterstitialDelegat
     lazy var operationsList: [(category: String, operations: [Operation])] = [
         ("2D Figures", [Trapizium(), PolygonAngles()]),
         ("Circles", [Circle(), Arc(), Sector()]),
-        ("Triangles", [Triangle(), TriangleInequality(), TrigAndPyth()]),
+        ("Triangles", [Triangle(), TriangleInequality(), TrigAndPyth(), Trigonometry()]),
         ("Factors and Multiples", [Factors(), PrimeFactors(), FactorPairs(), LeastCommonMultiple()]),
         ("General Numbers", [PrimeNumber(), SciNotation(), RandomNumGen()]),
         ("Misc", [DegreesRadiansGradians(), HexDecBinOct()])
@@ -199,7 +199,7 @@ class OperationListViewController: UITableViewController, GADInterstitialDelegat
             appearCallCount = 0
         }
         
-        if appearCallCount == 0 && arc4random_uniform(100) < 15 {
+        if appearCallCount == 0 && arc4random_uniform(100) < 10 {
             loadNewAd()
         } else {
             if arc4random_uniform(100) < 20 {

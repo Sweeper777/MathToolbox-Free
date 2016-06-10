@@ -43,6 +43,7 @@
 		5AFA741E1CDD7C00007C3B7C /* CustOpListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFA741D1CDD7C00007C3B7C /* CustOpListController.swift */; };
 		5AFA74211CDD826E007C3B7C /* MathToolbox.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5AFA741F1CDD826E007C3B7C /* MathToolbox.xcdatamodeld */; };
 		5AFBBD481CDB0966009B805B /* RandomNumGen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFBBD471CDB0966009B805B /* RandomNumGen.swift */; };
+		5AFBC2641D0A957D00E27822 /* Trigonometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFBC2631D0A957D00E27822 /* Trigonometry.swift */; };
 		5AFBE98F1CFAA5F500BC1366 /* EZLoadingActivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AFBE98E1CFAA5F500BC1366 /* EZLoadingActivity.framework */; };
 		5AFBE9911CFAA67000BC1366 /* Threading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFBE9901CFAA67000BC1366 /* Threading.swift */; };
 		5AFBFAD21CFEB16E00FB7FC0 /* JVFloatLabeledTextField.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AFBFAD11CFEB16E00FB7FC0 /* JVFloatLabeledTextField.framework */; };
@@ -127,6 +128,7 @@
 		5AFA741D1CDD7C00007C3B7C /* CustOpListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustOpListController.swift; sourceTree = "<group>"; };
 		5AFA74201CDD826E007C3B7C /* MathToolbox.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MathToolbox.xcdatamodel; sourceTree = "<group>"; };
 		5AFBBD471CDB0966009B805B /* RandomNumGen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RandomNumGen.swift; path = ../../MathToolbox/MathToolbox/RandomNumGen.swift; sourceTree = "<group>"; };
+		5AFBC2631D0A957D00E27822 /* Trigonometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trigonometry.swift; sourceTree = "<group>"; };
 		5AFBDA611CF12C5800E0CC30 /* MathToolbox 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "MathToolbox 2.xcdatamodel"; sourceTree = "<group>"; };
 		5AFBE98E1CFAA5F500BC1366 /* EZLoadingActivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EZLoadingActivity.framework; path = "../../Library/Developer/Xcode/DerivedData/MathToolbox-gcebbmdgidxucegehqfzyzqihove/Build/Products/Debug-iphonesimulator/EZLoadingActivity.framework"; sourceTree = "<group>"; };
 		5AFBE9901CFAA67000BC1366 /* Threading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Threading.swift; sourceTree = "<group>"; };
@@ -251,6 +253,7 @@
 				5AF361E11C5C48C10004DCF8 /* Arc.swift */,
 				5AFBBD471CDB0966009B805B /* RandomNumGen.swift */,
 				5AF361E31C5C51950004DCF8 /* Sector.swift */,
+				5AFBC2631D0A957D00E27822 /* Trigonometry.swift */,
 			);
 			path = MathToolbox;
 			sourceTree = "<group>";
@@ -515,6 +518,7 @@
 				5AF361E21C5C48C10004DCF8 /* Arc.swift in Sources */,
 				5A027A9D1CE1AF520012E2F3 /* DataPasserController.swift in Sources */,
 				5AF2AB901C4A362B005342DC /* Trapizium.swift in Sources */,
+				5AFBC2641D0A957D00E27822 /* Trigonometry.swift in Sources */,
 				5AFDBDC01C5A03F800E46757 /* TriangleInequality.swift in Sources */,
 				5AFDCA721CE0B5B5008B9618 /* OperationInput+CoreDataProperties.swift in Sources */,
 				5A027A9F1CE1AFFD0012E2F3 /* CustOpEditorController.swift in Sources */,
