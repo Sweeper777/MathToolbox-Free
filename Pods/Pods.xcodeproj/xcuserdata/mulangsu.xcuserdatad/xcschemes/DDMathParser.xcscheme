@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '732B5199D74E71685DC26739'
+               BlueprintIdentifier = '24FADD70669CA8190949C73E'
                BlueprintName = 'DDMathParser'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'MathParser.framework'>
