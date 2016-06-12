@@ -10,6 +10,7 @@ class OperationViewController: UITableViewController, UITextFieldDelegate, UIGes
     var views: [(label: UILabel, textField: UITextField)] = []
     var sectionIndexForInputs = 0
     var results: [(name: String, from: String, result: String)]?
+    var isOnboarding = false
     
     override func viewDidLoad() {
         title = NSLocalizedString(operation.operationName, comment: "")
