@@ -13,29 +13,7 @@ class OperationListViewController: UITableViewController, GADInterstitialDelegat
     var operationToPass: Operation?
     let storeViewController = SKStoreProductViewController()
     var storeViewLoaded = false
-    
-<<<<<<< HEAD
-    var onboardingToShow: [ABOnboardingItem] = []
-    var onboardingIndex: Int = 0
-    var currentBlurViews: [UIView] = []
-    var onboardingSection: Int = 0
-    var isOnboarding = false
-    
-    private func initializeOB() {
-        onboardingToShow.removeAll()
-        onboardingToShow.append(ABOnboardingItem(message: NSLocalizedString("Welcome to the Math Toolbox Tutorial! You can skip this tutorial by tapping the darkened regions on the screen, or the \"Skip\" button.", comment: ""), placement: .RelativeToTop(100), blurredBackground: true, leftButtonTitle: NSLocalizedString("Skip", comment: ""), rightButtonTitle: NSLocalizedString("Next", comment: "")))
-        onboardingToShow.append(ABOnboardingItem(message: NSLocalizedString("You can access this tutorial at any time by tapping on the \"?\" on the top right corner.", comment: ""), placement: .RelativeToTop(100), blurredBackground: true, leftButtonTitle: NSLocalizedString("Skip", comment: ""), rightButtonTitle: NSLocalizedString("OK", comment: "")))
-        
-        onboardingToShow.append(ABOnboardingItem(message: NSLocalizedString("Math Toolbox is really easy to use. Let's do a Circle operation first, shall we? ", comment: ""), placement: .RelativeToTop(100), blurredBackground: true, leftButtonTitle: NSLocalizedString("Skip", comment: ""), rightButtonTitle: NSLocalizedString("Next", comment: "")))
-        
-        let cellRect = tableView(tableView, cellForRowAtIndexPath: NSIndexPath(forRow: 0, inSection: 1)).frame
-        let frame = cellRect.offsetBy(dx: 0, dy: 210)
-        let item4 = ABOnboardingItem(message: NSLocalizedString("Just tap on \"Circle\"", comment: ""), placement: .PointingDownAt(frame), blurredBackground: true, rightButtonTitle: NSLocalizedString("Skip", comment: ""))
-        onboardingToShow.append(item4)
-    }
-    
-=======
->>>>>>> parent of 13afa55... finished the onboarding in OperationListViewController
+
     @IBAction func infoClicked(sender: UIBarButtonItem) {
         func fullVerisonClick (sender: UIAlertAction) {
             openStoreProductWithiTunesItemIdentifier("1080075778")
