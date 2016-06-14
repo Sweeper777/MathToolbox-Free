@@ -1,8 +1,7 @@
 import UIKit
 import GoogleMobileAds
-import ABOnboarding
 
-class OperationListViewController: UITableViewController, GADInterstitialDelegate, SKStoreProductViewControllerDelegate, ShowsABOnboardingItem {
+class OperationListViewController: UITableViewController, GADInterstitialDelegate, SKStoreProductViewControllerDelegate {
     lazy var operationsList: [(category: String, operations: [Operation])] = [
         ("2D Figures", [Trapizium(), PolygonAngles()]),
         ("Circles", [Circle(), Arc(), Sector()]),
@@ -15,6 +14,7 @@ class OperationListViewController: UITableViewController, GADInterstitialDelegat
     let storeViewController = SKStoreProductViewController()
     var storeViewLoaded = false
     
+<<<<<<< HEAD
     var onboardingToShow: [ABOnboardingItem] = []
     var onboardingIndex: Int = 0
     var currentBlurViews: [UIView] = []
@@ -34,6 +34,8 @@ class OperationListViewController: UITableViewController, GADInterstitialDelegat
         onboardingToShow.append(item4)
     }
     
+=======
+>>>>>>> parent of 13afa55... finished the onboarding in OperationListViewController
     @IBAction func infoClicked(sender: UIBarButtonItem) {
         func fullVerisonClick (sender: UIAlertAction) {
             openStoreProductWithiTunesItemIdentifier("1080075778")
@@ -99,11 +101,6 @@ class OperationListViewController: UITableViewController, GADInterstitialDelegat
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if isOnboarding && !(indexPath.row == 0 && indexPath.section == 1) {
-            tableView.deselectRowAtIndexPath(indexPath, animated: false)
-            return
-        }
-        
         if indexPath.section == operationsList.endIndex {
             if !UserSettings.prefHideWarning {
                 let alert = UIAlertController(title: NSLocalizedString("Warning", comment: ""), message: NSLocalizedString("This feature is for experienced users only", comment: ""), preferredStyle: .Alert)
@@ -130,15 +127,9 @@ class OperationListViewController: UITableViewController, GADInterstitialDelegat
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let obCache = isOnboarding
-        if isOnboarding {
-            self.skipOnboarding()
-        }
-        
         if segue.identifier == "showOperation" {
             let vc = segue.destinationViewController as! OperationViewController
             vc.operation = operationToPass
-            vc.isOnboarding = obCache
         }
     }
     
@@ -155,27 +146,6 @@ class OperationListViewController: UITableViewController, GADInterstitialDelegat
         return headerView
     }
     
-    func userSkippedOnboarding() {
-        isOnboarding = false
-    }
-    
-    func userCompletedOnboarding() {
-        isOnboarding = false
-    }
-    
-    func shouldShowOnboardingOnThisVC() -> Bool {
-        return !NSUserDefaults.standardUserDefaults().boolForKey("showTutorial")
-    }
-    
-    func skipOnboardingForwarder() {
-        self.skipOnboarding()
-    }
-    
-    func showNextOnboardingItemForwarder() {
-        self.showNextOnboardingItem()
-    }
-    
-    // MARK: AD STUFF
     //==================AD STUFF=======================
     
     var ad = GADInterstitial(adUnitID: adId)
@@ -190,11 +160,6 @@ class OperationListViewController: UITableViewController, GADInterstitialDelegat
     }
     
     func loadNewAd() {
-        if isOnboarding {
-            self.performSelector(#selector(OperationListViewController.loadNewAd), withObject: nil, afterDelay: 120.0)
-            return
-        }
-        
         if let parentVC = self.parentViewController {
             if (parentVC as! UINavigationController).topViewController !== self {
                 return
@@ -218,7 +183,7 @@ class OperationListViewController: UITableViewController, GADInterstitialDelegat
         ad.delegate = self
         appearCallCount = 0
         
-        if arc4random_uniform(100) < 30 && !shouldShowOnboardingOnThisVC() {
+        if arc4random_uniform(100) < 30 {
             let request = GADRequest()
             request.testDevices = [kGADSimulatorID]
             ad.loadRequest(request)
@@ -235,22 +200,6 @@ class OperationListViewController: UITableViewController, GADInterstitialDelegat
         storeViewController.loadProductWithParameters(parameters) { (loaded, error) in
             self.storeViewLoaded = loaded
         }
-        
-        ABOnboardingSettings.AnimationDuration = 0.25
-        ABOnboardingSettings.TouchesDisabledOnUncoveredRect = false
-        ABOnboardingSettings.ViewToShowOnboarding = (UIApplication.sharedApplication().delegate as! AppDelegate).window
-        ABOnboardingSettings.BackgroundWhileOnboarding = UIColor.blackColor().colorWithAlphaComponent(0)
-        
-        if self.shouldShowOnboardingOnThisVC() {
-            initializeOB()
-            let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(1 * Double(NSEC_PER_SEC)))
-            dispatch_after(delayTime, dispatch_get_main_queue()) {
-                
-                self.startOnboarding()
-                self.isOnboarding = true
-            }
-        }
-
     }
     
     func showRateMsg() {
@@ -272,10 +221,10 @@ class OperationListViewController: UITableViewController, GADInterstitialDelegat
             appearCallCount = 0
         }
         
-        if appearCallCount == 0 && arc4random_uniform(100) < 10 && !shouldShowOnboardingOnThisVC() {
+        if appearCallCount == 0 && arc4random_uniform(100) < 10 {
             loadNewAd()
         } else {
-            if arc4random_uniform(100) < 20 && !shouldShowOnboardingOnThisVC() {
+            if arc4random_uniform(100) < 20 {
                 showRateMsg()
             }
             
