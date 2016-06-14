@@ -15,10 +15,14 @@
             <BuildableReference
                BuildableIdentifier = 'primary'
 <<<<<<< HEAD
+<<<<<<< HEAD
                BlueprintIdentifier = '24FADD70669CA8190949C73E'
 =======
                BlueprintIdentifier = '26BA9C53593D81EB4E4AFC85'
 >>>>>>> parent of 05285c3... added ABOnboarding pod
+=======
+               BlueprintIdentifier = '732B5199D74E71685DC26739'
+>>>>>>> parent of c726a29... this is kinda the same as the last commit...
                BlueprintName = 'DDMathParser'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'MathParser.framework'>

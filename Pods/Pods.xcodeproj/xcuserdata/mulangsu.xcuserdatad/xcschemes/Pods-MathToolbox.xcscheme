@@ -15,10 +15,14 @@
             <BuildableReference
                BuildableIdentifier = 'primary'
 <<<<<<< HEAD
+<<<<<<< HEAD
                BlueprintIdentifier = 'F62AF024AC5A65141F61A242'
 =======
                BlueprintIdentifier = '6C1643CF45E8502A7C0160E7'
 >>>>>>> parent of 05285c3... added ABOnboarding pod
+=======
+               BlueprintIdentifier = '1E9D642D722A3F5C484A1B1C'
+>>>>>>> parent of c726a29... this is kinda the same as the last commit...
                BlueprintName = 'Pods-MathToolbox'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Pods_MathToolbox.framework'>

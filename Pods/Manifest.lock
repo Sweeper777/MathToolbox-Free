@@ -1,5 +1,4 @@
 PODS:
-  - ABOnboarding (1.1.1)
   - DDMathParser (2.0.0)
   - EZLoadingActivity (0.8)
   - EZSwiftExtensions (1.4)
@@ -24,7 +23,6 @@ PODS:
   - MGSwipeTableCell (1.5.5)
 
 DEPENDENCIES:
-  - ABOnboarding
   - DDMathParser
   - EZLoadingActivity
   - EZSwiftExtensions
@@ -33,7 +31,6 @@ DEPENDENCIES:
   - MGSwipeTableCell
 
 SPEC CHECKSUMS:
-  ABOnboarding: 2f6c83c45998160e2e3e1bacb7420ffc456e8471
   DDMathParser: 74cddd0aa652cfed79e68fdd076f1ee63ab43a16
   EZLoadingActivity: 6fd75a05765a4085f4b6fef6f62edf9f144b3139
   EZSwiftExtensions: db7be0022fce8e92cdfe0fadddaf835fcd9696db
