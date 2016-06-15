@@ -13,6 +13,7 @@
 		5A027A9F1CE1AFFD0012E2F3 /* CustOpEditorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A027A9E1CE1AFFD0012E2F3 /* CustOpEditorController.swift */; };
 		5A10E9A01C92C549005E54F2 /* HexDecBinOct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A10E99F1C92C549005E54F2 /* HexDecBinOct.swift */; };
 		5A608CED1CD62F0E004BDD8B /* MathParser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A608CEC1CD62F0E004BDD8B /* MathParser.framework */; };
+		5A6BC4981D1159E200EAB8E8 /* modest.css in Resources */ = {isa = PBXBuildFile; fileRef = 5A6BC4971D1159E200EAB8E8 /* modest.css */; };
 		5A78E6561C6DD0ED0072A20F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5A78E6581C6DD0ED0072A20F /* Localizable.strings */; };
 		5A8FF5FD1C40924F00C9566E /* OperationListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8FF5FC1C40924F00C9566E /* OperationListViewController.swift */; };
 		5A8FF5FF1C4099B000C9566E /* OperationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8FF5FE1C4099B000C9566E /* OperationViewController.swift */; };
@@ -86,6 +87,7 @@
 		5A027A9E1CE1AFFD0012E2F3 /* CustOpEditorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustOpEditorController.swift; sourceTree = "<group>"; };
 		5A10E99F1C92C549005E54F2 /* HexDecBinOct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HexDecBinOct.swift; sourceTree = "<group>"; };
 		5A608CEC1CD62F0E004BDD8B /* MathParser.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MathParser.framework; path = "Pods/../build/Release-iphoneos/MathParser.framework"; sourceTree = "<group>"; };
+		5A6BC4971D1159E200EAB8E8 /* modest.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = modest.css; sourceTree = "<group>"; };
 		5A78E6501C6DCFA50072A20F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		5A78E6511C6DCFA50072A20F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		5A78E6521C6DCFAB0072A20F /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 		5AF083E21C37B76F0076AC41 /* MathToolbox */ = {
 			isa = PBXGroup;
 			children = (
+				5A6BC4971D1159E200EAB8E8 /* modest.css */,
 				5AFBE9901CFAA67000BC1366 /* Threading.swift */,
 				5AFCD5C31CF5EB94001731B0 /* GoogleService-Info.plist */,
 				5AFDCA691CE0B5B5008B9618 /* OperationEntity.swift */,
@@ -410,6 +413,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5AF083EE1C37B76F0076AC41 /* LaunchScreen.storyboard in Resources */,
+				5A6BC4981D1159E200EAB8E8 /* modest.css in Resources */,
 				5A78E6561C6DD0ED0072A20F /* Localizable.strings in Resources */,
 				5AFCD5C41CF5EB94001731B0 /* GoogleService-Info.plist in Resources */,
 				5AF083EB1C37B76F0076AC41 /* Assets.xcassets in Resources */,
