@@ -30,9 +30,10 @@ class CustOpEditorController: UITableViewController, UITextFieldDelegate {
         self.txtName.setPlaceholder(NSLocalizedString("Name", comment: ""), floatingTitle: NSLocalizedString("Name", comment: ""))
         self.txtName.text = self.operationEntity?.name ?? ""
         self.txtName.delegate = self
+        changeFontOfTextField(txtName)
         
         addCellToSection(0, cell: cell1)
-
+        
         let cell2 = tableView.dequeueReusableCellWithIdentifier("switch")!
         
         self.switchRejectFloatingPoint = cell2.viewWithTag(2) as! UISwitch
@@ -58,6 +59,8 @@ class CustOpEditorController: UITableViewController, UITextFieldDelegate {
                 description.text = realInput.desc!
                 name.delegate = self
                 description.delegate = self
+                changeFontOfTextField(name)
+                changeFontOfTextField(description)
                 self.txtInputs.append((name, description))
                 
                 let swipeCell = cell4 as! MGSwipeTableCell
@@ -84,24 +87,27 @@ class CustOpEditorController: UITableViewController, UITextFieldDelegate {
                 let realResult = result as! OperationResult
                 let cell6 = tableView.dequeueReusableCellWithIdentifier("doubleText")!
                 
-                    let name = cell6.viewWithTag(1) as! JVFloatLabeledTextField
-                    let formula = cell6.viewWithTag(2) as! JVFloatLabeledTextField
-                    name.setPlaceholder(NSLocalizedString("Name", comment: ""), floatingTitle: NSLocalizedString("Name", comment: ""))
-                    formula.setPlaceholder(NSLocalizedString("Formula", comment: ""), floatingTitle: NSLocalizedString("Formula", comment: ""))
-                    name.text = realResult.name!
-                    formula.text = realResult.formula!
-                    name.delegate = self
-                    formula.delegate = self
-                    self.txtResults.append((name, formula))
-                    
-                    let swipeCell = cell6 as! MGSwipeTableCell
-                    let deleteBtn = MGSwipeButton(title: NSLocalizedString("Delete", comment: ""), backgroundColor: UIColor.redColor(), callback: { _ in
-                        let cellIndex = self.cells.indicesOf(swipeCell)!.1
-                        self.removeCellFromSection(2, index: cellIndex)
-                        self.txtResults.removeAtIndex(cellIndex)
-                        return true
-                    })
-                    swipeCell.rightButtons = [deleteBtn]
+                let name = cell6.viewWithTag(1) as! JVFloatLabeledTextField
+                let formula = cell6.viewWithTag(2) as! JVFloatLabeledTextField
+                name.setPlaceholder(NSLocalizedString("Name", comment: ""), floatingTitle: NSLocalizedString("Name", comment: ""))
+                formula.setPlaceholder(NSLocalizedString("Formula", comment: ""), floatingTitle: NSLocalizedString("Formula", comment: ""))
+                name.text = realResult.name!
+                formula.text = realResult.formula!
+                name.delegate = self
+                formula.delegate = self
+                changeFontOfTextField(name)
+                changeFontOfTextField(formula)
+                
+                self.txtResults.append((name, formula))
+                
+                let swipeCell = cell6 as! MGSwipeTableCell
+                let deleteBtn = MGSwipeButton(title: NSLocalizedString("Delete", comment: ""), backgroundColor: UIColor.redColor(), callback: { _ in
+                    let cellIndex = self.cells.indicesOf(swipeCell)!.1
+                    self.removeCellFromSection(2, index: cellIndex)
+                    self.txtResults.removeAtIndex(cellIndex)
+                    return true
+                })
+                swipeCell.rightButtons = [deleteBtn]
                 
                 addCellToSection(2, cell: cell6)
             }
@@ -147,6 +153,8 @@ class CustOpEditorController: UITableViewController, UITextFieldDelegate {
             description.text = ""
             name.delegate = self
             description.delegate = self
+            changeFontOfTextField(name)
+            changeFontOfTextField(description)
             self.txtInputs.append((name, description))
             
             let swipeCell = newRow as! MGSwipeTableCell
@@ -171,6 +179,9 @@ class CustOpEditorController: UITableViewController, UITextFieldDelegate {
             formula.text = ""
             name.delegate = self
             formula.delegate = self
+            changeFontOfTextField(name)
+            changeFontOfTextField(formula)
+            
             self.txtResults.append((name, formula))
             
             let swipeCell = newRow as! MGSwipeTableCell
@@ -189,15 +200,15 @@ class CustOpEditorController: UITableViewController, UITextFieldDelegate {
     }
     
     /*override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        switch (indexPath.section, indexPath.row) {
-        case (0, 0):
-            return 55
-        case (let x, let y) where y >= 1 && x > 0:
-            return 55
-        default:
-            return 44
-        }
-    }*/
+     switch (indexPath.section, indexPath.row) {
+     case (0, 0):
+     return 55
+     case (let x, let y) where y >= 1 && x > 0:
+     return 55
+     default:
+     return 44
+     }
+     }*/
     
     func addCellToSection(section: Int, cell: UITableViewCell) {
         cells[section].append(cell)
@@ -253,7 +264,7 @@ class CustOpEditorController: UITableViewController, UITextFieldDelegate {
             if tuple.0.text?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()) == "" || tuple.1.text?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()) == "" {
                 shouldReturn = true
             }
-
+            
         }
         
         if shouldReturn {
@@ -355,6 +366,11 @@ class CustOpEditorController: UITableViewController, UITextFieldDelegate {
         
         dataContext.saveData()
         performSegueWithIdentifier("custOpSaved", sender: self)
+    }
+    
+    private func changeFontOfTextField(txtField: JVFloatLabeledTextField) {
+        let font = txtField.floatingLabelFont
+        txtField.floatingLabelFont = UIFont.boldSystemFontOfSize(font.pointSize)
     }
 }
 
