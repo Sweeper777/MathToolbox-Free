@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0D5B7634A7D0FE41CBD9C449 /* Pods_MathToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD9DA1B2033A9DD534A0E91B /* Pods_MathToolbox.framework */; };
+		5A0028231D1FF2E700F9F908 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5A0028251D1FF2E700F9F908 /* InfoPlist.strings */; };
 		5A027A9B1CE1917E0012E2F3 /* CustomOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A027A9A1CE1917E0012E2F3 /* CustomOperation.swift */; };
 		5A027A9D1CE1AF520012E2F3 /* DataPasserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A027A9C1CE1AF520012E2F3 /* DataPasserController.swift */; };
 		5A027A9F1CE1AFFD0012E2F3 /* CustOpEditorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A027A9E1CE1AFFD0012E2F3 /* CustOpEditorController.swift */; };
@@ -82,6 +83,9 @@
 
 /* Begin PBXFileReference section */
 		4E7C8132A4CD5FB1DA27FE1D /* Pods-MathToolbox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MathToolbox.release.xcconfig"; path = "Pods/Target Support Files/Pods-MathToolbox/Pods-MathToolbox.release.xcconfig"; sourceTree = "<group>"; };
+		5A0028241D1FF2E700F9F908 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5A0028261D1FF2E800F9F908 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		5A0028271D1FF2E900F9F908 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		5A027A9A1CE1917E0012E2F3 /* CustomOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomOperation.swift; sourceTree = "<group>"; };
 		5A027A9C1CE1AF520012E2F3 /* DataPasserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataPasserController.swift; sourceTree = "<group>"; };
 		5A027A9E1CE1AFFD0012E2F3 /* CustOpEditorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustOpEditorController.swift; sourceTree = "<group>"; };
@@ -190,6 +194,7 @@
 			children = (
 				5AF368CE1C8984F300311FF1 /* GoogleMobileAds.framework */,
 				5A78E6581C6DD0ED0072A20F /* Localizable.strings */,
+				5A0028251D1FF2E700F9F908 /* InfoPlist.strings */,
 				5AF083E21C37B76F0076AC41 /* MathToolbox */,
 				5AF083F71C37B76F0076AC41 /* MathToolboxTests */,
 				5AF084021C37B76F0076AC41 /* MathToolboxUITests */,
@@ -413,6 +418,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5AF083EE1C37B76F0076AC41 /* LaunchScreen.storyboard in Resources */,
+				5A0028231D1FF2E700F9F908 /* InfoPlist.strings in Resources */,
 				5A6BC4981D1159E200EAB8E8 /* modest.css in Resources */,
 				5A78E6561C6DD0ED0072A20F /* Localizable.strings in Resources */,
 				5AFCD5C41CF5EB94001731B0 /* GoogleService-Info.plist in Resources */,
@@ -564,6 +570,16 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		5A0028251D1FF2E700F9F908 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5A0028241D1FF2E700F9F908 /* en */,
+				5A0028261D1FF2E800F9F908 /* zh-Hans */,
+				5A0028271D1FF2E900F9F908 /* zh-Hant */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		5A78E6581C6DD0ED0072A20F /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
