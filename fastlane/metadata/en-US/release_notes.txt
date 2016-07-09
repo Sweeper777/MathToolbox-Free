@@ -1,0 +1,4 @@
+- 1 new operation! - Trigonometry
+- Renamed the old "Trigonometry and Pythagorus Theorem" operation to "Right-angled Triangles"
+- Minor changes in wordings
+- Better text boxes in the custom operation editor

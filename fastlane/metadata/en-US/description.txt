@@ -1,0 +1,11 @@
+Do you think doing maths and remembering all those complex formulas are just too hard? Then this app is for YOU!
+
+In Math Toolbox Free, there are over 15 different operations that help your calculations. Ranging from circles to polygons, from trigonometry to sectors of a circle, and from factors to scientific notations. There must be a few that will come in handy!
+
+Sounds overwhelming? The toolbox also provides a very helpful help screen. Just read through it and it will tell you how to use this app in great detail.
+
+Still don't understand? Just download this app and try it out for yourself! The proof is in the eating!
+
+=================================
+
+In version 0.4.1, custom operations are added. They are a little bit tricky to create, so be sure to check out the guide first!

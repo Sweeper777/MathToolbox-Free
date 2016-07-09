@@ -1,11 +1,3 @@
-//
-//  MathToolboxUITests.swift
-//  MathToolboxUITests
-//
-//  Created by Mulang Su on 1/2/16.
-//  Copyright © 2016 Mulang Su. All rights reserved.
-//
-
 import XCTest
 
 class MathToolboxUITests: XCTestCase {
@@ -13,6 +5,7 @@ class MathToolboxUITests: XCTestCase {
     override func setUp() {
         super.setUp()
         continueAfterFailure = false
+        setupSnapshot(XCUIApplication())
         XCUIApplication().launch()
     }
     
@@ -23,6 +16,8 @@ class MathToolboxUITests: XCTestCase {
     func testExample() {
         
         let app = XCUIApplication()
+        
+        snapshot("1")
         
         let tablesQuery = app.tables
         tablesQuery.elementBoundByIndex(0).swipeUp()
@@ -79,5 +74,7 @@ class MathToolboxUITests: XCTestCase {
         let textField11 = cell4.textFields.elementBoundByIndex(1)
         textField11.tap()
         textField11.typeText("asin('n1' * sin('θi') / 'n2')\r")
+        
+        snapshot("2")
     }
 }
