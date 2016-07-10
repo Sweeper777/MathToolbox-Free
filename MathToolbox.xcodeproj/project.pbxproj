@@ -54,6 +54,7 @@
 		5AFCD5C41CF5EB94001731B0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5AFCD5C31CF5EB94001731B0 /* GoogleService-Info.plist */; };
 		5AFD2B471C54528400085372 /* LeastCommonMultiple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFD2B461C54528400085372 /* LeastCommonMultiple.swift */; };
 		5AFD2B4B1C54C19500085372 /* SciNotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFD2B4A1C54C19500085372 /* SciNotation.swift */; };
+		5AFD911C1D321B2A008BCF67 /* FullVersionAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFD911B1D321B2A008BCF67 /* FullVersionAlert.swift */; };
 		5AFDBDC01C5A03F800E46757 /* TriangleInequality.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFDBDBF1C5A03F800E46757 /* TriangleInequality.swift */; };
 		5AFDBDC21C5A161300E46757 /* PolygonAngles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFDBDC11C5A161300E46757 /* PolygonAngles.swift */; };
 		5AFDCA4E1CE08051008B9618 /* MGSwipeTableCell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AFDCA4D1CE08051008B9618 /* MGSwipeTableCell.framework */; };
@@ -147,6 +148,7 @@
 		5AFCD5C31CF5EB94001731B0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		5AFD2B461C54528400085372 /* LeastCommonMultiple.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeastCommonMultiple.swift; sourceTree = "<group>"; };
 		5AFD2B4A1C54C19500085372 /* SciNotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SciNotation.swift; sourceTree = "<group>"; };
+		5AFD911B1D321B2A008BCF67 /* FullVersionAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullVersionAlert.swift; sourceTree = "<group>"; };
 		5AFDBDBF1C5A03F800E46757 /* TriangleInequality.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriangleInequality.swift; sourceTree = "<group>"; };
 		5AFDBDC11C5A161300E46757 /* PolygonAngles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolygonAngles.swift; sourceTree = "<group>"; };
 		5AFDCA4D1CE08051008B9618 /* MGSwipeTableCell.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MGSwipeTableCell.framework; path = "Pods/../build/Debug-iphoneos/MGSwipeTableCell.framework"; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 				5A027A9C1CE1AF520012E2F3 /* DataPasserController.swift */,
 				5AFA741D1CDD7C00007C3B7C /* CustOpListController.swift */,
 				5A027A9E1CE1AFFD0012E2F3 /* CustOpEditorController.swift */,
+				5AFD911B1D321B2A008BCF67 /* FullVersionAlert.swift */,
 				5AF083EA1C37B76F0076AC41 /* Assets.xcassets */,
 				5AF083EC1C37B76F0076AC41 /* LaunchScreen.storyboard */,
 				5AF083EF1C37B76F0076AC41 /* Info.plist */,
@@ -513,6 +516,7 @@
 				5AFDCA741CE0B5B5008B9618 /* OperationResult+CoreDataProperties.swift in Sources */,
 				5AFDCA701CE0B5B5008B9618 /* OperationEntity+CoreDataProperties.swift in Sources */,
 				5ABF45B81C4B7B98005616F9 /* UserSettings.swift in Sources */,
+				5AFD911C1D321B2A008BCF67 /* FullVersionAlert.swift in Sources */,
 				5AFBE9911CFAA67000BC1366 /* Threading.swift in Sources */,
 				5AFBBD481CDB0966009B805B /* RandomNumGen.swift in Sources */,
 				5AFDBDC21C5A161300E46757 /* PolygonAngles.swift in Sources */,
