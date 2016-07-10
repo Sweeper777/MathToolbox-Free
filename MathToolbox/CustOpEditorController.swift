@@ -5,7 +5,7 @@ import JVFloatLabeledTextField
 import StoreKit
 
 // (╯°□°）╯︵ ┻━┻ Oh... sad memories...
-class CustOpEditorController: UITableViewController, UITextFieldDelegate {
+class CustOpEditorController: UITableViewController, UITextFieldDelegate, FullVersionAlertShowable {
     var cells: [[UITableViewCell]] = [[], [], []]
     
     var operationEntity: OperationEntity?
@@ -18,7 +18,12 @@ class CustOpEditorController: UITableViewController, UITextFieldDelegate {
     var editingInput = false
     var editingResult = false
     
+    var vc: UIViewController { return self }
+    let storeViewController = SKStoreProductViewController()
+    var storeViewLoaded = false
+    
     override func viewDidLoad() {
+        initStoreView()
         if operationEntity == nil {
             navigationItem.title = NSLocalizedString("New Custom Operation", comment: "")
         } else {
@@ -286,13 +291,6 @@ class CustOpEditorController: UITableViewController, UITextFieldDelegate {
         if txtResults.isEmpty {
             self.showError("Please add at least one result")
             return
-        }
-        
-        func showFullVersionAlert (msg: String) {
-            let alert = UIAlertController(title: NSLocalizedString("Sorry!", comment: ""), message: NSLocalizedString(msg, comment: ""), preferredStyle: .Alert)
-            alert.addAction(UIAlertAction(title: NSLocalizedString("Get the Full Version!", comment: ""), style: .Default) { _ in UIApplication.sharedApplication().openURL(NSURL(string: "https://itunes.apple.com/us/app/math-toolbox-full-version/id1080075778?ls=1&mt=8")!) })
-            alert.addAction(UIAlertAction(title: NSLocalizedString("No Thanks!", comment: ""), style: .Cancel, handler: nil))
-            self.presentVC(alert)
         }
         
         if txtInputs.count > 7 {
