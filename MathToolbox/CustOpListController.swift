@@ -1,11 +1,16 @@
 import UIKit
 import CoreData
 import MGSwipeTableCell
+import StoreKit
 
-class CustOpListController: UITableViewController {
+class CustOpListController: UITableViewController, FullVersionAlertShowable {
     var operations = [OperationEntity]()
     let dataContext: NSManagedObjectContext! = (UIApplication.sharedApplication().delegate as? AppDelegate)?.managedObjectContext
     var operationToPass: OperationEntity!
+    
+    var vc: UIViewController { return self }
+    let storeViewController = SKStoreProductViewController()
+    var storeViewLoaded = false
     
     func reloadData() {
         if dataContext != nil {
@@ -24,6 +29,7 @@ class CustOpListController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        initStoreView()
         self.clearsSelectionOnViewWillAppear = false
         reloadData()
     }
@@ -79,6 +85,11 @@ class CustOpListController: UITableViewController {
     
     @IBAction func addNew(sender: UIBarButtonItem) {
         operationToPass = nil
+        if operations.count >= 5 {
+            self.showFullVersionAlert("You cannot have more than 5 custom operations in the free version. Get the full version to create unlimited custom operations!")
+            return
+        }
+        
         performSegueWithIdentifier("showEditor", sender: self)
     }
     
