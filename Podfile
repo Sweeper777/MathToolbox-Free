@@ -10,6 +10,7 @@ target 'MathToolbox' do
     pod 'EZSwiftExtensions'
     pod 'EZLoadingActivity'
     pod 'JVFloatLabeledTextField'
+    pod 'DTTableViewManager'
 end
 
 target 'MathToolboxTests' do

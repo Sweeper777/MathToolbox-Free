@@ -9,6 +9,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>DTModelStorage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>DTTableViewManager.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>EZLoadingActivity.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -47,7 +57,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>85A0C7F137B7B09146EE143A28D7A815</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>903A108934E1A089B76F443DC34C8E54</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B3F1AB2CEF1246B010FA583351B0DA69</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -57,12 +77,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E6C879477FED53079B99C06823BF1870</key>
+		<key>DD59C9355A19673752C15BE5AC4FAA75</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EAD0C497AB1FC9DF5056A2E2544B551D</key>
+		<key>E6C879477FED53079B99C06823BF1870</key>
 		<dict>
 			<key>primary</key>
 			<true/>

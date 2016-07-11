@@ -1,5 +1,10 @@
 PODS:
   - DDMathParser (2.0.0)
+  - DTModelStorage (2.6.2):
+    - DTModelStorage/Core (= 2.6.2)
+  - DTModelStorage/Core (2.6.2)
+  - DTTableViewManager (4.7.0):
+    - DTModelStorage (~> 2.6.0)
   - EZLoadingActivity (0.8)
   - EZSwiftExtensions (1.4)
   - Firebase (3.2.0):
@@ -24,6 +29,7 @@ PODS:
 
 DEPENDENCIES:
   - DDMathParser
+  - DTTableViewManager
   - EZLoadingActivity
   - EZSwiftExtensions
   - Firebase
@@ -32,6 +38,8 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   DDMathParser: 74cddd0aa652cfed79e68fdd076f1ee63ab43a16
+  DTModelStorage: afd736e5309f374c29dcd7e4364e7571e32e5db1
+  DTTableViewManager: 4a961b5ffaa9a57387ccff7f9280d001c9c64082
   EZLoadingActivity: 6fd75a05765a4085f4b6fef6f62edf9f144b3139
   EZSwiftExtensions: db7be0022fce8e92cdfe0fadddaf835fcd9696db
   Firebase: 6d4012da1598732a2b43f16d8355eca90f94ed59
