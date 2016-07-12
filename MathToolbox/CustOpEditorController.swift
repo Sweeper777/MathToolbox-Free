@@ -3,13 +3,17 @@ import MGSwipeTableCell
 import CoreData
 import JVFloatLabeledTextField
 import StoreKit
-import DTTableViewManager
-import DTModelStorage
 
 // (╯°□°）╯︵ ┻━┻ Oh... sad memories...
-class CustOpEditorController: UITableViewController, UITextFieldDelegate, FullVersionAlertShowable, DTTableViewManageable {
+class CustOpEditorController: UITableViewController, UITextFieldDelegate, FullVersionAlertShowable {
+    var cells: [[UITableViewCell]] = [[], [], []]
     
     var operationEntity: OperationEntity?
+    
+    var txtInputs = [(JVFloatLabeledTextField, JVFloatLabeledTextField)]()
+    var txtResults = [(JVFloatLabeledTextField, JVFloatLabeledTextField)]()
+    var txtName: JVFloatLabeledTextField!
+    var switchRejectFloatingPoint: UISwitch!
     
     var editingInput = false
     var editingResult = false
@@ -19,8 +23,6 @@ class CustOpEditorController: UITableViewController, UITextFieldDelegate, FullVe
     var storeViewLoaded = false
     
     override func viewDidLoad() {
-        manager.startManagingWithDelegate(self)
-        manager.registerCellClass(EditorComponentCell)
         initStoreView()
         if operationEntity == nil {
             navigationItem.title = NSLocalizedString("New Custom Operation", comment: "")
@@ -30,29 +32,29 @@ class CustOpEditorController: UITableViewController, UITextFieldDelegate, FullVe
         
         let cell1 = tableView.dequeueReusableCellWithIdentifier("normalText")!
         
-        let txtName = cell1.viewWithTag(1) as! JVFloatLabeledTextField
-        txtName.setPlaceholder(NSLocalizedString("Name", comment: ""), floatingTitle: NSLocalizedString("Name", comment: ""))
-        txtName.text = self.operationEntity?.name ?? ""
-        txtName.delegate = self
+        self.txtName = cell1.viewWithTag(1) as! JVFloatLabeledTextField
+        self.txtName.setPlaceholder(NSLocalizedString("Name", comment: ""), floatingTitle: NSLocalizedString("Name", comment: ""))
+        self.txtName.text = self.operationEntity?.name ?? ""
+        self.txtName.delegate = self
         changeFontOfTextField(txtName)
         
-        manager.memoryStorage.addItem(EditorComponents.SingleField(txtName), toSection: 0)
+        addCellToSection(0, cell: cell1)
         
         let cell2 = tableView.dequeueReusableCellWithIdentifier("switch")!
         
-        let switchRejectFloatingPoint = cell2.viewWithTag(2) as! UISwitch
-        switchRejectFloatingPoint.on = self.operationEntity?.rejectFloatingPoint?.boolValue ?? false
+        self.switchRejectFloatingPoint = cell2.viewWithTag(2) as! UISwitch
+        self.switchRejectFloatingPoint.on = self.operationEntity?.rejectFloatingPoint?.boolValue ?? false
         
-        manager.memoryStorage.addItem(EditorComponents.Switch(cell2.textLabel!, switchRejectFloatingPoint), toSection: 0)
+        addCellToSection(0, cell: cell2)
         
         let cell3 = tableView.dequeueReusableCellWithIdentifier("button")!
         cell3.textLabel!.text = NSLocalizedString("Add New Input", comment: "")
         
-        manager.memoryStorage.addItem(EditorComponents.Button(cell3.textLabel!), toSection: 1)
+        addCellToSection(1, cell: cell3)
         
         if let inputs = operationEntity?.availableInputs {
-            for input in inputs.enumerate() {
-                let realInput = input.element as! OperationInput
+            for input in inputs {
+                let realInput = input as! OperationInput
                 let cell4 = tableView.dequeueReusableCellWithIdentifier("doubleText")!
                 
                 let name = cell4.viewWithTag(1) as! JVFloatLabeledTextField
@@ -65,15 +67,18 @@ class CustOpEditorController: UITableViewController, UITextFieldDelegate, FullVe
                 description.delegate = self
                 changeFontOfTextField(name)
                 changeFontOfTextField(description)
+                self.txtInputs.append((name, description))
                 
                 let swipeCell = cell4 as! MGSwipeTableCell
                 let deleteBtn = MGSwipeButton(title: NSLocalizedString("Delete", comment: ""), backgroundColor: UIColor.redColor(), callback: { _ in
-                    self.manager.memoryStorage.removeItemsAtIndexPaths([NSIndexPath(forRow: input.index + 1, inSection: 1)])
+                    let cellIndex = self.cells.indicesOf(swipeCell)!.1
+                    self.removeCellFromSection(1, index: cellIndex)
+                    self.txtInputs.removeAtIndex(cellIndex - 1)
                     return true
                 })
                 swipeCell.rightButtons = [deleteBtn]
                 
-                manager.memoryStorage.addItem(EditorComponents.DoubleField(name, description), toSection: 1)
+                addCellToSection(1, cell: cell4)
             }
         }
         
@@ -81,11 +86,11 @@ class CustOpEditorController: UITableViewController, UITextFieldDelegate, FullVe
         
         cell5.textLabel!.text = NSLocalizedString("Add New Result", comment: "")
         
-        manager.memoryStorage.addItem(EditorComponents.Button(cell5.textLabel!), toSection: 2)
+        addCellToSection(2, cell: cell5)
         
         if let results = operationEntity?.results {
-            for result in results.enumerate() {
-                let realResult = result.element as! OperationResult
+            for result in results {
+                let realResult = result as! OperationResult
                 let cell6 = tableView.dequeueReusableCellWithIdentifier("doubleText")!
                 
                 let name = cell6.viewWithTag(1) as! JVFloatLabeledTextField
@@ -99,16 +104,32 @@ class CustOpEditorController: UITableViewController, UITextFieldDelegate, FullVe
                 changeFontOfTextField(name)
                 changeFontOfTextField(formula)
                 
+                self.txtResults.append((name, formula))
+                
                 let swipeCell = cell6 as! MGSwipeTableCell
                 let deleteBtn = MGSwipeButton(title: NSLocalizedString("Delete", comment: ""), backgroundColor: UIColor.redColor(), callback: { _ in
-                    self.manager.memoryStorage.removeItemsAtIndexPaths([NSIndexPath(forRow: result.index + 1, inSection: 2)])
+                    let cellIndex = self.cells.indicesOf(swipeCell)!.1
+                    self.removeCellFromSection(2, index: cellIndex)
+                    self.txtResults.removeAtIndex(cellIndex)
                     return true
                 })
                 swipeCell.rightButtons = [deleteBtn]
                 
-                self.manager.memoryStorage.addItem(EditorComponents.DoubleField(name, formula), toSection: 2)
+                addCellToSection(2, cell: cell6)
             }
         }
+    }
+    
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return cells.count
+    }
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return cells[section].count
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        return cells[indexPath.section][indexPath.row]
     }
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -124,8 +145,9 @@ class CustOpEditorController: UITableViewController, UITextFieldDelegate, FullVe
         }
     }
     
-    func buttonPressed(cell: EditorComponentCell, component: EditorComponents, indexPath: NSIndexPath) {
-        switch (indexPath.row, indexPath.section) {
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        switch (indexPath.section, indexPath.row) {
         case (1, 0):
             let newRow = tableView.dequeueReusableCellWithIdentifier("doubleText")!
             
@@ -139,15 +161,19 @@ class CustOpEditorController: UITableViewController, UITextFieldDelegate, FullVe
             description.delegate = self
             changeFontOfTextField(name)
             changeFontOfTextField(description)
+            self.txtInputs.append((name, description))
             
             let swipeCell = newRow as! MGSwipeTableCell
             let deleteBtn = MGSwipeButton(title: NSLocalizedString("Delete", comment: ""), backgroundColor: UIColor.redColor(), callback: { _ in
-                self.manager.memoryStorage.removeItemsAtIndexPaths([indexPath])
+                let cellIndex = self.cells.indicesOf(swipeCell)!.1
+                self.removeCellFromSection(1, index: cellIndex)
+                self.txtInputs.removeAtIndex(cellIndex - 1)
                 return true
             })
             swipeCell.rightButtons = [deleteBtn]
             
-            manager.memoryStorage.addItem(EditorComponents.DoubleField(name, description), toSection: 1)
+            
+            addCellToSection(1, cell: newRow)
         case (2, 0):
             let newRow = tableView.dequeueReusableCellWithIdentifier("doubleText")!
             
@@ -162,17 +188,20 @@ class CustOpEditorController: UITableViewController, UITextFieldDelegate, FullVe
             changeFontOfTextField(name)
             changeFontOfTextField(formula)
             
+            self.txtResults.append((name, formula))
+            
             let swipeCell = newRow as! MGSwipeTableCell
             let deleteBtn = MGSwipeButton(title: NSLocalizedString("Delete", comment: ""), backgroundColor: UIColor.redColor(), callback: { _ in
-                self.manager.memoryStorage.removeItemsAtIndexPaths([indexPath])
+                let cellIndex = self.cells.indicesOf(swipeCell)!.1
+                self.removeCellFromSection(2, index: cellIndex)
+                self.txtResults.removeAtIndex(cellIndex - 1)
                 return true
             })
             swipeCell.rightButtons = [deleteBtn]
             
-            manager.memoryStorage.addItem(EditorComponents.DoubleField(name, formula), toSection: 2)
+            addCellToSection(2, cell: newRow)
         default:
             break;
-
         }
     }
     
@@ -187,14 +216,28 @@ class CustOpEditorController: UITableViewController, UITextFieldDelegate, FullVe
      }
      }*/
     
+    func addCellToSection(section: Int, cell: UITableViewCell) {
+        cells[section].append(cell)
+        tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: cells[section].endIndex - 1, inSection: section)], withRowAnimation: .Top)
+    }
+    
+    func removeCellFromSection(section: Int, index: Int) {
+        cells[section].removeAtIndex(index)
+        tableView.deleteRowsAtIndexPaths([NSIndexPath(forRow: index, inSection: section)], withRowAnimation: .Left)
+    }
+    
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         view.endEditing(true)
         return true
     }
     
     func textFieldDidEndEditing(textField: UITextField) {
-        if let symbol = CustOpEditorUtils.symbolsDict[textField.text!] {
-            textField.text = symbol
+        var listOfInputNames = [UITextField]()
+        txtInputs.forEach { listOfInputNames.append($0.0) }
+        if listOfInputNames.contains(textField) {
+            if let symbol = CustOpEditorUtils.symbolsDict[textField.text!] {
+                textField.text = symbol
+            }
         }
     }
     
@@ -210,135 +253,135 @@ class CustOpEditorController: UITableViewController, UITextFieldDelegate, FullVe
     
     @IBAction func done(sender: UIBarButtonItem) {
         var shouldReturn = false
-//        txtInputs.forEach {
-//            tuple in
-//            if tuple.0.text?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()) == "" || tuple.1.text?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()) == "" {
-//                shouldReturn = true
-//            }
-//        }
-//        
-//        if shouldReturn {
-//            self.showError("Please fill in all the blanks")
-//            return
-//        }
-//        
-//        txtResults.forEach {
-//            tuple in
-//            if tuple.0.text?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()) == "" || tuple.1.text?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()) == "" {
-//                shouldReturn = true
-//            }
-//            
-//        }
-//        
-//        if shouldReturn {
-//            self.showError("Please fill in all the blanks")
-//            return
-//        }
-//        
-//        if txtName.text?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()) == "" {
-//            self.showError("Please fill in all the blanks")
-//            return
-//        }
-//        
-//        if txtInputs.isEmpty {
-//            self.showError("Please add at least one input")
-//            return
-//        }
-//        
-//        if txtResults.isEmpty {
-//            self.showError("Please add at least one result")
-//            return
-//        }
-//        
-//        if txtInputs.count > 7 {
-//            showFullVersionAlert("You cannot add more than 7 inputs in the free version. Get the full version for unlimited inputs!")
-//            return
-//        }
-//        
-//        if txtResults.count > 5 {
-//            showFullVersionAlert("You cannot add more than 5 results in the free version. Get the full version for unlimited results!")
-//            return
-//        }
-//        
-//        txtInputs.forEach {
-//            tuple in
-//            if tuple.0.text?.characters.count > 2 {
-//                shouldReturn = true
-//            }
-//        }
-//        
-//        if shouldReturn {
-//            self.showError("Input names cannot be longer than 2 characters")
-//            return
-//        }
-//        
-//        txtInputs.forEach {
-//            tuple in
-//            let txt = tuple.0.text!
-//            if txt.containsString(" ") || txt.containsString("'") || txt.containsString("$") {
-//                shouldReturn = true
-//            }
-//        }
-//        
-//        if shouldReturn {
-//            self.showError("Input names cannot contain spaces, single quotes, or dollar signs")
-//            return
-//        }
-//        
-//        for (_, formula) in txtResults {
-//            if countCharatcersInString(formula.text!, c: "'") % 2 == 1 || countCharatcersInString(formula.text!, c: "(") != countCharatcersInString(formula.text!, c: ")") {
-//                self.showError("Parentheses and quotes must be balanced in formulas")
-//                return
-//            } else if formula.text!.containsString("$") {
-//                self.showError("Formulas cannot contain dollar signs")
-//                return
-//            }
-//        }
-//        
-//        let mappedInputNames = txtInputs.map { $0.0.text! }
-//        
-//        if Set<String>(mappedInputNames).count != mappedInputNames.count {
-//            self.showError("Input names must not contain duplicates")
-//            return
-//        }
-//        
-//        let dataContext: NSManagedObjectContext! = (UIApplication.sharedApplication().delegate as? AppDelegate)?.managedObjectContext
-//        let entityOp = NSEntityDescription.entityForName("OperationEntity", inManagedObjectContext: dataContext)!
-//        let entityInput = NSEntityDescription.entityForName("OperationInput", inManagedObjectContext: dataContext)
-//        let entityResult = NSEntityDescription.entityForName("OperationResult", inManagedObjectContext: dataContext)
-//        
-//        var objToSave: OperationEntity!
-//        if operationEntity != nil {
-//            for input in operationEntity!.availableInputs! {
-//                dataContext.deleteObject(input as! NSManagedObject)
-//            }
-//            
-//            for result in operationEntity!.results! {
-//                dataContext.deleteObject(result as! NSManagedObject)
-//            }
-//            objToSave = operationEntity
-//            objToSave.name = txtName.text!
-//            objToSave.rejectFloatingPoint = switchRejectFloatingPoint.on
-//        } else {
-//            objToSave = OperationEntity(entity: entityOp, insertIntoManagedObjectContext: dataContext, name: txtName.text!, rejectFloatingPoint: switchRejectFloatingPoint.on)
-//        }
-//        
-//        var inputArr = [OperationInput]()
-//        for (name, desc) in txtInputs {
-//            let input = OperationInput(entity: entityInput!, insertIntoManagedObjectContext: dataContext, name: name.text!, desc: desc.text!, operation: objToSave)
-//            inputArr.append(input)
-//        }
-//        objToSave.availableInputs = NSOrderedSet(array: inputArr)
-//        
-//        var resultArr = [OperationResult]()
-//        for (name, formula) in txtResults {
-//            let result = OperationResult(entity: entityResult!, insertIntoManagedObjectContext: dataContext, formula: formula.text!, name: name.text!, operation: objToSave)
-//            resultArr.append(result)
-//        }
-//        objToSave.results = NSOrderedSet(array: resultArr)
-//        
-//        dataContext.saveData()
-//        performSegueWithIdentifier("custOpSaved", sender: self)
+        txtInputs.forEach {
+            tuple in
+            if tuple.0.text?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()) == "" || tuple.1.text?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()) == "" {
+                shouldReturn = true
+            }
+        }
+        
+        if shouldReturn {
+            self.showError("Please fill in all the blanks")
+            return
+        }
+        
+        txtResults.forEach {
+            tuple in
+            if tuple.0.text?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()) == "" || tuple.1.text?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()) == "" {
+                shouldReturn = true
+            }
+            
+        }
+        
+        if shouldReturn {
+            self.showError("Please fill in all the blanks")
+            return
+        }
+        
+        if txtName.text?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()) == "" {
+            self.showError("Please fill in all the blanks")
+            return
+        }
+        
+        if txtInputs.isEmpty {
+            self.showError("Please add at least one input")
+            return
+        }
+        
+        if txtResults.isEmpty {
+            self.showError("Please add at least one result")
+            return
+        }
+        
+        if txtInputs.count > 7 {
+            showFullVersionAlert("You cannot add more than 7 inputs in the free version. Get the full version for unlimited inputs!")
+            return
+        }
+        
+        if txtResults.count > 5 {
+            showFullVersionAlert("You cannot add more than 5 results in the free version. Get the full version for unlimited results!")
+            return
+        }
+        
+        txtInputs.forEach {
+            tuple in
+            if tuple.0.text?.characters.count > 2 {
+                shouldReturn = true
+            }
+        }
+        
+        if shouldReturn {
+            self.showError("Input names cannot be longer than 2 characters")
+            return
+        }
+        
+        txtInputs.forEach {
+            tuple in
+            let txt = tuple.0.text!
+            if txt.containsString(" ") || txt.containsString("'") || txt.containsString("$") {
+                shouldReturn = true
+            }
+        }
+        
+        if shouldReturn {
+            self.showError("Input names cannot contain spaces, single quotes, or dollar signs")
+            return
+        }
+        
+        for (_, formula) in txtResults {
+            if countCharatcersInString(formula.text!, c: "'") % 2 == 1 || countCharatcersInString(formula.text!, c: "(") != countCharatcersInString(formula.text!, c: ")") {
+                self.showError("Parentheses and quotes must be balanced in formulas")
+                return
+            } else if formula.text!.containsString("$") {
+                self.showError("Formulas cannot contain dollar signs")
+                return
+            }
+        }
+        
+        let mappedInputNames = txtInputs.map { $0.0.text! }
+        
+        if Set<String>(mappedInputNames).count != mappedInputNames.count {
+            self.showError("Input names must not contain duplicates")
+            return
+        }
+        
+        let dataContext: NSManagedObjectContext! = (UIApplication.sharedApplication().delegate as? AppDelegate)?.managedObjectContext
+        let entityOp = NSEntityDescription.entityForName("OperationEntity", inManagedObjectContext: dataContext)!
+        let entityInput = NSEntityDescription.entityForName("OperationInput", inManagedObjectContext: dataContext)
+        let entityResult = NSEntityDescription.entityForName("OperationResult", inManagedObjectContext: dataContext)
+        
+        var objToSave: OperationEntity!
+        if operationEntity != nil {
+            for input in operationEntity!.availableInputs! {
+                dataContext.deleteObject(input as! NSManagedObject)
+            }
+            
+            for result in operationEntity!.results! {
+                dataContext.deleteObject(result as! NSManagedObject)
+            }
+            objToSave = operationEntity
+            objToSave.name = txtName.text!
+            objToSave.rejectFloatingPoint = switchRejectFloatingPoint.on
+        } else {
+            objToSave = OperationEntity(entity: entityOp, insertIntoManagedObjectContext: dataContext, name: txtName.text!, rejectFloatingPoint: switchRejectFloatingPoint.on)
+        }
+        
+        var inputArr = [OperationInput]()
+        for (name, desc) in txtInputs {
+            let input = OperationInput(entity: entityInput!, insertIntoManagedObjectContext: dataContext, name: name.text!, desc: desc.text!, operation: objToSave)
+            inputArr.append(input)
+        }
+        objToSave.availableInputs = NSOrderedSet(array: inputArr)
+        
+        var resultArr = [OperationResult]()
+        for (name, formula) in txtResults {
+            let result = OperationResult(entity: entityResult!, insertIntoManagedObjectContext: dataContext, formula: formula.text!, name: name.text!, operation: objToSave)
+            resultArr.append(result)
+        }
+        objToSave.results = NSOrderedSet(array: resultArr)
+        
+        dataContext.saveData()
+        performSegueWithIdentifier("custOpSaved", sender: self)
     }
     
     private func changeFontOfTextField(txtField: JVFloatLabeledTextField) {
