@@ -85,8 +85,6 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-MathToolbox/MathParser.framework"
-  install_framework "Pods-MathToolbox/DTModelStorage.framework"
-  install_framework "Pods-MathToolbox/DTTableViewManager.framework"
   install_framework "Pods-MathToolbox/EZLoadingActivity.framework"
   install_framework "Pods-MathToolbox/EZSwiftExtensions.framework"
   install_framework "Pods-MathToolbox/JVFloatLabeledTextField.framework"
@@ -94,8 +92,6 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-MathToolbox/MathParser.framework"
-  install_framework "Pods-MathToolbox/DTModelStorage.framework"
-  install_framework "Pods-MathToolbox/DTTableViewManager.framework"
   install_framework "Pods-MathToolbox/EZLoadingActivity.framework"
   install_framework "Pods-MathToolbox/EZSwiftExtensions.framework"
   install_framework "Pods-MathToolbox/JVFloatLabeledTextField.framework"
