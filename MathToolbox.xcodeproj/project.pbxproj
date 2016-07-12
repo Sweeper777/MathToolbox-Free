@@ -56,7 +56,7 @@
 		5AFD2B4B1C54C19500085372 /* SciNotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFD2B4A1C54C19500085372 /* SciNotation.swift */; };
 		5AFD37D91D33AE89004901F1 /* DTModelStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AFD37D71D33AE89004901F1 /* DTModelStorage.framework */; };
 		5AFD37DA1D33AE89004901F1 /* DTTableViewManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AFD37D81D33AE89004901F1 /* DTTableViewManager.framework */; };
-		5AFD37DC1D33AEF1004901F1 /* EditorComponentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFD37DB1D33AEF1004901F1 /* EditorComponentCell.swift */; };
+		5AFD37DC1D33AEF1004901F1 /* EditorComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFD37DB1D33AEF1004901F1 /* EditorComponent.swift */; };
 		5AFD911C1D321B2A008BCF67 /* FullVersionAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFD911B1D321B2A008BCF67 /* FullVersionAlert.swift */; };
 		5AFDBDC01C5A03F800E46757 /* TriangleInequality.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFDBDBF1C5A03F800E46757 /* TriangleInequality.swift */; };
 		5AFDBDC21C5A161300E46757 /* PolygonAngles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFDBDC11C5A161300E46757 /* PolygonAngles.swift */; };
@@ -153,7 +153,7 @@
 		5AFD2B4A1C54C19500085372 /* SciNotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SciNotation.swift; sourceTree = "<group>"; };
 		5AFD37D71D33AE89004901F1 /* DTModelStorage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DTModelStorage.framework; path = "Pods/../build/Debug-iphoneos/DTModelStorage.framework"; sourceTree = "<group>"; };
 		5AFD37D81D33AE89004901F1 /* DTTableViewManager.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DTTableViewManager.framework; path = "Pods/../build/Debug-iphoneos/DTTableViewManager.framework"; sourceTree = "<group>"; };
-		5AFD37DB1D33AEF1004901F1 /* EditorComponentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorComponentCell.swift; sourceTree = "<group>"; };
+		5AFD37DB1D33AEF1004901F1 /* EditorComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorComponent.swift; sourceTree = "<group>"; };
 		5AFD911B1D321B2A008BCF67 /* FullVersionAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullVersionAlert.swift; sourceTree = "<group>"; };
 		5AFDBDBF1C5A03F800E46757 /* TriangleInequality.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriangleInequality.swift; sourceTree = "<group>"; };
 		5AFDBDC11C5A161300E46757 /* PolygonAngles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolygonAngles.swift; sourceTree = "<group>"; };
@@ -251,7 +251,7 @@
 				5A027A9C1CE1AF520012E2F3 /* DataPasserController.swift */,
 				5AFA741D1CDD7C00007C3B7C /* CustOpListController.swift */,
 				5A027A9E1CE1AFFD0012E2F3 /* CustOpEditorController.swift */,
-				5AFD37DB1D33AEF1004901F1 /* EditorComponentCell.swift */,
+				5AFD37DB1D33AEF1004901F1 /* EditorComponent.swift */,
 				5AFD911B1D321B2A008BCF67 /* FullVersionAlert.swift */,
 				5AF083EA1C37B76F0076AC41 /* Assets.xcassets */,
 				5AF083EC1C37B76F0076AC41 /* LaunchScreen.storyboard */,
@@ -552,7 +552,7 @@
 				5AF2AB901C4A362B005342DC /* Trapizium.swift in Sources */,
 				5AFBC2641D0A957D00E27822 /* Trigonometry.swift in Sources */,
 				5AFDBDC01C5A03F800E46757 /* TriangleInequality.swift in Sources */,
-				5AFD37DC1D33AEF1004901F1 /* EditorComponentCell.swift in Sources */,
+				5AFD37DC1D33AEF1004901F1 /* EditorComponent.swift in Sources */,
 				5AFDCA721CE0B5B5008B9618 /* OperationInput+CoreDataProperties.swift in Sources */,
 				5A027A9F1CE1AFFD0012E2F3 /* CustOpEditorController.swift in Sources */,
 				5AFD2B4B1C54C19500085372 /* SciNotation.swift in Sources */,

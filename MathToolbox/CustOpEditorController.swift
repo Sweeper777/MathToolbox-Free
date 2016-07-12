@@ -3,11 +3,9 @@ import MGSwipeTableCell
 import CoreData
 import JVFloatLabeledTextField
 import StoreKit
-import DTTableViewManager
-import DTModelStorage
 
 // (╯°□°）╯︵ ┻━┻ Oh... sad memories...
-class CustOpEditorController: UITableViewController, UITextFieldDelegate, FullVersionAlertShowable, DTTableViewManageable {
+class CustOpEditorController: UITableViewController, UITextFieldDelegate, FullVersionAlertShowable {
     
     var operationEntity: OperationEntity?
     
