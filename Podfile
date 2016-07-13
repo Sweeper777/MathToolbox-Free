@@ -10,6 +10,7 @@ target 'MathToolbox' do
     pod 'EZSwiftExtensions'
     pod 'EZLoadingActivity'
     pod 'JVFloatLabeledTextField'
+    pod 'SwiftyJSON'
 end
 
 target 'MathToolboxTests' do

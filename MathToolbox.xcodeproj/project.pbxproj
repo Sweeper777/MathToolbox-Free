@@ -64,6 +64,7 @@
 		5AFDCA721CE0B5B5008B9618 /* OperationInput+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFDCA6C1CE0B5B5008B9618 /* OperationInput+CoreDataProperties.swift */; };
 		5AFDCA731CE0B5B5008B9618 /* OperationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFDCA6D1CE0B5B5008B9618 /* OperationResult.swift */; };
 		5AFDCA741CE0B5B5008B9618 /* OperationResult+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFDCA6E1CE0B5B5008B9618 /* OperationResult+CoreDataProperties.swift */; };
+		5AFDE0911D35FF00005B513A /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AFDE0901D35FF00005B513A /* SwiftyJSON.framework */; };
 		5AFDF8181CD1CE3A000EA485 /* AboutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFDF8171CD1CE3A000EA485 /* AboutController.swift */; };
 /* End PBXBuildFile section */
 
@@ -158,6 +159,7 @@
 		5AFDCA6C1CE0B5B5008B9618 /* OperationInput+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "OperationInput+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		5AFDCA6D1CE0B5B5008B9618 /* OperationResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationResult.swift; sourceTree = "<group>"; };
 		5AFDCA6E1CE0B5B5008B9618 /* OperationResult+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "OperationResult+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		5AFDE0901D35FF00005B513A /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "../../Library/Developer/Xcode/DerivedData/MathToolbox-gcebbmdgidxucegehqfzyzqihove/Build/Products/Debug-iphonesimulator/SwiftyJSON.framework"; sourceTree = "<group>"; };
 		5AFDF8171CD1CE3A000EA485 /* AboutController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AboutController.swift; path = ../AboutController.swift; sourceTree = "<group>"; };
 		A15C0326C287D9938F9210D0 /* Pods-MathToolbox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MathToolbox.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MathToolbox/Pods-MathToolbox.debug.xcconfig"; sourceTree = "<group>"; };
 		AD9DA1B2033A9DD534A0E91B /* Pods_MathToolbox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MathToolbox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -168,6 +170,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5AFDE0911D35FF00005B513A /* SwiftyJSON.framework in Frameworks */,
 				5AFBFAD21CFEB16E00FB7FC0 /* JVFloatLabeledTextField.framework in Frameworks */,
 				5AFBE98F1CFAA5F500BC1366 /* EZLoadingActivity.framework in Frameworks */,
 				5AF96ABD1CF99D330035F48C /* EZSwiftExtensions.framework in Frameworks */,
@@ -305,6 +308,7 @@
 		754D654E7C2759143F7E7E4F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5AFDE0901D35FF00005B513A /* SwiftyJSON.framework */,
 				5AFBFAD11CFEB16E00FB7FC0 /* JVFloatLabeledTextField.framework */,
 				5AFBFACF1CFD54AB00FB7FC0 /* TextFieldEffects.framework */,
 				5AFBE98E1CFAA5F500BC1366 /* EZLoadingActivity.framework */,

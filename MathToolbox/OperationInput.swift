@@ -1,5 +1,6 @@
 import Foundation
 import CoreData
+import SwiftyJSON
 
 class OperationInput : NSManagedObject {
     override init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext?) {
@@ -11,5 +12,12 @@ class OperationInput : NSManagedObject {
         self.name = name
         self.desc = desc
         self.operation = operation
+    }
+    
+    func toJSON() -> JSON {
+        return JSON([
+            "name": JSON(self.name!),
+            "desc": JSON(self.desc!)
+            ])
     }
 }

@@ -1,6 +1,6 @@
 import Foundation
 import CoreData
-
+import SwiftyJSON
 
 class OperationResult: NSManagedObject {
 
@@ -13,5 +13,12 @@ class OperationResult: NSManagedObject {
         self.formula = formula
         self.name = name
         self.operation = operation
+    }
+    
+    func toJSON() -> JSON {
+        return JSON([
+            "name": JSON(self.name!),
+            "formula": JSON(self.formula!)
+            ])
     }
 }
