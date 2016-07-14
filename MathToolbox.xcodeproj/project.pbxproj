@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0D5B7634A7D0FE41CBD9C449 /* Pods_MathToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD9DA1B2033A9DD534A0E91B /* Pods_MathToolbox.framework */; };
 		5A0028231D1FF2E700F9F908 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5A0028251D1FF2E700F9F908 /* InfoPlist.strings */; };
+		5A00F79B1D372637006ACC63 /* ExportController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A00F79A1D372637006ACC63 /* ExportController.swift */; };
 		5A027A9B1CE1917E0012E2F3 /* CustomOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A027A9A1CE1917E0012E2F3 /* CustomOperation.swift */; };
 		5A027A9D1CE1AF520012E2F3 /* DataPasserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A027A9C1CE1AF520012E2F3 /* DataPasserController.swift */; };
 		5A027A9F1CE1AFFD0012E2F3 /* CustOpEditorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A027A9E1CE1AFFD0012E2F3 /* CustOpEditorController.swift */; };
@@ -90,6 +91,7 @@
 		5A0028241D1FF2E700F9F908 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5A0028261D1FF2E800F9F908 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		5A0028271D1FF2E900F9F908 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		5A00F79A1D372637006ACC63 /* ExportController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExportController.swift; sourceTree = "<group>"; };
 		5A027A9A1CE1917E0012E2F3 /* CustomOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomOperation.swift; sourceTree = "<group>"; };
 		5A027A9C1CE1AF520012E2F3 /* DataPasserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataPasserController.swift; sourceTree = "<group>"; };
 		5A027A9E1CE1AFFD0012E2F3 /* CustOpEditorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustOpEditorController.swift; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 				5A027A9C1CE1AF520012E2F3 /* DataPasserController.swift */,
 				5AFA741D1CDD7C00007C3B7C /* CustOpListController.swift */,
 				5A027A9E1CE1AFFD0012E2F3 /* CustOpEditorController.swift */,
+				5A00F79A1D372637006ACC63 /* ExportController.swift */,
 				5AFD911B1D321B2A008BCF67 /* FullVersionAlert.swift */,
 				5AF083EA1C37B76F0076AC41 /* Assets.xcassets */,
 				5AF083EC1C37B76F0076AC41 /* LaunchScreen.storyboard */,
@@ -540,6 +543,7 @@
 				5ABF45BE1C4BC829005616F9 /* PrimeFactors.swift in Sources */,
 				5AF084121C37B7F00076AC41 /* Operation.swift in Sources */,
 				5AF9D3851CE61F6500B6FCEB /* CustOpEditorUtils.swift in Sources */,
+				5A00F79B1D372637006ACC63 /* ExportController.swift in Sources */,
 				5AF361E21C5C48C10004DCF8 /* Arc.swift in Sources */,
 				5A027A9D1CE1AF520012E2F3 /* DataPasserController.swift in Sources */,
 				5AF2AB901C4A362B005342DC /* Trapizium.swift in Sources */,

@@ -62,11 +62,11 @@ class CustOpListController: UITableViewController, FullVersionAlertShowable {
             return true
         }
         
-        let exportBtn = MGSwipeButton(title: "", icon: UIImage(named: "export"), backgroundColor: UIColor(hexString: "5abb5a")) {
+        let exportBtn = MGSwipeButton(title: "hello", icon: UIImage(named: "export"), backgroundColor: UIColor(hexString: "5abb5a")) {
             _ in
             let op = self.operations[indexPath.row]
-            print(op.name!)
-            print(op.toJSON())
+            
+            self.performSegueWithIdentifier("showExport", sender: self)
             return true
         }
         

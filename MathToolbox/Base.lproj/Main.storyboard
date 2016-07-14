@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="3LZ-qg-ZSH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="3LZ-qg-ZSH">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -81,6 +81,7 @@
                     <connections>
                         <segue destination="DGB-R0-Mn8" kind="presentation" identifier="showEditor" modalPresentationStyle="formSheet" id="8qX-Rg-T5c"/>
                         <segue destination="pOX-Vn-qAh" kind="show" identifier="enterCustOp" id="fLo-ud-diu"/>
+                        <segue destination="VvU-U3-N6h" kind="presentation" identifier="showExport" modalPresentationStyle="formSheet" id="hrI-oA-7cb"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RSD-nC-PoA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -367,7 +368,122 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="olb-aI-X1Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1582" y="962"/>
+            <point key="canvasLocation" x="1614" y="870"/>
+        </scene>
+        <!--Export-->
+        <scene sceneID="cG8-dL-dzF">
+            <objects>
+                <tableViewController id="M6a-XF-YgN" customClass="ExportController" customModule="MathToolbox" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="qiV-M3-ay7">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <sections>
+                            <tableViewSection headerTitle="exported custom operation:" id="1yy-Gk-8VI">
+                                <string key="footerTitle">You can share custom operations with Math Toolbox - Full Version users by copying the exported text and pasting it to the "Import" screen in the full version</string>
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="329" id="Ym8-QC-u3k">
+                                        <rect key="frame" x="0.0" y="94" width="600" height="329"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ym8-QC-u3k" id="bcX-zZ-xjE">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="329"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="aND-BZ-OzT">
+                                                    <rect key="frame" x="8" y="8" width="584" height="313"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <string key="text">{
+    name: "Snell's Law",
+    rejectFloatingPoint: false,
+    availableInputs: [
+        {
+            name: "n1",
+            desc: "refractive index of the first medium"
+        },
+        {
+            name: "n2",
+            desc: "refractive index of the second medium"
+        }
+    ],
+    results: [
+        {
+            name: "angle of refraction",
+            formula: "1 + 1"
+        }
+    ]
+}</string>
+                                                    <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="13"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="aND-BZ-OzT" firstAttribute="leading" secondItem="bcX-zZ-xjE" secondAttribute="leadingMargin" id="5jL-M4-l8N"/>
+                                                <constraint firstItem="aND-BZ-OzT" firstAttribute="top" secondItem="bcX-zZ-xjE" secondAttribute="topMargin" id="Tbg-ib-Wmt"/>
+                                                <constraint firstItem="aND-BZ-OzT" firstAttribute="trailing" secondItem="bcX-zZ-xjE" secondAttribute="trailingMargin" id="ZEy-S8-OHm"/>
+                                                <constraint firstItem="aND-BZ-OzT" firstAttribute="centerY" secondItem="bcX-zZ-xjE" secondAttribute="centerY" id="zK0-Fb-5bf"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="XCJ-zk-Ss1" style="IBUITableViewCellStyleDefault" id="hdN-DK-cZy">
+                                        <rect key="frame" x="0.0" y="422.5" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hdN-DK-cZy" id="nxC-M7-PVJ">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Copy Exported Custom Operation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XCJ-zk-Ss1">
+                                                    <rect key="frame" x="15" y="0.0" width="570" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.23137254900000001" green="0.4823529412" blue="0.23137254900000001" alpha="1" colorSpace="deviceRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="M6a-XF-YgN" id="jBZ-bA-mkO"/>
+                            <outlet property="delegate" destination="M6a-XF-YgN" id="Z70-Rq-P18"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Export" id="Dli-Ku-lgd">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="nT7-Bb-5tg">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="done:" destination="M6a-XF-YgN" id="FjQ-oI-tMw"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="exportedText" destination="aND-BZ-OzT" id="XKI-By-9AX"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="A1P-WF-Hxr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2435" y="1812"/>
+        </scene>
+        <!--Data Passer Controller-->
+        <scene sceneID="kpw-jz-IDw">
+            <objects>
+                <navigationController id="VvU-U3-N6h" customClass="DataPasserController" customModule="MathToolbox" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7De-TQ-OV8">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.35294117650000001" green="0.73333333329999995" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="M6a-XF-YgN" kind="relationship" relationship="rootViewController" id="Ev2-fd-Oe6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q4P-9h-EnZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1614" y="1568"/>
         </scene>
         <!--Results-->
         <scene sceneID="559-9O-Qw4">
@@ -549,7 +665,7 @@
         <image name="logo" width="180" height="180"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="AYG-p0-CSq"/>
-        <segue reference="qab-G1-fNV"/>
+        <segue reference="ahC-dZ-a11"/>
+        <segue reference="fLo-ud-diu"/>
     </inferredMetricsTieBreakers>
 </document>
