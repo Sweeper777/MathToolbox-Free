@@ -81,7 +81,7 @@
                     <connections>
                         <segue destination="DGB-R0-Mn8" kind="presentation" identifier="showEditor" modalPresentationStyle="formSheet" id="8qX-Rg-T5c"/>
                         <segue destination="pOX-Vn-qAh" kind="show" identifier="enterCustOp" id="fLo-ud-diu"/>
-                        <segue destination="VvU-U3-N6h" kind="presentation" identifier="showExport" modalPresentationStyle="formSheet" id="hrI-oA-7cb"/>
+                        <segue destination="VvU-U3-N6h" kind="presentation" identifier="showExport" modalPresentationStyle="formSheet" id="gHp-Al-hwp"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RSD-nC-PoA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -383,7 +383,7 @@
                                 <string key="footerTitle">You can share custom operations with Math Toolbox - Full Version users by copying the exported text and pasting it to the "Import" screen in the full version</string>
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="329" id="Ym8-QC-u3k">
-                                        <rect key="frame" x="0.0" y="94" width="600" height="329"/>
+                                        <rect key="frame" x="0.0" y="93.5" width="600" height="329"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ym8-QC-u3k" id="bcX-zZ-xjE">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="329"/>
@@ -424,8 +424,12 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection id="N35-3W-bfb">
+                                <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="XCJ-zk-Ss1" style="IBUITableViewCellStyleDefault" id="hdN-DK-cZy">
-                                        <rect key="frame" x="0.0" y="422.5" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="483.5" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hdN-DK-cZy" id="nxC-M7-PVJ">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -458,7 +462,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="exportedText" destination="aND-BZ-OzT" id="XKI-By-9AX"/>
+                        <outlet property="exportedTextView" destination="aND-BZ-OzT" id="vYw-br-D6z"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A1P-WF-Hxr" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -468,7 +472,7 @@
         <!--Data Passer Controller-->
         <scene sceneID="kpw-jz-IDw">
             <objects>
-                <navigationController id="VvU-U3-N6h" customClass="DataPasserController" customModule="MathToolbox" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="datapasserexport" id="VvU-U3-N6h" customClass="DataPasserController" customModule="MathToolbox" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="7De-TQ-OV8">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

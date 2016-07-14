@@ -7,6 +7,7 @@ class CustOpListController: UITableViewController, FullVersionAlertShowable {
     var operations = [OperationEntity]()
     let dataContext: NSManagedObjectContext! = (UIApplication.sharedApplication().delegate as? AppDelegate)?.managedObjectContext
     var operationToPass: OperationEntity!
+    var jsonStringToPass: String!
     
     var vc: UIViewController { return self }
     let storeViewController = SKStoreProductViewController()
@@ -62,10 +63,10 @@ class CustOpListController: UITableViewController, FullVersionAlertShowable {
             return true
         }
         
-        let exportBtn = MGSwipeButton(title: "hello", icon: UIImage(named: "export"), backgroundColor: UIColor(hexString: "5abb5a")) {
+        let exportBtn = MGSwipeButton(title: "", icon: UIImage(named: "export"), backgroundColor: UIColor(hexString: "5abb5a")) {
             _ in
             let op = self.operations[indexPath.row]
-            
+            self.jsonStringToPass = op.toJSON().rawString()!
             self.performSegueWithIdentifier("showExport", sender: self)
             return true
         }
@@ -87,6 +88,7 @@ class CustOpListController: UITableViewController, FullVersionAlertShowable {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let vc = segue.destinationViewController as? DataPasserController {
             vc.operationEntity = operationToPass
+            vc.jsonString = jsonStringToPass
         } else if let vc = segue.destinationViewController as? OperationViewController {
             vc.operation = CustomOperation(entity: operationToPass)
         } else if let vc = segue.destinationViewController as? HelpViewController {
