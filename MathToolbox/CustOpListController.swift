@@ -66,7 +66,7 @@ class CustOpListController: UITableViewController, FullVersionAlertShowable {
             _ in
             let op = self.operations[indexPath.row]
             print(op.name!)
-            print(op.toJSON().string!)
+            print(op.toJSON())
             return true
         }
         

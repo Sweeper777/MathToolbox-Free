@@ -17,21 +17,23 @@ class OperationEntity: NSManagedObject {
     }
     
     func toJSON() -> JSON {
-        var inputsJSON = [JSON]()
+        var inputsArr = [JSON]()
         for input in availableInputs! {
-            inputsJSON.append((input as! OperationInput).toJSON())
+            inputsArr.append((input as! OperationInput).toJSON())
         }
         
-        var resultsJSON = [JSON]()
+        var resultsArr = [JSON]()
         for result in results! {
-            resultsJSON.append((result as! OperationResult).toJSON())
+            resultsArr.append((result as! OperationResult).toJSON())
         }
+        let inputsJSON = JSON(inputsArr)
+        let resultsJSON = JSON(resultsArr)
         
         let dict = [
             "name": JSON(self.name!),
             "rejectFloatingPoint": JSON(self.rejectFloatingPoint!.boolValue),
-            "availableInputs": JSON(inputsJSON),
-            "results": JSON(resultsJSON)
+            "availableInputs": inputsJSON,
+            "results": resultsJSON
         ]
         return JSON(dict)
     }

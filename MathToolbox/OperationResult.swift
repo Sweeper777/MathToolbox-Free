@@ -16,9 +16,10 @@ class OperationResult: NSManagedObject {
     }
     
     func toJSON() -> JSON {
-        return JSON([
+        let json = JSON([
             "name": JSON(self.name!),
             "formula": JSON(self.formula!)
             ])
+        return json
     }
 }

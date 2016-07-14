@@ -15,9 +15,10 @@ class OperationInput : NSManagedObject {
     }
     
     func toJSON() -> JSON {
-        return JSON([
+        let json = JSON([
             "name": JSON(self.name!),
             "desc": JSON(self.desc!)
             ])
+        return json
     }
 }
