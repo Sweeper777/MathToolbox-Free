@@ -63,19 +63,19 @@ class CustOpListController: UITableViewController, FullVersionAlertShowable {
             return true
         }
         
-        let exportBtn = MGSwipeButton(title: "", icon: UIImage(named: "export"), backgroundColor: UIColor(hexString: "5abb5a")) {
-            _ in
-            let op = self.operations[indexPath.row]
-            self.jsonStringToPass = op.toJSON().rawString()!
-            self.performSegueWithIdentifier("showExport", sender: self)
-            return true
-        }
+//        let exportBtn = MGSwipeButton(title: "", icon: UIImage(named: "export"), backgroundColor: UIColor(hexString: "5abb5a")) {
+//            _ in
+//            let op = self.operations[indexPath.row]
+//            self.jsonStringToPass = op.toJSON().rawString()!
+//            self.performSegueWithIdentifier("showExport", sender: self)
+//            return true
+//        }
         
         cell.rightButtons = [deleteBtn, editBtn]
         cell.rightSwipeSettings.transition = .Drag
         
-        cell.leftButtons = [exportBtn]
-        cell.rightSwipeSettings.transition = .Drag
+//        cell.leftButtons = [exportBtn]
+//        cell.rightSwipeSettings.transition = .Drag
         return cell
     }
     
