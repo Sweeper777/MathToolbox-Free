@@ -58,11 +58,18 @@ class TimeInterval : Operation {
     }
     
     private func normalizeTimeInterval(s: NSTimeInterval) -> String {
-        let hours = Int(s) / 60 / 60
+        let days = Int(s) / 86400
+        let hours = Int(s) % 86400 / 60 / 60
         let minutes = Int(s) % 3600 / 60
         let seconds = Int(s) % 60
         
         var normalized = ""
+        
+        if days == 1 {
+            normalized += "\(days) \(NSLocalizedString("Day", comment: "")) "
+        } else if days != 0 {
+            normalized += "\(days) \(NSLocalizedString("Days", comment: "")) "
+        }
         
         if hours == 1 {
             normalized += "\(hours) \(NSLocalizedString("Hour", comment: "")) "
