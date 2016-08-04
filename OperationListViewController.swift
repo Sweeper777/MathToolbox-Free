@@ -8,6 +8,7 @@ class OperationListViewController: UITableViewController, GADInterstitialDelegat
         ("Triangles", [Triangle(), TriangleInequality(), TrigAndPyth(), Trigonometry()]),
         ("Factors and Multiples", [Factors(), PrimeFactors(), FactorPairs(), LeastCommonMultiple()]),
         ("General Numbers", [PrimeNumber(), SciNotation(), RandomNumGen()]),
+        ("Date and Time", [TimeInterval()]),
         ("Misc", [DegreesRadiansGradians(), HexDecBinOct()])
     ]
     var operationToPass: Operation?

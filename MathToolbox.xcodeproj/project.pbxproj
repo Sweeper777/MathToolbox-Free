@@ -13,6 +13,7 @@
 		5A027A9B1CE1917E0012E2F3 /* CustomOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A027A9A1CE1917E0012E2F3 /* CustomOperation.swift */; };
 		5A027A9D1CE1AF520012E2F3 /* DataPasserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A027A9C1CE1AF520012E2F3 /* DataPasserController.swift */; };
 		5A027A9F1CE1AFFD0012E2F3 /* CustOpEditorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A027A9E1CE1AFFD0012E2F3 /* CustOpEditorController.swift */; };
+		5A0D53BF1D52C25F00DDA04F /* TimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0D53BE1D52C25F00DDA04F /* TimeInterval.swift */; };
 		5A0F179F1D2FD94300795C64 /* Snapfile in Resources */ = {isa = PBXBuildFile; fileRef = 5A0F179D1D2FD94300795C64 /* Snapfile */; };
 		5A0F17A01D2FD94300795C64 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0F179E1D2FD94300795C64 /* SnapshotHelper.swift */; };
 		5A10E9A01C92C549005E54F2 /* HexDecBinOct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A10E99F1C92C549005E54F2 /* HexDecBinOct.swift */; };
@@ -95,6 +96,7 @@
 		5A027A9A1CE1917E0012E2F3 /* CustomOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomOperation.swift; sourceTree = "<group>"; };
 		5A027A9C1CE1AF520012E2F3 /* DataPasserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataPasserController.swift; sourceTree = "<group>"; };
 		5A027A9E1CE1AFFD0012E2F3 /* CustOpEditorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustOpEditorController.swift; sourceTree = "<group>"; };
+		5A0D53BE1D52C25F00DDA04F /* TimeInterval.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeInterval.swift; sourceTree = "<group>"; };
 		5A0F179D1D2FD94300795C64 /* Snapfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Snapfile; sourceTree = SOURCE_ROOT; };
 		5A0F179E1D2FD94300795C64 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 		5A10E99F1C92C549005E54F2 /* HexDecBinOct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HexDecBinOct.swift; sourceTree = "<group>"; };
@@ -275,6 +277,7 @@
 				5AFBBD471CDB0966009B805B /* RandomNumGen.swift */,
 				5AF361E31C5C51950004DCF8 /* Sector.swift */,
 				5AFBC2631D0A957D00E27822 /* Trigonometry.swift */,
+				5A0D53BE1D52C25F00DDA04F /* TimeInterval.swift */,
 			);
 			path = MathToolbox;
 			sourceTree = "<group>";
@@ -520,6 +523,7 @@
 				5A8FF6031C40C17200C9566E /* HelpViewController.swift in Sources */,
 				5A10E9A01C92C549005E54F2 /* HexDecBinOct.swift in Sources */,
 				5A8FF5FF1C4099B000C9566E /* OperationViewController.swift in Sources */,
+				5A0D53BF1D52C25F00DDA04F /* TimeInterval.swift in Sources */,
 				5AFDCA741CE0B5B5008B9618 /* OperationResult+CoreDataProperties.swift in Sources */,
 				5AFDCA701CE0B5B5008B9618 /* OperationEntity+CoreDataProperties.swift in Sources */,
 				5ABF45B81C4B7B98005616F9 /* UserSettings.swift in Sources */,
