@@ -166,12 +166,7 @@ class OperationViewController: UITableViewController, UITextFieldDelegate, UIGes
             }
             input[operation.operationAvailableInputs[i].name] = candidate
         }
-        
-        if input.count == 0 {
-            return nil
-        } else {
-            return operation.calculate(input)
-        }
+        return operation.calculate(input)
     }
     
     private func addBlanks () {
