@@ -54,6 +54,7 @@ class OperationListViewController: UITableViewController, GADInterstitialDelegat
             return cell
         }
         cell.textLabel?.text = NSLocalizedString(operationsList[indexPath.section].operations[indexPath.row].operationName, comment: "")
+        cell.accessoryType = .DisclosureIndicator
         return cell
     }
     
