@@ -1,5 +1,5 @@
 //
-//  TokenGenerator.swift
+//  TokenIterator.swift
 //  DDMathParser
 //
 //  Created by Dave DeLong on 8/6/15.
@@ -8,15 +8,15 @@
 
 import Foundation
 
-internal class TokenGenerator: GeneratorType {
-    typealias Element = Either<RawToken, TokenizerError>
+internal final class TokenIterator: IteratorProtocol {
+    typealias Element = Either<RawToken, MathParserError>
     
     private let buffer: TokenCharacterBuffer
     private let extractors: Array<TokenExtractor>
     
     internal let operatorSet: OperatorSet
     
-    init(string: String, operatorSet: OperatorSet, locale: NSLocale?) {
+    init(string: String, operatorSet: OperatorSet, locale: Locale?) {
         self.operatorSet = operatorSet
         let operatorTokens = operatorSet.operatorTokenSet
         
@@ -31,6 +31,7 @@ internal class TokenGenerator: GeneratorType {
         
         extractors = [
             HexNumberExtractor(),
+            OctalNumberExtractor(),
             numberExtractor,
             SpecialNumberExtractor(),
             ExponentExtractor(),
@@ -61,9 +62,9 @@ internal class TokenGenerator: GeneratorType {
             let result = extractor.extract(buffer)
             
             switch result {
-                case .Value(_):
+                case .value(_):
                     return result
-                case .Error(_):
+                case .error(_):
                     errors.append(result)
             }
         }

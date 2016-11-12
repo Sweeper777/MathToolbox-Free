@@ -1,5 +1,5 @@
 //
-//  PeekingGenerator.swift
+//  PeekingIterator.swift
 //  DDMathParser
 //
 //  Created by Dave DeLong on 8/14/15.
@@ -8,11 +8,11 @@
 
 import Foundation
 
-protocol PeekingGeneratorType: GeneratorType {
+protocol PeekingIteratorType: IteratorProtocol {
     func peek() -> Element?
 }
 
-internal class PeekingGenerator<G: GeneratorType>: PeekingGeneratorType {
+internal final class PeekingIterator<G: IteratorProtocol>: PeekingIteratorType {
     typealias Element = G.Element
     
     private var generator: G
