@@ -23,13 +23,13 @@ class CustomOperation : Operation {
         operationEntity.results?.forEach {
             let item = $0 as! OperationResult
             var evaluator = Evaluator(caseSensitive: false)
-            evaluator.angleMeasurementMode = .Degrees
+            evaluator.angleMeasurementMode = .degrees
             let x = try? evaluator.evaluate(Expression(string: item.formula!), substitutions: inputs)
             
             if x != nil {
                 let froms = Set<String>(findAllStringsInQuotes(string: item.formula!))
-                let from = froms.joinWithSeparator(", ")
-                let hasPi = item.formula!.lowercaseString.containsString("pi") || item.formula!.lowercaseString.containsString("π")
+                let from = froms.joined(separator: ", ")
+                let hasPi = item.formula!.lowercased().contains("pi") || item.formula!.lowercased().contains("π")
                 result.append((item.name!, from, correctToSigFigAndPi(x!, hasPi)))
             }
         }
@@ -46,7 +46,7 @@ class CustomOperation : Operation {
     }
 }
 
-func findAllStringsInQuotes(string string: String, quoteCharacter: Character = "'") -> [String] {
+func findAllStringsInQuotes(string: String, quoteCharacter: Character = "'") -> [String] {
     var result = [String]()
     var shouldAddToCurrent = false
     var current = ""

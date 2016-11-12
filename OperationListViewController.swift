@@ -17,48 +17,48 @@ class OperationListViewController: UITableViewController, GADInterstitialDelegat
 
     @IBAction func infoClicked(sender: UIBarButtonItem) {
         func fullVerisonClick (sender: UIAlertAction) {
-            openStoreProductWithiTunesItemIdentifier("1080075778")
+            openStoreProductWithiTunesItemIdentifier(identifier: "1080075778")
         }
         
         func aboutClick (sender: UIAlertAction) {
-            performSegueWithIdentifier("showAbout", sender: self)
+            performSegue(withIdentifier: "showAbout", sender: self)
         }
         
-        let actionSheet = UIAlertController(title: "", message: "", preferredStyle: .ActionSheet)
-        actionSheet.addAction(UIAlertAction(title: NSLocalizedString("Get the Full Version!", comment: ""), style: .Default, handler: fullVerisonClick))
-        actionSheet.addAction(UIAlertAction(title: NSLocalizedString("About", comment: ""), style: .Default, handler: aboutClick))
-        actionSheet.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .Cancel, handler: nil))
+        let actionSheet = UIAlertController(title: "", message: "", preferredStyle: .actionSheet)
+        actionSheet.addAction(UIAlertAction(title: NSLocalizedString("Get the Full Version!", comment: ""), style: .default, handler: fullVerisonClick))
+        actionSheet.addAction(UIAlertAction(title: NSLocalizedString("About", comment: ""), style: .default, handler: aboutClick))
+        actionSheet.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
         actionSheet.popoverPresentationController?.barButtonItem = sender
-        self.presentViewController(actionSheet, animated: true, completion: nil)
+        self.present(actionSheet, animated: true, completion: nil)
     }
     
     func openStoreProductWithiTunesItemIdentifier(identifier: String) {
         if storeViewLoaded {
-            self.presentViewController(storeViewController, animated: true, completion: nil)
+            self.present(storeViewController, animated: true, completion: nil)
         } else {
-            let alert = UIAlertController(title: NSLocalizedString("Loading", comment: ""), message: NSLocalizedString("Still Loading App Store... Please try again later. This may be caused by slow or no Internet connection.", comment: ""), preferredStyle: .Alert)
-            alert.addAction(UIAlertAction(title:NSLocalizedString("OK", comment: ""), style: .Default, handler: nil))
-            self.presentViewController(alert, animated: true, completion: nil)
+            let alert = UIAlertController(title: NSLocalizedString("Loading", comment: ""), message: NSLocalizedString("Still Loading App Store... Please try again later. This may be caused by slow or no Internet connection.", comment: ""), preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title:NSLocalizedString("OK", comment: ""), style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
     }
     
-    func productViewControllerDidFinish(viewController: SKStoreProductViewController) {
-        viewController.dismissViewControllerAnimated(true, completion: nil)
+    func productViewControllerDidFinish(_ viewController: SKStoreProductViewController) {
+        viewController.dismiss(animated: true, completion: nil)
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         if indexPath.section == operationsList.endIndex {
             cell.textLabel!.text = NSLocalizedString("Custom Operations", comment: "")
-            cell.accessoryType = .DisclosureIndicator
+            cell.accessoryType = .disclosureIndicator
             return cell
         }
         cell.textLabel?.text = NSLocalizedString(operationsList[indexPath.section].operations[indexPath.row].operationName, comment: "")
-        cell.accessoryType = .DisclosureIndicator
+        cell.accessoryType = .disclosureIndicator
         return cell
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == operationsList.endIndex {
             return 1
         }
@@ -66,11 +66,11 @@ class OperationListViewController: UITableViewController, GADInterstitialDelegat
         return operationsList[section].operations.count
     }
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return operationsList.count + 1
     }
     
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         tableView.tableHeaderView?.backgroundColor = UIColor(red: 0x5a / 0xff, green: 0xbb / 0xff, blue: 0x5a / 0xff, alpha: 1.0)
         
         if section == operationsList.endIndex {
@@ -80,35 +80,35 @@ class OperationListViewController: UITableViewController, GADInterstitialDelegat
         return NSLocalizedString(operationsList[section].category, comment: "")
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == operationsList.endIndex {
             if !UserSettings.prefHideWarning {
-                let alert = UIAlertController(title: NSLocalizedString("Warning", comment: ""), message: NSLocalizedString("This feature is for experienced users only", comment: ""), preferredStyle: .Alert)
+                let alert = UIAlertController(title: NSLocalizedString("Warning", comment: ""), message: NSLocalizedString("This feature is for experienced users only", comment: ""), preferredStyle: .alert)
                 
-                alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .Default) {_ in self.performSegueWithIdentifier("showCustomOperations", sender: self) })
-                alert.addAction(UIAlertAction(title: NSLocalizedString("Do not show again", comment: ""), style: .Default) {
+                alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default) {_ in self.performSegue(withIdentifier: "showCustomOperations", sender: self) })
+                alert.addAction(UIAlertAction(title: NSLocalizedString("Do not show again", comment: ""), style: .default) {
                     (_) in UserSettings.prefHideWarning = true
-                    self.performSegueWithIdentifier("showCustomOperations", sender: self)
+                    self.performSegue(withIdentifier: "showCustomOperations", sender: self)
                 })
-                alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .Cancel, handler: nil))
+                alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
                 
-                self.presentViewController(alert, animated: true, completion: nil)
+                self.present(alert, animated: true, completion: nil)
             } else {
-                self.performSegueWithIdentifier("showCustomOperations", sender: self)
+                self.performSegue(withIdentifier: "showCustomOperations", sender: self)
             }
             
-            tableView.deselectRowAtIndexPath(indexPath, animated: true)
+            tableView.deselectRow(at: indexPath, animated: true)
             return
         }
         
         operationToPass = operationsList[indexPath.section].operations[indexPath.row]
-        performSegueWithIdentifier("showOperation", sender: tableView)
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        performSegue(withIdentifier: "showOperation", sender: tableView)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showOperation" {
-            let vc = segue.destinationViewController as! OperationViewController
+            let vc = segue.destination as! OperationViewController
             vc.operation = operationToPass
         }
     }
@@ -117,11 +117,12 @@ class OperationListViewController: UITableViewController, GADInterstitialDelegat
         
     }
     
-    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = UILabel(frame: CGRectMake(0, 0, tableView.bounds.size.width, 30))
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let headerView = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 30))
         headerView.backgroundColor = UIColor(red: 0xca / 0xff, green: 1, blue: 0xc7 / 0xff, alpha: 1.0)
         headerView.text = "  " + self.tableView(tableView, titleForHeaderInSection: section)!
-        let fontD: UIFontDescriptor = headerView.font.fontDescriptor().fontDescriptorWithSymbolicTraits(.TraitBold)
+        let fontD: UIFontDescriptor = headerView.font.fontDescriptor.withSymbolicTraits(.traitBold)!
         headerView.font = UIFont(descriptor: fontD, size: 0)
         return headerView
     }
@@ -131,16 +132,16 @@ class OperationListViewController: UITableViewController, GADInterstitialDelegat
     var ad = GADInterstitial(adUnitID: adId)
     var appearCallCount: Int!
     
-    func interstitialDidReceiveAd(ad: GADInterstitial!) {
-        ad.presentFromRootViewController(self)
+    func interstitialDidReceiveAd(_ ad: GADInterstitial!) {
+        ad.present(fromRootViewController: self)
     }
     
-    func interstitial(ad: GADInterstitial!, didFailToReceiveAdWithError error: GADRequestError!) {
-        self.performSelector(#selector(OperationListViewController.loadNewAd), withObject: nil, afterDelay: 60.0)
+    func interstitial(_ ad: GADInterstitial!, didFailToReceiveAdWithError error: GADRequestError!) {
+        self.perform(#selector(OperationListViewController.loadNewAd), with: nil, afterDelay: 60.0)
     }
     
     func loadNewAd() {
-        if let parentVC = self.parentViewController {
+        if let parentVC = self.parent {
             if (parentVC as! UINavigationController).topViewController !== self {
                 return
             }
@@ -149,52 +150,52 @@ class OperationListViewController: UITableViewController, GADInterstitialDelegat
         }
         
         ad = GADInterstitial(adUnitID: adId)
-        ad.delegate = self
+        ad?.delegate = self
         let request = GADRequest()
         request.testDevices = [kGADSimulatorID]
-        ad.loadRequest(request)
+        ad?.load(request)
     }
     
-    func interstitialDidDismissScreen(ad: GADInterstitial!) {
-        self.performSelector(#selector(OperationListViewController.loadNewAd), withObject: nil, afterDelay: 120.0)
+    func interstitialDidDismissScreen(_ ad: GADInterstitial!) {
+        self.perform(#selector(OperationListViewController.loadNewAd), with: nil, afterDelay: 120.0)
     }
     
     override func viewDidLoad() {
-        ad.delegate = self
+        ad?.delegate = self
         appearCallCount = 0
         
         if arc4random_uniform(100) < 30 {
             let request = GADRequest()
             request.testDevices = [kGADSimulatorID]
-            ad.loadRequest(request)
+            ad?.load(request)
         } else {
-            self.performSelector(#selector(OperationListViewController.loadNewAd), withObject: nil, afterDelay: 120.0)
+            self.perform(#selector(OperationListViewController.loadNewAd), with: nil, afterDelay: 120.0)
         }
         
-        UINavigationBar.appearance().barStyle = .Black
-        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        UINavigationBar.appearance().barStyle = .black
+        self.navigationController?.navigationBar.tintColor = UIColor.white
         
         storeViewController.delegate = self
         
         let parameters = [ SKStoreProductParameterITunesItemIdentifier : "1080075778"]
-        storeViewController.loadProductWithParameters(parameters) { (loaded, error) in
+        storeViewController.loadProduct(withParameters: parameters) { (loaded, error) in
             self.storeViewLoaded = loaded
         }
     }
     
     func showRateMsg() {
-        let alert = UIAlertController(title: NSLocalizedString("Enjoying Math Toolbox?", comment: ""), message: NSLocalizedString("You can rate this app, or send me feedback!", comment: ""), preferredStyle: .Alert)
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Rate!", comment: ""), style: .Default) { _ in
-                UIApplication.sharedApplication().openURL(NSURL(string: "https://itunes.apple.com/us/app/math-toolbox-free/id1080062807?ls=1&mt=8")!)
+        let alert = UIAlertController(title: NSLocalizedString("Enjoying Math Toolbox?", comment: ""), message: NSLocalizedString("You can rate this app, or send me feedback!", comment: ""), preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Rate!", comment: ""), style: .default) { _ in
+                UIApplication.shared.openURL(URL(string: "https://itunes.apple.com/us/app/math-toolbox-free/id1080062807?ls=1&mt=8")!)
             })
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Send Feedback", comment: ""), style: .Default) { _ in
-            UIApplication.sharedApplication().openURL(NSURL(string: "mailto://sumulang@gmail.com")!)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Send Feedback", comment: ""), style: .default) { _ in
+            UIApplication.shared.openURL(URL(string: "mailto://sumulang@gmail.com")!)
             })
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Maybe Later", comment: ""), style: .Default, handler: nil))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Maybe Later", comment: ""), style: .default, handler: nil))
         self.presentVC(alert)
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         if appearCallCount == nil {
@@ -208,7 +209,7 @@ class OperationListViewController: UITableViewController, GADInterstitialDelegat
                 showRateMsg()
             }
             
-            self.performSelector(#selector(OperationListViewController.loadNewAd), withObject: nil, afterDelay: 120.0)
+            self.perform(#selector(OperationListViewController.loadNewAd), with: nil, afterDelay: 120.0)
         }
         
         appearCallCount! += 1

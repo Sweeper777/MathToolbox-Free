@@ -43,12 +43,12 @@ func leastCommonMultiple(of x: Double, and y: Double) -> Double {
         return 0
     }
     
-    if largerNumber % smallerNumber == 0 {
+    if largerNumber.truncatingRemainder(dividingBy: smallerNumber) == 0 {
         return isNegative ? -largerNumber : largerNumber
     }
     
     var i = 2.0
-    while (largerNumber * i) % smallerNumber != 0 {
+    while (largerNumber * i).truncatingRemainder(dividingBy: smallerNumber) != 0 {
         i += 1
     }
     return (isNegative ? -largerNumber : largerNumber) * i

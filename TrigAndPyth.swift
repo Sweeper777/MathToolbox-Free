@@ -93,7 +93,7 @@ class TrigAndPyth : Operation {
     }
 }
 
-func pythTheorm(a a: Double?, b: Double?, c: Double?) -> Double? {
+func pythTheorm(a: Double?, b: Double?, c: Double?) -> Double? {
     if let A = a, let B = b {
         return sqrt(A * A + B * B)
     }

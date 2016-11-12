@@ -49,7 +49,7 @@ class Triangle: Operation {
             
             if a * a + b * b == c * c || a * a + c * c == b * b || b * b + c * c == a * a {
                 result.append(("Is Right Angled", "a, b, c", NSLocalizedString("True", comment: "")))
-                let sorted = [a, b, c].sort()
+                let sorted = [a, b, c].sorted()
                 let area = sorted[0] * sorted[1] / 2
                 
                 result.append(("Area", "a, b, c", correctToSigFigAndPi(area, false)))
