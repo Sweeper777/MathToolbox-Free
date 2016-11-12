@@ -5,7 +5,7 @@ import StoreKit
 
 class CustOpListController: UITableViewController, FullVersionAlertShowable {
     var operations = [OperationEntity]()
-    let dataContext: NSManagedObjectContext! = (UIApplication.sharedApplication().delegate as? AppDelegate)?.managedObjectContext
+    let dataContext: NSManagedObjectContext! = (UIApplication.shared.delegate as? AppDelegate)?.managedObjectContext
     var operationToPass: OperationEntity!
     var jsonStringToPass: String!
     
@@ -16,10 +16,10 @@ class CustOpListController: UITableViewController, FullVersionAlertShowable {
     func reloadData() {
         if dataContext != nil {
             self.operations.removeAll()
-            let entity = NSEntityDescription.entityForName("OperationEntity", inManagedObjectContext: dataContext)
-            let request = NSFetchRequest()
+            let entity = NSEntityDescription.entity(forEntityName: "OperationEntity", in: dataContext)
+            let request = NSFetchRequest<NSFetchRequestResult>()
             request.entity = entity
-            let operations = try? dataContext.executeFetchRequest(request)
+            let operations = try? dataContext.fetch(request)
             if operations != nil {
                 for item in operations! {
                     self.operations.append(item as! OperationEntity)
@@ -35,31 +35,31 @@ class CustOpListController: UITableViewController, FullVersionAlertShowable {
         reloadData()
     }
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return operations.count
     }
 
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = MGSwipeTableCell()
         cell.textLabel?.text = operations[indexPath.row].name
-        let deleteBtn = MGSwipeButton(title: NSLocalizedString("Delete", comment: ""), backgroundColor: UIColor.redColor()) {
+        let deleteBtn = MGSwipeButton(title: NSLocalizedString("Delete", comment: ""), backgroundColor: UIColor.red) {
             _ in
-            self.dataContext.deleteObject(self.operations[indexPath.row])
+            self.dataContext.delete(self.operations[indexPath.row])
             self.dataContext.saveData()
-            self.operations.removeAtIndex(indexPath.row)
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Top)
+            self.operations.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .top)
             return true
         }
         
-        let editBtn = MGSwipeButton(title: NSLocalizedString("Edit", comment: ""), backgroundColor: UIColor.lightGrayColor()) {
+        let editBtn = MGSwipeButton(title: NSLocalizedString("Edit", comment: ""), backgroundColor: UIColor.lightGray) {
             _ in
             self.operationToPass = self.operations[indexPath.row]
-            self.performSegueWithIdentifier("showEditor", sender: self)
+            self.performSegue(withIdentifier: "showEditor", sender: self)
             return true
         }
         
@@ -72,26 +72,26 @@ class CustOpListController: UITableViewController, FullVersionAlertShowable {
 //        }
         
         cell.rightButtons = [deleteBtn, editBtn]
-        cell.rightSwipeSettings.transition = .Drag
+        cell.rightSwipeSettings.transition = .drag
         
 //        cell.leftButtons = [exportBtn]
 //        cell.rightSwipeSettings.transition = .Drag
         return cell
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         operationToPass = operations[indexPath.row]
-        performSegueWithIdentifier("enterCustOp", sender: self)
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        performSegue(withIdentifier: "enterCustOp", sender: self)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let vc = segue.destinationViewController as? DataPasserController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? DataPasserController {
             vc.operationEntity = operationToPass
             vc.jsonString = jsonStringToPass
-        } else if let vc = segue.destinationViewController as? OperationViewController {
+        } else if let vc = segue.destination as? OperationViewController {
             vc.operation = CustomOperation(entity: operationToPass)
-        } else if let vc = segue.destinationViewController as? HelpViewController {
+        } else if let vc = segue.destination as? HelpViewController {
             vc.helpString = NSLocalizedString("custOpHelp", comment: "")
         }
     }
@@ -99,11 +99,11 @@ class CustOpListController: UITableViewController, FullVersionAlertShowable {
     @IBAction func addNew(sender: UIBarButtonItem) {
         operationToPass = nil
         if operations.count >= 5 {
-            self.showFullVersionAlert("You cannot have more than 5 custom operations in the free version. Get the full version to create unlimited custom operations!")
+            self.showFullVersionAlert(msg: "You cannot have more than 5 custom operations in the free version. Get the full version to create unlimited custom operations!")
             return
         }
         
-        performSegueWithIdentifier("showEditor", sender: self)
+        performSegue(withIdentifier: "showEditor", sender: self)
     }
     
     @IBAction func unwind(segue: UIStoryboardSegue) {

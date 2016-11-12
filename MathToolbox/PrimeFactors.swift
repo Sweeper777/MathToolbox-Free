@@ -27,7 +27,7 @@ class PrimeFactors: Operation {
             if largestPrimeFactor > 0 {
                 var primeFactors: [Int] = []
                 for i in 2...largestPrimeFactor {
-                    if isPrime(i) && intX % i == 0 {
+                    if isPrime(n: i) && intX % i == 0 {
                         result.append(("Prime Factors", "x", String(i)))
                         primeFactors.append(i)
                     }

@@ -12,10 +12,10 @@ class ExportController: UITableViewController {
         dismissVC(completion: nil)
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 1 {
-            UIPasteboard.generalPasteboard().string = exportedText
+            UIPasteboard.general.string = exportedText
         }
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
