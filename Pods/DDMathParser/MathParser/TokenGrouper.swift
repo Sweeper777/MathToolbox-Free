@@ -10,14 +10,14 @@ import Foundation
 
 private extension GroupedToken {
     
-    private var endIndex: String.Index {
+    private var endIndex: Int {
         switch self.kind {
-            case let .Function(_, parameters):
-                return parameters.last?.endIndex ?? range.endIndex
-            case let .Group(tokens):
-                return tokens.last?.endIndex ?? range.endIndex
+            case let .function(_, parameters):
+                return parameters.last?.range.upperBound ?? range.upperBound
+            case let .group(tokens):
+                return tokens.last?.range.upperBound ?? range.upperBound
             default:
-                return range.endIndex
+                return range.upperBound
         }
     }
     
@@ -37,26 +37,26 @@ public struct TokenGrouper {
     
     public func group() throws -> GroupedToken {
         let tokens = try resolver.resolve()
-        let p = PeekingGenerator(generator: tokens.generate())
+        let p = PeekingIterator(generator: tokens.makeIterator())
         let g = try rootTokenFromGenerator(p)
         return stripRedundantGroups(g)
     }
     
-    private func stripRedundantGroups(t: GroupedToken) -> GroupedToken {
+    private func stripRedundantGroups(_ t: GroupedToken) -> GroupedToken {
         switch t.kind {
-            case .Function(let f, let tokens):
+            case .function(let f, let tokens):
                 let stripped = tokens.map { stripRedundantGroups($0) }
-                return GroupedToken(kind: .Function(f, stripped), range: t.range)
-            case .Group(let tokens):
+                return GroupedToken(kind: .function(f, stripped), range: t.range)
+            case .group(let tokens):
                 let stripped = tokens.map { stripRedundantGroups($0) }
                 if stripped.count == 1 { return stripped[0] }
-                return GroupedToken(kind: .Group(stripped), range: t.range)
+                return GroupedToken(kind: .group(stripped), range: t.range)
             default:
                 return t
         }
     }
     
-    private func rootTokenFromGenerator<P: PeekingGeneratorType where P.Element == ResolvedToken>(g: P) throws -> GroupedToken {
+    private func rootTokenFromGenerator<P: PeekingIteratorType>(_ g: P) throws -> GroupedToken where P.Element == ResolvedToken {
         
         var rootTokens = Array<GroupedToken>()
         
@@ -66,79 +66,80 @@ public struct TokenGrouper {
         }
         
         guard let first = rootTokens.first, let last = rootTokens.last else {
-            // cheap way to get an empty range
-            let range = "".startIndex ..< "".startIndex
-            throw GroupedTokenError(kind: .EmptyGroup, range: range) //EmptyGroup
+            throw MathParserError(kind: .emptyGroup, range: 0 ..< 0) //EmptyGroup
         }
-        let range = first.range.startIndex ..< last.range.endIndex
+        let range: Range<Int> = first.range.lowerBound ..< last.range.upperBound
         
-        return GroupedToken(kind: .Group(rootTokens), range: range)
+        return GroupedToken(kind: .group(rootTokens), range: range)
     }
     
-    private func tokenFromGenerator<P: PeekingGeneratorType where P.Element == ResolvedToken>(var g: P) throws -> GroupedToken {
+    private func tokenFromGenerator<P: PeekingIteratorType>(_ generator: P) throws -> GroupedToken where P.Element == ResolvedToken {
+        var g = generator
         
         guard let peek = g.peek() else {
             fatalError("Implementation flaw")
         }
         
         switch peek.kind {
-            case .Number(let d):
+            case .number(let d):
                 let _ = g.next()
-                return GroupedToken(kind: .Number(d), range: peek.range)
-            case .Variable(let s):
+                return GroupedToken(kind: .number(d), range: peek.range)
+            case .variable(let s):
                 let _ = g.next()
-                return GroupedToken(kind: .Variable(s), range: peek.range)
-            case .Identifier(_):
+                return GroupedToken(kind: .variable(s), range: peek.range)
+            case .identifier(_):
                 return try functionTokenFromGenerator(g)
-            case .Operator(let o) where o.builtInOperator == .ParenthesisOpen:
+            case .operator(let o) where o.builtInOperator == .parenthesisOpen:
                 return try groupTokenFromGenerator(g)
-            case .Operator(let o) where o.builtInOperator == .ParenthesisClose:
+            case .operator(let o) where o.builtInOperator == .parenthesisClose:
                 // CloseParen, but no OpenParen
-                throw GroupedTokenError(kind: .MissingOpenParenthesis, range: peek.range)
-            case .Operator(let o):
+                throw MathParserError(kind: .missingOpenParenthesis, range: peek.range)
+            case .operator(let o):
                 let _ = g.next()
-                return GroupedToken(kind: .Operator(o), range: peek.range)
+                return GroupedToken(kind: .operator(o), range: peek.range)
             
         }
     }
     
-    private func functionTokenFromGenerator<P: PeekingGeneratorType where P.Element == ResolvedToken>(var g: P) throws -> GroupedToken {
+    private func functionTokenFromGenerator<P: PeekingIteratorType>(_ generator: P) throws -> GroupedToken where P.Element == ResolvedToken {
+        var g = generator
         guard let function = g.next() else {
             fatalError("Implementation flaw")
         }
         
-        guard let open = g.next() where open.kind.builtInOperator == .ParenthesisOpen else {
-            throw GroupedTokenError(kind: .MissingOpenParenthesis, range: function.range.endIndex ..< function.range.endIndex)
+        guard let open = g.next(), open.kind.builtInOperator == .parenthesisOpen else {
+            throw MathParserError(kind: .missingOpenParenthesis, range: function.range.upperBound ..< function.range.upperBound)
         }
         
         var parameters = Array<GroupedToken>()
         
-        while let p = g.peek() where p.kind.builtInOperator != .ParenthesisClose {
+        while let p = g.peek(), p.kind.builtInOperator != .parenthesisClose {
             // read out all the arguments
-            let parameter = try parameterGroupFromGenerator(g, parameterIndex: p.range.startIndex)
+            let parameter = try parameterGroupFromGenerator(g, parameterIndex: p.range.lowerBound)
             parameters.append(parameter)
         }
         
-        guard let close = g.next() where close.kind.builtInOperator == .ParenthesisClose else {
-            let indexForMissingParen = parameters.last?.endIndex ?? open.range.endIndex
-            throw GroupedTokenError(kind: .MissingCloseParenthesis, range: indexForMissingParen ..< indexForMissingParen)
+        guard let close = g.next(), close.kind.builtInOperator == .parenthesisClose else {
+            let indexForMissingParen = parameters.last?.range.upperBound ?? open.range.upperBound
+            throw MathParserError(kind: .missingCloseParenthesis, range: indexForMissingParen ..< indexForMissingParen)
         }
         
-        let range = function.range.startIndex ..< close.range.endIndex
-        return GroupedToken(kind: .Function(function.string, parameters), range: range)
+        let range: Range<Int> = function.range.lowerBound ..< close.range.upperBound
+        return GroupedToken(kind: .function(function.string, parameters), range: range)
     }
     
-    private func parameterGroupFromGenerator<P: PeekingGeneratorType where P.Element == ResolvedToken>(var g: P, parameterIndex: String.Index) throws -> GroupedToken {
+    private func parameterGroupFromGenerator<P: PeekingIteratorType>(_ generator: P, parameterIndex: Int) throws -> GroupedToken where P.Element == ResolvedToken {
+        var g = generator
         
         var parameterTokens = Array<GroupedToken>()
         
         while let p = g.peek() {
-            if p.kind.builtInOperator == .Comma {
+            if p.kind.builtInOperator == .comma {
                 let _ = g.next() // consume the comma
                 break
             }
             
-            if p.kind.builtInOperator == .ParenthesisClose {
+            if p.kind.builtInOperator == .parenthesisClose {
                 break // don't consume
             }
             
@@ -147,37 +148,38 @@ public struct TokenGrouper {
         }
         
         guard let first = parameterTokens.first, let last = parameterTokens.last else {
-            throw GroupedTokenError(kind: .EmptyFunctionArgument, range: parameterIndex ..< parameterIndex) // EmptyFunctionArgument
+            throw MathParserError(kind: .emptyFunctionArgument, range: parameterIndex ..< parameterIndex) // EmptyFunctionArgument
         }
         
-        let range = first.range.startIndex ..< last.range.endIndex
-        return GroupedToken(kind: .Group(parameterTokens), range: range)
+        let range: Range<Int> = first.range.lowerBound ..< last.range.upperBound
+        return GroupedToken(kind: .group(parameterTokens), range: range)
     }
     
-    private func groupTokenFromGenerator<P: PeekingGeneratorType where P.Element == ResolvedToken>(var g: P) throws -> GroupedToken {
-        guard let open = g.next() where open.kind.builtInOperator == .ParenthesisOpen else {
+    private func groupTokenFromGenerator<P: PeekingIteratorType>(_ generator: P) throws -> GroupedToken where P.Element == ResolvedToken {
+        var g = generator
+        guard let open = g.next(), open.kind.builtInOperator == .parenthesisOpen else {
             fatalError("Implementation flaw")
         }
         
         var tokens = Array<GroupedToken>()
         
-        while let peek = g.peek() where peek.kind.builtInOperator != .ParenthesisClose {
+        while let peek = g.peek(), peek.kind.builtInOperator != .parenthesisClose {
             
             tokens.append(try tokenFromGenerator(g))
         }
         
-        guard let close = g.next() where close.kind.builtInOperator == .ParenthesisClose else {
-            let indexForMissingParen = tokens.last?.endIndex ?? open.range.endIndex
-            throw GroupedTokenError(kind: .MissingCloseParenthesis, range: indexForMissingParen ..< indexForMissingParen)
+        guard let close = g.next(), close.kind.builtInOperator == .parenthesisClose else {
+            let indexForMissingParen = tokens.last?.range.upperBound ?? open.range.upperBound
+            throw MathParserError(kind: .missingCloseParenthesis, range: indexForMissingParen ..< indexForMissingParen)
         }
         
-        let range = open.range.startIndex ..< close.range.endIndex
+        let range: Range<Int> = open.range.lowerBound ..< close.range.upperBound
         
         guard tokens.isEmpty == false else {
-            throw GroupedTokenError(kind: .EmptyGroup, range: range) // Empty Group
+            throw MathParserError(kind: .emptyGroup, range: range) // Empty Group
         }
         
-        return GroupedToken(kind: .Group(tokens), range: range)
+        return GroupedToken(kind: .group(tokens), range: range)
     }
     
 }

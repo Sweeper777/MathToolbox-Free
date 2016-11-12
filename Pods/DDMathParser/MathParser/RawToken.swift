@@ -11,32 +11,17 @@ import Foundation
 public struct RawToken {
     
     public enum Kind {
-        case HexNumber
-        case Number
-        case LocalizedNumber
-        case Exponent
-        case Variable
-        case Operator
-        case Identifier
+        case hexNumber
+        case octalNumber
+        case number
+        case localizedNumber
+        case exponent
+        case variable
+        case `operator`
+        case identifier
     }
     
     public let kind: Kind
     public let string: String
-    public let range: Range<String.Index>
-}
-
-public struct TokenizerError: ErrorType {
-    public enum Kind {
-        case CannotParseNumber
-        case CannotParseHexNumber
-        case CannotParseExponent
-        case CannotParseIdentifier
-        case CannotParseVariable
-        case CannotParseQuotedVariable
-        case CannotParseOperator
-        case ZeroLengthVariable
-    }
-    
-    public let kind: Kind
-    public let sourceRange: Range<String.Index>
+    public let range: Range<Int>
 }

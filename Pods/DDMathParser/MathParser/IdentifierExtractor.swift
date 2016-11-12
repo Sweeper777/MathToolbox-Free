@@ -15,28 +15,28 @@ internal struct IdentifierExtractor: TokenExtractor {
         self.operatorTokens = operatorTokens
     }
     
-    func matchesPreconditions(buffer: TokenCharacterBuffer) -> Bool {
+    func matchesPreconditions(_ buffer: TokenCharacterBuffer) -> Bool {
         // An identifier can't start with these, because other things already do
         let next = buffer.peekNext()
         return next != "$" && next?.isDigit == false && next != "\"" && next != "'"
     }
     
-    func extract(buffer: TokenCharacterBuffer) -> TokenGenerator.Element {
+    func extract(_ buffer: TokenCharacterBuffer) -> TokenIterator.Element {
         let start = buffer.currentIndex
         
-        while let next = buffer.peekNext() where next.isWhitespace == false && operatorTokens.isOperatorCharacter(next) == false {
+        while let next = buffer.peekNext(), next.isWhitespace == false && operatorTokens.isOperatorCharacter(next) == false {
             buffer.consume()
         }
         
-        let range = start ..< buffer.currentIndex
-        let result: TokenGenerator.Element
+        let range: Range<Int> = start ..< buffer.currentIndex
+        let result: TokenIterator.Element
         
-        if start.distanceTo(buffer.currentIndex) > 0 {
+        if buffer.currentIndex - start > 0 {
             let raw = buffer[range]
-            result = .Value(RawToken(kind: .Identifier, string: raw, range: range))
+            result = .value(RawToken(kind: .identifier, string: raw, range: range))
         } else {
-            let error = TokenizerError(kind: .CannotParseIdentifier, sourceRange: range)
-            result = .Error(error)
+            let error = MathParserError(kind: .cannotParseIdentifier, range: range)
+            result = .error(error)
         }
         
         return result

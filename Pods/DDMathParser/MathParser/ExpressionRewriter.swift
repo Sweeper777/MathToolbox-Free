@@ -9,22 +9,24 @@
 import Foundation
 
 public struct ExpressionRewriter {
+    private let maxIterationCount: UInt
     private var rules: Array<RewriteRule>
     
-    public static let defaultRewriter = ExpressionRewriter(rules: RewriteRule.defaultRules)
+    public static let `default` = ExpressionRewriter(rules: RewriteRule.defaultRules)
     
-    public init(rules: Array<RewriteRule>) {
+    public init(rules: Array<RewriteRule>, maxIterationCount: UInt = 256) {
+        self.maxIterationCount = maxIterationCount
         self.rules = rules
     }
     
-    public mutating func addRule(rule: RewriteRule) {
+    public mutating func addRule(_ rule: RewriteRule) {
         rules.append(rule)
     }
     
-    public func rewriteExpression(expression: Expression, substitutions: Substitutions = [:], evaluator: Evaluator = Evaluator.defaultEvaluator) -> Expression {
+    public func rewriteExpression(_ expression: Expression, substitutions: Substitutions = [:], evaluator: Evaluator = Evaluator.default) -> Expression {
         
         var tmp = expression
-        var iterationCount = 0
+        var iterationCount: UInt = 0
         
         repeat {
             var changed = false
@@ -38,31 +40,31 @@ public struct ExpressionRewriter {
             }
         
             if changed == false { break }
-            iterationCount++
+            iterationCount += 1
             
-        } while iterationCount < 256
+        } while iterationCount < maxIterationCount
         
-        if iterationCount >= 256 {
+        if iterationCount >= maxIterationCount {
             NSLog("replacement limit reached")
         }
         
         return tmp
     }
     
-    private func rewrite(expression: Expression, usingRule rule: RewriteRule, substitutions: Substitutions, evaluator: Evaluator) -> Expression {
+    private func rewrite(_ expression: Expression, usingRule rule: RewriteRule, substitutions: Substitutions, evaluator: Evaluator) -> Expression {
         
         let simplified = expression.simplify(substitutions, evaluator: evaluator)
         
         let rewritten = rule.rewrite(simplified, substitutions: substitutions, evaluator: evaluator)
         if rewritten != expression { return rewritten }
         
-        guard case let .Function(f, args) = rewritten.kind else { return rewritten }
+        guard case let .function(f, args) = rewritten.kind else { return rewritten }
         
         let newArgs = args.map { rewrite($0, usingRule: rule, substitutions: substitutions, evaluator: evaluator) }
         
         // if nothing changed, reture
         guard args != newArgs else { return rewritten }
         
-        return Expression(kind: .Function(f, newArgs), range: rewritten.range)
+        return Expression(kind: .function(f, newArgs), range: rewritten.range)
     }
 }

@@ -8,8 +8,14 @@
 
 import UIKit
 
+#if os(iOS)
+
 extension UISwitch {
 
-
-
+	/// EZSE: toggles Switch
+	public func toggle() {
+		self.setOn(!self.isOn, animated: true)
+	}
 }
+
+#endif

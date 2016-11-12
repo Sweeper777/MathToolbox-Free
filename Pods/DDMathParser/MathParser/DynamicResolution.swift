@@ -9,15 +9,15 @@
 import Foundation
 
 public protocol FunctionOverrider {
-    func overrideFunction(function: String, arguments: Array<Expression>, substitutions: Substitutions, evaluator: Evaluator) throws -> Double?
+    func overrideFunction(_ function: String, state: EvaluationState) throws -> Double?
 }
 
 public protocol FunctionResolver {
-    func resolveFunction(function: String, arguments: Array<Expression>, substitutions: Substitutions, evaluator: Evaluator) throws -> Double?
+    func resolveFunction(_ function: String, state: EvaluationState) throws -> Double?
 }
 
 public protocol VariableResolver {
-    func resolveVariable(variable: String) -> Double?
+    func resolveVariable(_ variable: String) -> Double?
 }
 
 public typealias Substitutions = Dictionary<String, Double>

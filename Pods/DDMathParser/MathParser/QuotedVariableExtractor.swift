@@ -10,11 +10,11 @@ import Foundation
 
 internal struct QuotedVariableExtractor: TokenExtractor {
     
-    func matchesPreconditions(buffer: TokenCharacterBuffer) -> Bool {
+    func matchesPreconditions(_ buffer: TokenCharacterBuffer) -> Bool {
         return buffer.peekNext() == "\"" || buffer.peekNext() == "'"
     }
     
-    func extract(buffer: TokenCharacterBuffer) -> TokenGenerator.Element {
+    func extract(_ buffer: TokenCharacterBuffer) -> TokenIterator.Element {
         let start = buffer.currentIndex
         
         // consume the opening quote
@@ -44,22 +44,22 @@ internal struct QuotedVariableExtractor: TokenExtractor {
             
         }
         
-        let result: TokenGenerator.Element
+        let result: TokenIterator.Element
         
         if buffer.peekNext() != quoteCharacter {
-            let errorRange = start ..< buffer.currentIndex
-            let error = TokenizerError(kind: .CannotParseQuotedVariable, sourceRange: errorRange)
-            result = .Error(error)
+            let errorRange: Range<Int> = start ..< buffer.currentIndex
+            let error = MathParserError(kind: .cannotParseQuotedVariable, range: errorRange)
+            result = .error(error)
         } else {
             buffer.consume()
-            let range = start ..< buffer.currentIndex
+            let range: Range<Int> = start ..< buffer.currentIndex
             // check to make sure we don't have an empty string
             if cleaned.characters.isEmpty {
-                let error = TokenizerError(kind: .ZeroLengthVariable, sourceRange: range)
-                result = .Error(error)
+                let error = MathParserError(kind: .zeroLengthVariable, range: range)
+                result = .error(error)
             } else {
-                let token = RawToken(kind: .Variable, string: cleaned, range: range)
-                result = .Value(token)
+                let token = RawToken(kind: .variable, string: cleaned, range: range)
+                result = .value(token)
             }
         }
         

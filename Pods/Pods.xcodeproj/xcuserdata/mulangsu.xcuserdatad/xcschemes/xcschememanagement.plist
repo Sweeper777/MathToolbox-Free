@@ -34,6 +34,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-MathToolboxTests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-MathToolboxUITests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SwiftyJSON.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -42,12 +52,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>00D7892760C9FA42668F5D787DA4E45B</key>
+		<key>1C853606EB53CBBD7B16D690D9BCCE87</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>230124BFAF895348DD890F418187691D</key>
+		<key>494A839667F4F1C4A9889358EA00B961</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -57,7 +67,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>68E95B5237086E70430751E00F9C3FC6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6D46ACCA4C3F2BE3B8F9A9E35B37F4A4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>735882DA95E7FCCEC084FC1C5384FF8A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>78A3232C072FBD78389832E9542CDC84</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -67,12 +92,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CC2C6E66CADF0C9F76F897D03F533C69</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E6C879477FED53079B99C06823BF1870</key>
+		<key>D659D074E2AC00CB64641E79335A28AE</key>
 		<dict>
 			<key>primary</key>
 			<true/>

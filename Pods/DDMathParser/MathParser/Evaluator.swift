@@ -8,29 +8,22 @@
 
 import Foundation
 
-public enum EvaluationError: ErrorType {
-    case UnknownFunction(String)
-    case UnknownVariable(String)
-    case DivideByZero
-    case InvalidArguments
-}
-
-public enum FunctionRegistrationError: ErrorType {
-    case FunctionAlreadyExists(String)
-    case FunctionDoesNotExist(String)
+public enum FunctionRegistrationError: Error {
+    case functionAlreadyExists(String)
+    case functionDoesNotExist(String)
 }
 
 public struct Evaluator {
     
     public enum AngleMode {
-        case Radians
-        case Degrees
+        case radians
+        case degrees
     }
     
-    public static let defaultEvaluator = Evaluator()
+    public static let `default` = Evaluator()
     private let functionSet: FunctionSet
     
-    public var angleMeasurementMode = AngleMode.Radians
+    public var angleMeasurementMode = AngleMode.radians
     public var functionOverrider: FunctionOverrider?
     public var functionResolver: FunctionResolver?
     public var variableResolver: VariableResolver?
@@ -39,26 +32,26 @@ public struct Evaluator {
         functionSet = FunctionSet(caseSensitive: caseSensitive)
     }
     
-    public func evaluate(expression: Expression, substitutions: Substitutions = [:]) throws -> Double {
+    public func evaluate(_ expression: Expression, substitutions: Substitutions = [:]) throws -> Double {
         switch expression.kind {
-            case .Number(let d):
+            case .number(let d):
                 return d
-            case .Variable(let s):
-                return try evaluateVariable(s, substitutions: substitutions)
-            case .Function(let f, let args):
-                return try evaluateFunction(f, arguments: args, substitutions: substitutions)
+            case .variable(let s):
+                return try evaluateVariable(s, substitutions: substitutions, range: expression.range)
+            case .function(let f, let args):
+                return try evaluateFunction(f, arguments: args, substitutions: substitutions, range: expression.range)
         }
     }
     
-    public func registerFunction(function: Function) throws {
+    public func registerFunction(_ function: Function) throws {
         try functionSet.registerFunction(function)
     }
     
-    public func registerAlias(alias: String, forFunctionName name: String) throws {
+    public func registerAlias(_ alias: String, forFunctionName name: String) throws {
         try functionSet.addAlias(alias, forFunctionName: name)
     }
     
-    private func evaluateVariable(name: String, substitutions: Substitutions) throws -> Double {
+    private func evaluateVariable(_ name: String, substitutions: Substitutions, range: Range<Int>) throws -> Double {
         if let value = substitutions[name] { return value }
         
         // substitutions were insufficient
@@ -68,27 +61,29 @@ public struct Evaluator {
             return resolved
         }
         
-        throw EvaluationError.UnknownVariable(name)
+        throw MathParserError(kind: .unknownVariable(name), range: range)
     }
     
-    private func evaluateFunction(name: String, arguments: Array<Expression>, substitutions: Substitutions) throws -> Double {
+    private func evaluateFunction(_ name: String, arguments: Array<Expression>, substitutions: Substitutions, range: Range<Int>) throws -> Double {
+        let state = EvaluationState(expressionRange: range, arguments: arguments, substitutions: substitutions, evaluator: self)
+        
         // check for function overrides
-        if let value = try functionOverrider?.overrideFunction(name, arguments: arguments, substitutions: substitutions, evaluator: self) {
+        if let value = try functionOverrider?.overrideFunction(name, state: state) {
             return value
         }
         
         if let function = functionSet.evaluatorForName(name) {
-            return try function(arguments, substitutions, self)
+            return try function(state)
         }
         
         // a function with this name does not exist
         // use the function resolver
         let normalized = functionSet.normalize(name)
-        if let value = try functionResolver?.resolveFunction(normalized, arguments: arguments, substitutions: substitutions, evaluator: self) {
+        if let value = try functionResolver?.resolveFunction(normalized, state: state) {
             return value
         }
         
-        throw EvaluationError.UnknownFunction(normalized)
+        throw MathParserError(kind: .unknownFunction(name), range: range)
     }
     
 }

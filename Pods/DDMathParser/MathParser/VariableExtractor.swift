@@ -15,35 +15,35 @@ internal struct VariableExtractor: TokenExtractor {
         identifierExtractor = IdentifierExtractor(operatorTokens: operatorTokens)
     }
     
-    func matchesPreconditions(buffer: TokenCharacterBuffer) -> Bool {
+    func matchesPreconditions(_ buffer: TokenCharacterBuffer) -> Bool {
         return buffer.peekNext() == "$"
     }
     
-    func extract(buffer: TokenCharacterBuffer) -> TokenGenerator.Element {
+    func extract(_ buffer: TokenCharacterBuffer) -> TokenIterator.Element {
         let start = buffer.currentIndex
         
         buffer.consume() // consume the opening $
         
         guard identifierExtractor.matchesPreconditions(buffer) else {
             // the stuff that follow "$" must be a valid identifier
-            let range = start ..< start
-            let error = TokenizerError(kind: .CannotParseVariable, sourceRange: range)
-            return TokenGenerator.Element.Error(error)
+            let range: Range<Int> = start ..< start
+            let error = MathParserError(kind: .cannotParseVariable, range: range)
+            return TokenIterator.Element.error(error)
         }
     
         let identifierResult = identifierExtractor.extract(buffer)
     
-        let result: TokenGenerator.Element
+        let result: TokenIterator.Element
         
         switch identifierResult {
-            case .Error(let e):
-                let range = start ..< e.sourceRange.endIndex
-                let error = TokenizerError(kind: .CannotParseVariable, sourceRange: range)
-                result = .Error(error)
-            case .Value(let t):
-                let range = start ..< t.range.endIndex
-                let token = RawToken(kind: .Variable, string: t.string, range: range)
-                result = .Value(token)
+            case .error(let e):
+                let range: Range<Int> = start ..< e.range.upperBound
+                let error = MathParserError(kind: .cannotParseVariable, range: range)
+                result = .error(error)
+            case .value(let t):
+                let range: Range<Int> = start ..< t.range.upperBound
+                let token = RawToken(kind: .variable, string: t.string, range: range)
+                result = .value(token)
         }
         
         return result

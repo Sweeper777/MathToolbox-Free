@@ -1,7 +1,7 @@
 PODS:
   - DDMathParser (2.0.0)
   - EZLoadingActivity (0.8)
-  - EZSwiftExtensions (1.4)
+  - EZSwiftExtensions (1.7)
   - Firebase (3.2.0):
     - Firebase/Core (= 3.2.0)
   - Firebase/Analytics (3.2.0):
@@ -24,18 +24,28 @@ PODS:
   - SwiftyJSON (2.3.2)
 
 DEPENDENCIES:
-  - DDMathParser
+  - DDMathParser (from `https://github.com/davedelong/DDMathParser.git`, branch `master`)
   - EZLoadingActivity
-  - EZSwiftExtensions
+  - EZSwiftExtensions (= 1.7)
   - Firebase
   - JVFloatLabeledTextField
   - MGSwipeTableCell
   - SwiftyJSON
 
+EXTERNAL SOURCES:
+  DDMathParser:
+    :branch: master
+    :git: https://github.com/davedelong/DDMathParser.git
+
+CHECKOUT OPTIONS:
+  DDMathParser:
+    :commit: a974061d092e2b0d7286a185bbb068d999d83a1c
+    :git: https://github.com/davedelong/DDMathParser.git
+
 SPEC CHECKSUMS:
   DDMathParser: 74cddd0aa652cfed79e68fdd076f1ee63ab43a16
   EZLoadingActivity: 6fd75a05765a4085f4b6fef6f62edf9f144b3139
-  EZSwiftExtensions: db7be0022fce8e92cdfe0fadddaf835fcd9696db
+  EZSwiftExtensions: 4afef248066a036903d8496bf07bc355b22ce766
   Firebase: 6d4012da1598732a2b43f16d8355eca90f94ed59
   FirebaseAnalytics: 6f75b04e6bfb8e0b6e9ef298e04c24eea3b13863
   FirebaseInstanceID: d014d574053a2fe84478f12f7bae96979e7051bb
@@ -46,4 +56,6 @@ SPEC CHECKSUMS:
   MGSwipeTableCell: bafeb5f351124544c9364ecbdf24c7b06a37d340
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: f75f45eb5a93042f9e5e3264e71332440f0d427b
+
+COCOAPODS: 1.1.0.beta.1

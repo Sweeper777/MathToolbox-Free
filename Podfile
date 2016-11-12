@@ -4,10 +4,10 @@ platform :ios, '8.0'
 use_frameworks!
 
 target 'MathToolbox' do
-    pod 'DDMathParser'
     pod 'MGSwipeTableCell'
     pod 'Firebase'
-    pod 'EZSwiftExtensions'
+    pod 'EZSwiftExtensions', '1.7'
+    pod 'DDMathParser', :git => 'https://github.com/davedelong/DDMathParser.git', :branch => 'master'
     pod 'EZLoadingActivity'
     pod 'JVFloatLabeledTextField'
     pod 'SwiftyJSON'

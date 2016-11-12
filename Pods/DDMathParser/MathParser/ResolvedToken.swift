@@ -10,57 +10,63 @@ import Foundation
 
 public struct ResolvedToken {
     public enum Kind {
-        case Number(Double)
-        case Variable(String)
-        case Identifier(String)
-        case Operator(MathParser.Operator)
+        case number(Double)
+        case variable(String)
+        case identifier(String)
+        case `operator`(Operator)
     }
     
     public let kind: Kind
     public let string: String
-    public let range: Range<String.Index>
+    public let range: Range<Int>
 }
 
 public extension ResolvedToken.Kind {
     
     public var number: Double? {
-        guard case .Number(let o) = self else { return nil }
+        guard case .number(let o) = self else { return nil }
         return o
     }
     
     public var variable: String? {
-        guard case .Variable(let v) = self else { return nil }
+        guard case .variable(let v) = self else { return nil }
         return v
     }
     
     public var identifier: String? {
-        guard case .Identifier(let i) = self else { return nil }
+        guard case .identifier(let i) = self else { return nil }
         return i
     }
     
-    public var resolvedOperator: MathParser.Operator? {
-        guard case .Operator(let o) = self else { return nil }
+    public var resolvedOperator: Operator? {
+        guard case .operator(let o) = self else { return nil }
         return o
     }
     
     public var builtInOperator: BuiltInOperator? {
         return resolvedOperator?.builtInOperator
     }
-    
-    public var isNumber: Bool { return number != nil }
-    public var isVariable: Bool { return variable != nil }
-    public var isIdentifier: Bool { return identifier != nil }
-    public var isOperator: Bool { return resolvedOperator != nil }
-}
 
-public struct TokenResolverError: ErrorType {
-    public enum Kind {
-        case CannotParseHexNumber
-        case CannotParseLocalizedNumber
-        case UnknownOperator
-        case AmbiguousOperator
-    }
+// <rdar://problem/27805272> Segfault when compiling "Result" enum
+//    public var isNumber: Bool { return number != nil }
+//    public var isVariable: Bool { return variable != nil }
+//    public var isIdentifier: Bool { return identifier != nil }
+//    public var isOperator: Bool { return resolvedOperator != nil }
     
-    public let kind: Kind
-    public let rawToken: RawToken
+    public var isNumber: Bool {
+        if case .number(_) = self { return true }
+        return false
+    }
+    public var isVariable: Bool {
+        if case .variable(_) = self { return true }
+        return false
+    }
+    public var isIdentifier: Bool {
+        if case .identifier(_) = self { return true }
+        return false
+    }
+    public var isOperator: Bool {
+        if case .operator(_) = self { return true }
+        return false
+    }
 }
