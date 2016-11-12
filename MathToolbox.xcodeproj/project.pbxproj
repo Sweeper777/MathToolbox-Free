@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		28A4E950116605E79C82E2F6 /* Pods_MathToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EE72C899E440FB87E425AD7 /* Pods_MathToolbox.framework */; };
 		5A0028231D1FF2E700F9F908 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5A0028251D1FF2E700F9F908 /* InfoPlist.strings */; };
 		5A00F79B1D372637006ACC63 /* ExportController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A00F79A1D372637006ACC63 /* ExportController.swift */; };
 		5A027A9B1CE1917E0012E2F3 /* CustomOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A027A9A1CE1917E0012E2F3 /* CustomOperation.swift */; };
@@ -24,7 +25,6 @@
 		5A1EC0C51DD70F6F00E694A6 /* MathParser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A1EC0BE1DD70F6F00E694A6 /* MathParser.framework */; };
 		5A1EC0C61DD70F6F00E694A6 /* MGSwipeTableCell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A1EC0BF1DD70F6F00E694A6 /* MGSwipeTableCell.framework */; };
 		5A1EC0C71DD70F6F00E694A6 /* Pods_MathToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A1EC0C01DD70F6F00E694A6 /* Pods_MathToolbox.framework */; };
-		5A1EC0C81DD70F6F00E694A6 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A1EC0C11DD70F6F00E694A6 /* SwiftyJSON.framework */; };
 		5A6BC4981D1159E200EAB8E8 /* modest.css in Resources */ = {isa = PBXBuildFile; fileRef = 5A6BC4971D1159E200EAB8E8 /* modest.css */; };
 		5A78E6561C6DD0ED0072A20F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5A78E6581C6DD0ED0072A20F /* Localizable.strings */; };
 		5A8FF5FD1C40924F00C9566E /* OperationListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8FF5FC1C40924F00C9566E /* OperationListViewController.swift */; };
@@ -33,7 +33,6 @@
 		5A8FF6031C40C17200C9566E /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8FF6021C40C17200C9566E /* HelpViewController.swift */; };
 		5A9362ED1C522C0700838D3F /* Factors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9362EC1C522C0700838D3F /* Factors.swift */; };
 		5ABF45B61C4B76D0005616F9 /* DegreesRadiansGradians.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABF45B51C4B76D0005616F9 /* DegreesRadiansGradians.swift */; };
-		5ABF45B81C4B7B98005616F9 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABF45B71C4B7B98005616F9 /* UserSettings.swift */; };
 		5ABF45BA1C4B97A7005616F9 /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABF45B91C4B97A7005616F9 /* Triangle.swift */; };
 		5ABF45BC1C4BA369005616F9 /* PrimeNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABF45BB1C4BA369005616F9 /* PrimeNumber.swift */; };
 		5ABF45BE1C4BC829005616F9 /* PrimeFactors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABF45BD1C4BC829005616F9 /* PrimeFactors.swift */; };
@@ -196,7 +195,7 @@
 				5A1EC0C51DD70F6F00E694A6 /* MathParser.framework in Frameworks */,
 				5A1EC0C61DD70F6F00E694A6 /* MGSwipeTableCell.framework in Frameworks */,
 				5A1EC0C71DD70F6F00E694A6 /* Pods_MathToolbox.framework in Frameworks */,
-				5A1EC0C81DD70F6F00E694A6 /* SwiftyJSON.framework in Frameworks */,
+				28A4E950116605E79C82E2F6 /* Pods_MathToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,19 +428,22 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Mulang Su";
 				TargetAttributes = {
 					5AF083DF1C37B76F0076AC41 = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = E9MW74DJ4Y;
+						LastSwiftMigration = 0810;
 					};
 					5AF083F31C37B76F0076AC41 = {
 						CreatedOnToolsVersion = 7.2;
+						LastSwiftMigration = 0810;
 						TestTargetID = 5AF083DF1C37B76F0076AC41;
 					};
 					5AF083FE1C37B76F0076AC41 = {
 						CreatedOnToolsVersion = 7.2;
+						LastSwiftMigration = 0810;
 						TestTargetID = 5AF083DF1C37B76F0076AC41;
 					};
 				};
@@ -654,7 +656,6 @@
 				5A0D53BF1D52C25F00DDA04F /* TimeInterval.swift in Sources */,
 				5AFDCA741CE0B5B5008B9618 /* OperationResult+CoreDataProperties.swift in Sources */,
 				5AFDCA701CE0B5B5008B9618 /* OperationEntity+CoreDataProperties.swift in Sources */,
-				5ABF45B81C4B7B98005616F9 /* UserSettings.swift in Sources */,
 				5AFD911C1D321B2A008BCF67 /* FullVersionAlert.swift in Sources */,
 				5AFBE9911CFAA67000BC1366 /* Threading.swift in Sources */,
 				5AFBBD481CDB0966009B805B /* RandomNumGen.swift in Sources */,
@@ -769,6 +770,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -778,8 +780,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -814,6 +818,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -823,8 +828,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -844,6 +851,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -852,6 +860,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 82D5B8D256EEF12F37D730E2 /* Pods-MathToolbox.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_BITCODE = NO;
@@ -867,6 +876,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.MathToolbox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -875,6 +885,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0A61DC090ACDC99E387DB434 /* Pods-MathToolbox.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_BITCODE = NO;
@@ -890,6 +901,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.MathToolbox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -904,6 +916,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = sumulang.MathToolboxTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MathToolbox.app/MathToolbox";
 			};
 			name = Debug;
@@ -918,6 +931,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = sumulang.MathToolboxTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MathToolbox.app/MathToolbox";
 			};
 			name = Release;
@@ -931,6 +945,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = sumulang.MathToolboxUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = MathToolbox;
 				USES_XCTRUNNER = YES;
 			};
@@ -945,6 +960,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = sumulang.MathToolboxUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = MathToolbox;
 				USES_XCTRUNNER = YES;
 			};

@@ -30,32 +30,32 @@ class CustOpEditorController: UITableViewController, UITextFieldDelegate, FullVe
             navigationItem.title = operationEntity!.name!
         }
         
-        let cell1 = tableView.dequeueReusableCellWithIdentifier("normalText")!
+        let cell1 = tableView.dequeueReusableCell(withIdentifier: "normalText")!
         
         self.txtName = cell1.viewWithTag(1) as! JVFloatLabeledTextField
         self.txtName.setPlaceholder(NSLocalizedString("Name", comment: ""), floatingTitle: NSLocalizedString("Name", comment: ""))
         self.txtName.text = self.operationEntity?.name ?? ""
         self.txtName.delegate = self
-        changeFontOfTextField(txtName)
+        changeFontOfTextField(txtField: txtName)
         
-        addCellToSection(0, cell: cell1)
+        addCellToSection(section: 0, cell: cell1)
         
-        let cell2 = tableView.dequeueReusableCellWithIdentifier("switch")!
+        let cell2 = tableView.dequeueReusableCell(withIdentifier: "switch")!
         
         self.switchRejectFloatingPoint = cell2.viewWithTag(2) as! UISwitch
-        self.switchRejectFloatingPoint.on = self.operationEntity?.rejectFloatingPoint?.boolValue ?? false
+        self.switchRejectFloatingPoint.isOn = self.operationEntity?.rejectFloatingPoint?.boolValue ?? false
         
-        addCellToSection(0, cell: cell2)
+        addCellToSection(section: 0, cell: cell2)
         
-        let cell3 = tableView.dequeueReusableCellWithIdentifier("button")!
+        let cell3 = tableView.dequeueReusableCell(withIdentifier: "button")!
         cell3.textLabel!.text = NSLocalizedString("Add New Input", comment: "")
         
-        addCellToSection(1, cell: cell3)
+        addCellToSection(section: 1, cell: cell3)
         
         if let inputs = operationEntity?.availableInputs {
             for input in inputs {
                 let realInput = input as! OperationInput
-                let cell4 = tableView.dequeueReusableCellWithIdentifier("doubleText")!
+                let cell4 = tableView.dequeueReusableCell(withIdentifier: "doubleText")!
                 
                 let name = cell4.viewWithTag(1) as! JVFloatLabeledTextField
                 let description = cell4.viewWithTag(2) as! JVFloatLabeledTextField
@@ -65,12 +65,12 @@ class CustOpEditorController: UITableViewController, UITextFieldDelegate, FullVe
                 description.text = realInput.desc!
                 name.delegate = self
                 description.delegate = self
-                changeFontOfTextField(name)
-                changeFontOfTextField(description)
+                changeFontOfTextField(txtField: name)
+                changeFontOfTextField(txtField: description)
                 self.txtInputs.append((name, description))
                 
                 let swipeCell = cell4 as! MGSwipeTableCell
-                let deleteBtn = MGSwipeButton(title: NSLocalizedString("Delete", comment: ""), backgroundColor: UIColor.redColor(), callback: { _ in
+                let deleteBtn = MGSwipeButton(title: NSLocalizedString("Delete", comment: ""), backgroundColor: UIColor.redColor, callback: { _ in
                     let cellIndex = self.cells.indicesOf(swipeCell)!.1
                     self.removeCellFromSection(1, index: cellIndex)
                     self.txtInputs.removeAtIndex(cellIndex - 1)
@@ -78,7 +78,7 @@ class CustOpEditorController: UITableViewController, UITextFieldDelegate, FullVe
                 })
                 swipeCell.rightButtons = [deleteBtn]
                 
-                addCellToSection(1, cell: cell4)
+                addCellToSection(section: 1, cell: cell4)
             }
         }
         
@@ -390,7 +390,7 @@ class CustOpEditorController: UITableViewController, UITextFieldDelegate, FullVe
     }
 }
 
-extension Array where Element : CollectionType,
+extension Array where Element : Collection,
 Element.Generator.Element : Equatable, Element.Index == Int {
     func indicesOf(x: Element.Generator.Element) -> (Int, Int)? {
         for (i, row) in self.enumerate() {

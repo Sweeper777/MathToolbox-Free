@@ -10,7 +10,6 @@ target 'MathToolbox' do
     pod 'DDMathParser', :git => 'https://github.com/davedelong/DDMathParser.git', :branch => 'master'
     pod 'EZLoadingActivity'
     pod 'JVFloatLabeledTextField'
-    pod 'SwiftyJSON'
 end
 
 target 'MathToolboxTests' do

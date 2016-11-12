@@ -31,7 +31,7 @@ public final class Expression {
     public let kind: Kind
     public let range: Range<Int>
     
-    public init(string: String, operatorSet: OperatorSet = OperatorSet.default, options: TokenResolverOptions = TokenResolverOptions.default, locale: Locale? = nil) throws {
+    public init(string: String, operatorSet: OperatorSet = OperatorSet.`default`, options: TokenResolverOptions = TokenResolverOptions.`default`, locale: Locale? = nil) throws {
         let tokenizer = Tokenizer(string: string, operatorSet: operatorSet, locale: locale)
         let resolver = TokenResolver(tokenizer: tokenizer, options: options)
         let grouper = TokenGrouper(resolver: resolver)
@@ -88,7 +88,7 @@ extension Expression: CustomStringConvertible {
         switch kind {
             case .number(let d): return d.description
             case .variable(let v):
-                if v.contains(" ") { return "\"\(v)\"" }
+                if v.characters.contains(" ") { return "\"\(v)\"" }
                 return "$\(v)"
             case .function(let f, let args):
                 let params = args.map { $0.description }

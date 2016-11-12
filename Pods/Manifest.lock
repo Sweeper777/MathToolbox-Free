@@ -21,7 +21,6 @@ PODS:
     - GoogleSymbolUtilities (~> 1.0)
   - JVFloatLabeledTextField (1.1.0)
   - MGSwipeTableCell (1.5.5)
-  - SwiftyJSON (2.3.2)
 
 DEPENDENCIES:
   - DDMathParser (from `https://github.com/davedelong/DDMathParser.git`, branch `master`)
@@ -30,7 +29,6 @@ DEPENDENCIES:
   - Firebase
   - JVFloatLabeledTextField
   - MGSwipeTableCell
-  - SwiftyJSON
 
 EXTERNAL SOURCES:
   DDMathParser:
@@ -54,8 +52,7 @@ SPEC CHECKSUMS:
   GoogleUtilities: 56c5ac05b7aa5dc417a1bb85221a9516e04d7032
   JVFloatLabeledTextField: ea4a3d8387ddd43724c472bb2b8ab39b79af05d4
   MGSwipeTableCell: bafeb5f351124544c9364ecbdf24c7b06a37d340
-  SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
-PODFILE CHECKSUM: f75f45eb5a93042f9e5e3264e71332440f0d427b
+PODFILE CHECKSUM: 207b7f70b72b4efb7da40fc80bd8586b35777c2a
 
 COCOAPODS: 1.1.0.beta.1
