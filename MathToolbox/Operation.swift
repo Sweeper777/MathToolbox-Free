@@ -9,7 +9,7 @@ protocol Operation {
     func calculate (inputs: [String: Double]) -> [(name: String, from: String, result: String)]?
 }
 
-func correctToSigFigAndPi(x: Double, _ containsPi: Bool) -> String {
+func correctToSigFigAndPi(_ x: Double, _ containsPi: Bool) -> String {
     var num = x
     num = UserSettings.sigFigOption.correctTo(num)
     if containsPi && UserSettings.usePiLiteral {

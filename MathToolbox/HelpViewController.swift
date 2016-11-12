@@ -11,10 +11,10 @@ class HelpViewController: UIViewController, GADInterstitialDelegate {
         adBanner.rootViewController = self
         let request = GADRequest()
         request.testDevices = [kGADSimulatorID]
-        adBanner.loadRequest(request)
+        adBanner.load(request)
         automaticallyAdjustsScrollViewInsets = false
         
-        let stylesheet = try! String(contentsOfFile: NSBundle.mainBundle().pathForResource("modest", ofType: "css")!)
+        let stylesheet = try! String(contentsOfFile: Bundle.main.path(forResource: "modest", ofType: "css")!)
         
         if helpString == nil {
             helpHtml.loadHTMLString("<style>\(stylesheet)</style> \(NSLocalizedString("helpText", comment: ""))", baseURL: nil)

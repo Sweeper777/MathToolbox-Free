@@ -22,7 +22,7 @@ class PrimeNumber : Operation {
         var result: [(name: String, from: String, result: String)] = []
         
         if let x = inputs["x"] {
-            if isPrime(Int(x)) {
+            if isPrime(n: Int(x)) {
                 result.append(("Primality", "x", NSLocalizedString("True", comment: "")))
             } else {
                 result.append(("Primality", "x", NSLocalizedString("False", comment: "")))

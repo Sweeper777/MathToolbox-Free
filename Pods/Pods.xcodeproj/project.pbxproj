@@ -1070,6 +1070,20 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0700;
+				TargetAttributes = {
+					168DE201C7217DD1348328DBFD028CA6 = {
+						LastSwiftMigration = 0810;
+					};
+					68E95B5237086E70430751E00F9C3FC6 = {
+						LastSwiftMigration = 0810;
+					};
+					6D46ACCA4C3F2BE3B8F9A9E35B37F4A4 = {
+						LastSwiftMigration = 0810;
+					};
+					903A108934E1A089B76F443DC34C8E54 = {
+						LastSwiftMigration = 0810;
+					};
+				};
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1422,6 +1436,7 @@
 				PRODUCT_NAME = Pods_MathToolbox;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1529,6 +1544,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";

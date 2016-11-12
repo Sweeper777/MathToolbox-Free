@@ -29,7 +29,7 @@ class TimeInterval : Operation {
             result.append(("Minutes", "h", correctToSigFigAndPi(m, false)))
             result.append(("Seconds", "h", correctToSigFigAndPi(s, false)))
             
-            result.append(("Normalized Form", "h", normalizeTimeInterval(s)))
+            result.append(("Normalized Form", "h", normalizeTimeInterval(s: s)))
         }
         
         if let m = inputs["m"] {
@@ -38,7 +38,7 @@ class TimeInterval : Operation {
             result.append(("Hours", "m", correctToSigFigAndPi(h, false)))
             result.append(("Seconds", "m", correctToSigFigAndPi(s, false)))
             
-            result.append(("Normalized Form", "m", normalizeTimeInterval(s)))
+            result.append(("Normalized Form", "m", normalizeTimeInterval(s: s)))
         }
         
         if let s = inputs["s"] {
@@ -47,7 +47,7 @@ class TimeInterval : Operation {
             result.append(("Hours", "s", correctToSigFigAndPi(h, false)))
             result.append(("Minutes", "s", correctToSigFigAndPi(m, false)))
             
-            result.append(("Normalized Form", "s", normalizeTimeInterval(s)))
+            result.append(("Normalized Form", "s", normalizeTimeInterval(s: s)))
         }
         
         if result.count == 0 {
@@ -57,7 +57,7 @@ class TimeInterval : Operation {
         }
     }
     
-    private func normalizeTimeInterval(s: NSTimeInterval) -> String {
+    private func normalizeTimeInterval(s: Foundation.TimeInterval) -> String {
         let days = Int(s) / 86400
         let hours = Int(s) % 86400 / 60 / 60
         let minutes = Int(s) % 3600 / 60

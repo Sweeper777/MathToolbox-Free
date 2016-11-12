@@ -63,13 +63,13 @@ public struct EZLoadingActivity {
     public static func showWithDelay(_ text: String, disableUI: Bool, seconds: Double) -> Bool {
         let showValue = show(text, disableUI: disableUI)
         delay(seconds) { () -> () in
-            hide(success: true, animated: false)
+            hide(true, animated: false)
         }
         return showValue
     }
     
     /// Returns success status
-    public static func hide(success: Bool? = nil, animated: Bool = false) -> Bool {
+    public static func hide(_ success: Bool? = nil, animated: Bool = false) -> Bool {
         guard instance != nil else {
             print("EZLoadingActivity: You don't have an activity instance")
             return false
@@ -82,10 +82,10 @@ public struct EZLoadingActivity {
         
         if !Thread.current.isMainThread {
             DispatchQueue.main.async {
-                instance?.hideLoadingActivity(success: success, animated: animated)
+                instance?.hideLoadingActivity(success, animated: animated)
             }
         } else {
-            instance?.hideLoadingActivity(success: success, animated: animated)
+            instance?.hideLoadingActivity(success, animated: animated)
         }
         
         return true
@@ -159,7 +159,7 @@ public struct EZLoadingActivity {
             return myBezier
         }
         
-        func hideLoadingActivity(success: Bool?, animated: Bool) {
+        func hideLoadingActivity(_ success: Bool?, animated: Bool) {
             hidingInProgress = true
             if UIDisabled {
                 UIApplication.shared.endIgnoringInteractionEvents()

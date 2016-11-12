@@ -70,28 +70,28 @@ class CustOpEditorController: UITableViewController, UITextFieldDelegate, FullVe
                 self.txtInputs.append((name, description))
                 
                 let swipeCell = cell4 as! MGSwipeTableCell
-                let deleteBtn = MGSwipeButton(title: NSLocalizedString("Delete", comment: ""), backgroundColor: UIColor.redColor, callback: { _ in
-                    let cellIndex = self.cells.indicesOf(swipeCell)!.1
-                    self.removeCellFromSection(1, index: cellIndex)
-                    self.txtInputs.removeAtIndex(cellIndex - 1)
+                let deleteBtn = MGSwipeButton(title: NSLocalizedString("Delete", comment: ""), backgroundColor: UIColor.red, callback: { _ in
+                    let cellIndex = self.cells.indicesOf(x: swipeCell)!.1
+                    self.removeCellFromSection(section: 1, index: cellIndex)
+                    self.txtInputs.remove(at: cellIndex - 1)
                     return true
                 })
-                swipeCell.rightButtons = [deleteBtn]
+                swipeCell.rightButtons = [deleteBtn!]
                 
                 addCellToSection(section: 1, cell: cell4)
             }
         }
         
-        let cell5 = tableView.dequeueReusableCellWithIdentifier("button")!
+        let cell5 = tableView.dequeueReusableCell(withIdentifier: "button")!
         
         cell5.textLabel!.text = NSLocalizedString("Add New Result", comment: "")
         
-        addCellToSection(2, cell: cell5)
+        addCellToSection(section: 2, cell: cell5)
         
         if let results = operationEntity?.results {
             for result in results {
                 let realResult = result as! OperationResult
-                let cell6 = tableView.dequeueReusableCellWithIdentifier("doubleText")!
+                let cell6 = tableView.dequeueReusableCell(withIdentifier: "doubleText")!
                 
                 let name = cell6.viewWithTag(1) as! JVFloatLabeledTextField
                 let formula = cell6.viewWithTag(2) as! JVFloatLabeledTextField
@@ -101,38 +101,38 @@ class CustOpEditorController: UITableViewController, UITextFieldDelegate, FullVe
                 formula.text = realResult.formula!
                 name.delegate = self
                 formula.delegate = self
-                changeFontOfTextField(name)
-                changeFontOfTextField(formula)
+                changeFontOfTextField(txtField: name)
+                changeFontOfTextField(txtField: formula)
                 
                 self.txtResults.append((name, formula))
                 
                 let swipeCell = cell6 as! MGSwipeTableCell
-                let deleteBtn = MGSwipeButton(title: NSLocalizedString("Delete", comment: ""), backgroundColor: UIColor.redColor(), callback: { _ in
-                    let cellIndex = self.cells.indicesOf(swipeCell)!.1
-                    self.removeCellFromSection(2, index: cellIndex)
-                    self.txtResults.removeAtIndex(cellIndex)
+                let deleteBtn = MGSwipeButton(title: NSLocalizedString("Delete", comment: ""), backgroundColor: UIColor.red, callback: { _ in
+                    let cellIndex = self.cells.indicesOf(x: swipeCell)!.1
+                    self.removeCellFromSection(section: 2, index: cellIndex)
+                    self.txtResults.remove(at: cellIndex)
                     return true
                 })
-                swipeCell.rightButtons = [deleteBtn]
+                swipeCell.rightButtons = [deleteBtn!]
                 
-                addCellToSection(2, cell: cell6)
+                addCellToSection(section: 2, cell: cell6)
             }
         }
     }
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return cells.count
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cells[section].count
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return cells[indexPath.section][indexPath.row]
     }
     
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
         case 0:
             return NSLocalizedString("Basic Information", comment: "")
@@ -145,11 +145,11 @@ class CustOpEditorController: UITableViewController, UITextFieldDelegate, FullVe
         }
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         switch (indexPath.section, indexPath.row) {
         case (1, 0):
-            let newRow = tableView.dequeueReusableCellWithIdentifier("doubleText")!
+            let newRow = tableView.dequeueReusableCell(withIdentifier: "doubleText")!
             
             let name = newRow.viewWithTag(1) as! JVFloatLabeledTextField
             let description = newRow.viewWithTag(2) as! JVFloatLabeledTextField
@@ -159,8 +159,8 @@ class CustOpEditorController: UITableViewController, UITextFieldDelegate, FullVe
             description.text = ""
             name.delegate = self
             description.delegate = self
-            changeFontOfTextField(name)
-            changeFontOfTextField(description)
+            changeFontOfTextField(txtField: name)
+            changeFontOfTextField(txtField: description)
             self.txtInputs.append((name, description))
             
             let swipeCell = newRow as! MGSwipeTableCell
@@ -173,9 +173,9 @@ class CustOpEditorController: UITableViewController, UITextFieldDelegate, FullVe
             swipeCell.rightButtons = [deleteBtn]
             
             
-            addCellToSection(1, cell: newRow)
+            addCellToSection(section: 1, cell: newRow)
         case (2, 0):
-            let newRow = tableView.dequeueReusableCellWithIdentifier("doubleText")!
+            let newRow = tableView.dequeueReusableCell(withIdentifier: "doubleText")!
             
             let name = newRow.viewWithTag(1) as! JVFloatLabeledTextField
             let formula = newRow.viewWithTag(2) as! JVFloatLabeledTextField
@@ -185,13 +185,13 @@ class CustOpEditorController: UITableViewController, UITextFieldDelegate, FullVe
             formula.text = ""
             name.delegate = self
             formula.delegate = self
-            changeFontOfTextField(name)
-            changeFontOfTextField(formula)
+            changeFontOfTextField(txtField: name)
+            changeFontOfTextField(txtField: formula)
             
             self.txtResults.append((name, formula))
             
             let swipeCell = newRow as! MGSwipeTableCell
-            let deleteBtn = MGSwipeButton(title: NSLocalizedString("Delete", comment: ""), backgroundColor: UIColor.redColor(), callback: { _ in
+            let deleteBtn = MGSwipeButton(title: NSLocalizedString("Delete", comment: ""), backgroundColor: UIColor.redColor, callback: { _ in
                 let cellIndex = self.cells.indicesOf(swipeCell)!.1
                 self.removeCellFromSection(2, index: cellIndex)
                 self.txtResults.removeAtIndex(cellIndex - 1)
@@ -199,7 +199,7 @@ class CustOpEditorController: UITableViewController, UITextFieldDelegate, FullVe
             })
             swipeCell.rightButtons = [deleteBtn]
             
-            addCellToSection(2, cell: newRow)
+            addCellToSection(section: 2, cell: newRow)
         default:
             break;
         }
@@ -222,7 +222,7 @@ class CustOpEditorController: UITableViewController, UITextFieldDelegate, FullVe
     }
     
     func removeCellFromSection(section: Int, index: Int) {
-        cells[section].removeAtIndex(index)
+        cells[section].remove(at: index)
         tableView.deleteRowsAtIndexPaths([NSIndexPath(forRow: index, inSection: section)], withRowAnimation: .Left)
     }
     
@@ -324,7 +324,7 @@ class CustOpEditorController: UITableViewController, UITextFieldDelegate, FullVe
         }
         
         if shouldReturn {
-            self.showError("Input names cannot contain spaces, single quotes, or dollar signs")
+            self.showError(errStr: "Input names cannot contain spaces, single quotes, or dollar signs")
             return
         }
         
@@ -357,7 +357,7 @@ class CustOpEditorController: UITableViewController, UITextFieldDelegate, FullVe
             }
             
             for result in operationEntity!.results! {
-                dataContext.deleteObject(result as! NSManagedObject)
+                dataContext.delete(result as! NSManagedObject)
             }
             objToSave = operationEntity
             objToSave.name = txtName.text!
@@ -391,7 +391,7 @@ class CustOpEditorController: UITableViewController, UITextFieldDelegate, FullVe
 }
 
 extension Array where Element : Collection,
-Element.Generator.Element : Equatable, Element.Index == Int {
+Element.Iterator.Element : Equatable, Element.Index == Int {
     func indicesOf(x: Element.Generator.Element) -> (Int, Int)? {
         for (i, row) in self.enumerate() {
             if let j = row.indexOf(x) {

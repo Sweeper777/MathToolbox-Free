@@ -21,7 +21,7 @@ class ResultsViewController: UIViewController, UITableViewDataSource, UITableVie
                 mappedResultCategories.append(result.name)
                 mappedResultValues.append([(result.result, "\(String(format: NSLocalizedString("From", comment: ""), result.from))")])
             } else {
-                let index: Int = mappedResultCategories.indexOf(result.name)!
+                let index: Int = mappedResultCategories.index(of: result.name)!
                 mappedResultValues[index].append((result.result, "\(String(format: NSLocalizedString("From", comment: ""), result.from))"))
             }
         }
@@ -32,20 +32,20 @@ class ResultsViewController: UIViewController, UITableViewDataSource, UITableVie
             mappedResults.append((mappedResultCategories[i], mappedResultValues[i]))
         }
         
-        ad.delegate = self
+        ad?.delegate = self
         appearCallCount = 0
         
         if arc4random_uniform(100) < 20 {
             let request = GADRequest()
             request.testDevices = [kGADSimulatorID]
-            ad.loadRequest(request)
+            ad?.load(request)
         } else {
-            self.performSelector(#selector(ResultsViewController.loadNewAd), withObject: nil, afterDelay: 120)
+            self.perform(#selector(ResultsViewController.loadNewAd), with: nil, afterDelay: 120)
         }
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .Subtitle, reuseIdentifier: nil)
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
         if results == nil {
             cell.textLabel!.text = NSLocalizedString("No Results", comment: "")
         } else {
@@ -56,57 +56,57 @@ class ResultsViewController: UIViewController, UITableViewDataSource, UITableVie
         return cell
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if results == nil {
             return 1
         }
         return mappedResults[section].items.count
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    private func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         if results == nil {
             return 1
         }
         return mappedResults.count
     }
     
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if results == nil {
             return nil
         }
         return NSLocalizedString(mappedResults[section].category, comment: "")
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         
         if mappedResults.count == 0 {
             return
         }
         
-        UIPasteboard.generalPasteboard().string = mappedResults[indexPath.section].items[indexPath.row].0
-        let alert = UIAlertController(title: NSLocalizedString("Success!", comment: ""), message: "\(NSLocalizedString("The result", comment: "")) \"\(mappedResults[indexPath.section].items[indexPath.row].0)\" \(NSLocalizedString("has been copied to the clipboard.", comment: ""))", preferredStyle: .Alert)
-        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: UIAlertActionStyle.Default, handler: nil))
-        presentViewController(alert, animated: true, completion: nil)
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        UIPasteboard.general.string = mappedResults[indexPath.section].items[indexPath.row].0
+        let alert = UIAlertController(title: NSLocalizedString("Success!", comment: ""), message: "\(NSLocalizedString("The result", comment: "")) \"\(mappedResults[indexPath.section].items[indexPath.row].0)\" \(NSLocalizedString("has been copied to the clipboard.", comment: ""))", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: UIAlertActionStyle.default, handler: nil))
+        present(alert, animated: true, completion: nil)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        let cell = self.tableView(tableView, cellForRowAtIndexPath: indexPath)
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let cell = self.tableView(tableView, cellForRowAt: indexPath)
         cell.sizeToFit()
         return cell.bounds.height
     }
     
-    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = UILabel(frame: CGRectMake(0, 0, tableView.bounds.size.width, 30))
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 30))
         headerView.backgroundColor = UIColor(red: 0xca / 0xff, green: 1, blue: 0xc7 / 0xff, alpha: 1.0)
         headerView.text = "  " + (self.tableView(tableView, titleForHeaderInSection: section) ?? "")
-        let fontD: UIFontDescriptor = headerView.font.fontDescriptor().fontDescriptorWithSymbolicTraits(.TraitBold)
+        let fontD: UIFontDescriptor = headerView.font.fontDescriptor.withSymbolicTraits(.traitBold)!
         headerView.font = UIFont(descriptor: fontD, size: 0)
         return headerView
     }
     
-    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if noResult {
             return 0
         }
@@ -119,16 +119,16 @@ class ResultsViewController: UIViewController, UITableViewDataSource, UITableVie
     var ad = GADInterstitial(adUnitID: adId)
     var appearCallCount: Int!
     
-    func interstitialDidReceiveAd(ad: GADInterstitial!) {
-        ad.presentFromRootViewController(self)
+    func interstitialDidReceiveAd(_ ad: GADInterstitial!) {
+        ad.present(fromRootViewController: self)
     }
     
-    func interstitial(ad: GADInterstitial!, didFailToReceiveAdWithError error: GADRequestError!) {
-        self.performSelector(#selector(ResultsViewController.loadNewAd), withObject: nil, afterDelay: 60.0)
+    func interstitial(_ ad: GADInterstitial!, didFailToReceiveAdWithError error: GADRequestError!) {
+        self.perform(#selector(ResultsViewController.loadNewAd), with: nil, afterDelay: 60.0)
     }
     
     func loadNewAd() {
-        if let parentVC = self.parentViewController {
+        if let parentVC = self.parent {
             if (parentVC as! UINavigationController).topViewController !== self {
                 return
             }
@@ -137,29 +137,29 @@ class ResultsViewController: UIViewController, UITableViewDataSource, UITableVie
         }
         
         ad = GADInterstitial(adUnitID: adId)
-        ad.delegate = self
+        ad?.delegate = self
         let request = GADRequest()
         request.testDevices = [kGADSimulatorID]
-        ad.loadRequest(request)
+        ad?.load(request)
     }
     
-    func interstitialDidDismissScreen(ad: GADInterstitial!) {
-        self.performSelector(#selector(ResultsViewController.loadNewAd), withObject: nil, afterDelay: 120)
+    func interstitialDidDismissScreen(_ ad: GADInterstitial!) {
+        self.perform(#selector(ResultsViewController.loadNewAd), with: nil, afterDelay: 120)
     }
     
     func showRateMsg() {
-        let alert = UIAlertController(title: NSLocalizedString("Enjoying Math Toolbox?", comment: ""), message: NSLocalizedString("You can rate this app, or send me feedback!", comment: ""), preferredStyle: .Alert)
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Rate!", comment: ""), style: .Default) { _ in
-            UIApplication.sharedApplication().openURL(NSURL(string: "https://itunes.apple.com/us/app/math-toolbox-free/id1080062807?ls=1&mt=8")!)
+        let alert = UIAlertController(title: NSLocalizedString("Enjoying Math Toolbox?", comment: ""), message: NSLocalizedString("You can rate this app, or send me feedback!", comment: ""), preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Rate!", comment: ""), style: .default) { _ in
+            UIApplication.shared.openURL(URL(string: "https://itunes.apple.com/us/app/math-toolbox-free/id1080062807?ls=1&mt=8")!)
             })
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Send Feedback", comment: ""), style: .Default) { _ in
-            UIApplication.sharedApplication().openURL(NSURL(string: "mailto:sumulang@gmail.com?subject=Math Toolbox Feedback".stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!)!)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Send Feedback", comment: ""), style: .default) { _ in
+            UIApplication.shared.openURL(NSURL(string: "mailto:sumulang@gmail.com?subject=Math Toolbox Feedback".addingPercentEscapes(using: String.Encoding.utf8)!)! as URL)
             })
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Maybe Later", comment: ""), style: .Default, handler: nil))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Maybe Later", comment: ""), style: .default, handler: nil))
         self.presentVC(alert)
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         if appearCallCount == nil {
@@ -173,7 +173,7 @@ class ResultsViewController: UIViewController, UITableViewDataSource, UITableVie
                 showRateMsg()
             }
             
-            self.performSelector(#selector(ResultsViewController.loadNewAd), withObject: nil, afterDelay: 120)
+            self.perform(#selector(ResultsViewController.loadNewAd), with: nil, afterDelay: 120)
         }
         
         appearCallCount! += 1
