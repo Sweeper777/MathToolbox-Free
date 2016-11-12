@@ -61,9 +61,9 @@ class Trigonometry: Operation {
     
     var description: String? = "This operation shows the results of different trigonometric functions."
     
-    func evaluate(exp: String) -> Double {
+    func evaluate(_ exp: String) -> Double {
         var eval = Evaluator()
-        eval.angleMeasurementMode = .Radians
+        eval.angleMeasurementMode = .radians
         return try! eval.evaluate(Expression(string: exp))
     }
 }

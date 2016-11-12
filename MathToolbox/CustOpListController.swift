@@ -71,7 +71,7 @@ class CustOpListController: UITableViewController, FullVersionAlertShowable {
 //            return true
 //        }
         
-        cell.rightButtons = [deleteBtn, editBtn]
+        cell.rightButtons = [deleteBtn!, editBtn!]
         cell.rightSwipeSettings.transition = .drag
         
 //        cell.leftButtons = [exportBtn]
@@ -99,7 +99,7 @@ class CustOpListController: UITableViewController, FullVersionAlertShowable {
     @IBAction func addNew(sender: UIBarButtonItem) {
         operationToPass = nil
         if operations.count >= 5 {
-            self.showFullVersionAlert(msg: "You cannot have more than 5 custom operations in the free version. Get the full version to create unlimited custom operations!")
+            self.showFullVersionAlert("You cannot have more than 5 custom operations in the free version. Get the full version to create unlimited custom operations!")
             return
         }
         

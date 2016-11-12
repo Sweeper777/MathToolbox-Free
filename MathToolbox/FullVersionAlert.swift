@@ -22,7 +22,7 @@ extension FullVersionAlertShowable {
         viewController.dismiss(animated: true, completion: nil)
     }
     
-    func showFullVersionAlert (msg: String) {
+    func showFullVersionAlert (_ msg: String) {
         let alert = UIAlertController(title: NSLocalizedString("Sorry!", comment: ""), message: NSLocalizedString(msg, comment: ""), preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: NSLocalizedString("Get the Full Version!", comment: ""), style: .default) { _ in self.openStoreProductWithiTunesItemIdentifier(identifier: "1080075778") })
         alert.addAction(UIAlertAction(title: NSLocalizedString("No Thanks!", comment: ""), style: .cancel, handler: nil))

@@ -28,12 +28,12 @@ class SciNotation : Operation {
         }
         
         if let n = inputs["n"] {
-            let formatter = NSNumberFormatter()
-            formatter.numberStyle = .ScientificStyle
+            let formatter = NumberFormatter()
+            formatter.numberStyle = .scientific
             formatter.exponentSymbol = "e"
             formatter.positiveFormat = "0.#########e0"
             formatter.negativeFormat = "-0.#########e0"
-            if let str = formatter.stringFromNumber(n) {
+            if let str = formatter.string(from: n as NSNumber) {
                 result.append(("Scientific Notation Style 1", "n", str))
             }
             
@@ -41,7 +41,7 @@ class SciNotation : Operation {
             formatter.positiveFormat = "0.######### × 10 ^ 0"
             formatter.negativeFormat = "-0.######### × 10 ^ 0"
             
-            if let str = formatter.stringFromNumber(n) {
+            if let str = formatter.string(from: n as NSNumber) {
                 result.append(("Scientific Notation Style 2", "n", str))
             }
         }
