@@ -63,7 +63,7 @@ class ResultsViewController: UIViewController, UITableViewDataSource, UITableVie
         return mappedResults[section].items.count
     }
     
-    private func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         if results == nil {
             return 1
         }
