@@ -19,6 +19,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>GoogleToolboxForMac.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>JVFloatLabeledTextField.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -47,11 +52,6 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>168DE201C7217DD1348328DBFD028CA6</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>1C853606EB53CBBD7B16D690D9BCCE87</key>
 		<dict>
 			<key>primary</key>
@@ -83,6 +83,16 @@
 			<true/>
 		</dict>
 		<key>903A108934E1A089B76F443DC34C8E54</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>92BB131FA876445E027D20AE23EA7B5F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>98F417490015A08F0A1284F1A45B03A1</key>
 		<dict>
 			<key>primary</key>
 			<true/>

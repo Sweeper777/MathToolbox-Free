@@ -5,7 +5,8 @@ use_frameworks!
 
 target 'MathToolbox' do
     pod 'MGSwipeTableCell'
-    pod 'Firebase'
+    pod 'Firebase/AdMob'
+    pod 'Firebase/Core'
     pod 'EZSwiftExtensions', '1.7'
     pod 'DDMathParser', :git => 'https://github.com/davedelong/DDMathParser.git', :branch => 'master'
     pod 'EZLoadingActivity'

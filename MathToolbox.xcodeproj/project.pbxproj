@@ -152,7 +152,6 @@
 		5AF2AB8F1C4A362B005342DC /* Trapizium.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trapizium.swift; sourceTree = "<group>"; };
 		5AF361E11C5C48C10004DCF8 /* Arc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Arc.swift; sourceTree = "<group>"; };
 		5AF361E31C5C51950004DCF8 /* Sector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sector.swift; sourceTree = "<group>"; };
-		5AF368CE1C8984F300311FF1 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
 		5AF96ABC1CF99D330035F48C /* EZSwiftExtensions.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EZSwiftExtensions.framework; path = "../../Library/Developer/Xcode/DerivedData/MathToolbox-gcebbmdgidxucegehqfzyzqihove/Build/Products/Debug-iphonesimulator/EZSwiftExtensions.framework"; sourceTree = "<group>"; };
 		5AF9D3841CE61F6500B6FCEB /* CustOpEditorUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustOpEditorUtils.swift; sourceTree = "<group>"; };
 		5AFA741D1CDD7C00007C3B7C /* CustOpListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustOpListController.swift; sourceTree = "<group>"; };
@@ -234,7 +233,6 @@
 		5AF083D71C37B76F0076AC41 = {
 			isa = PBXGroup;
 			children = (
-				5AF368CE1C8984F300311FF1 /* GoogleMobileAds.framework */,
 				5A78E6581C6DD0ED0072A20F /* Localizable.strings */,
 				5A0028251D1FF2E700F9F908 /* InfoPlist.strings */,
 				5AF083E21C37B76F0076AC41 /* MathToolbox */,
