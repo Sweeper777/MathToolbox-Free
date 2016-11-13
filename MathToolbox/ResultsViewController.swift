@@ -32,13 +32,13 @@ class ResultsViewController: UIViewController, UITableViewDataSource, UITableVie
             mappedResults.append((mappedResultCategories[i], mappedResultValues[i]))
         }
         
-        ad?.delegate = self
+        ad.delegate = self
         appearCallCount = 0
         
         if arc4random_uniform(100) < 20 {
             let request = GADRequest()
             request.testDevices = [kGADSimulatorID]
-            ad?.load(request)
+            ad.load(request)
         } else {
             self.perform(#selector(ResultsViewController.loadNewAd), with: nil, afterDelay: 120)
         }
@@ -137,10 +137,10 @@ class ResultsViewController: UIViewController, UITableViewDataSource, UITableVie
         }
         
         ad = GADInterstitial(adUnitID: adId)
-        ad?.delegate = self
+        ad.delegate = self
         let request = GADRequest()
         request.testDevices = [kGADSimulatorID]
-        ad?.load(request)
+        ad.load(request)
     }
     
     func interstitialDidDismissScreen(_ ad: GADInterstitial!) {

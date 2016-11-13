@@ -30,13 +30,13 @@ class OperationViewController: UITableViewController, UITextFieldDelegate, UIGes
         swipe.delegate = self
         view.addGestureRecognizer(swipe)
         
-        ad?.delegate = self
+        ad.delegate = self
         appearCallCount = 0
         
         if arc4random_uniform(100) < 15 {
             let request = GADRequest()
             request.testDevices = [kGADSimulatorID]
-            ad?.load(request)
+            ad.load(request)
         } else {
             self.perform(#selector(OperationViewController.loadNewAd), with: nil, afterDelay: 120)
         }
@@ -226,10 +226,10 @@ class OperationViewController: UITableViewController, UITextFieldDelegate, UIGes
         }
         
         ad = GADInterstitial(adUnitID: adId)
-        ad?.delegate = self
+        ad.delegate = self
         let request = GADRequest()
         request.testDevices = [kGADSimulatorID]
-        ad?.load(request)
+        ad.load(request)
     }
     
     func interstitialDidDismissScreen(_ ad: GADInterstitial!) {
