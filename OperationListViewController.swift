@@ -189,7 +189,7 @@ class OperationListViewController: UITableViewController, GADInterstitialDelegat
                 UIApplication.shared.openURL(URL(string: "https://itunes.apple.com/us/app/math-toolbox-free/id1080062807?ls=1&mt=8")!)
             })
         alert.addAction(UIAlertAction(title: NSLocalizedString("Send Feedback", comment: ""), style: .default) { _ in
-            UIApplication.shared.openURL(URL(string: "mailto://sumulang@gmail.com")!)
+            UIApplication.shared.openURL(URL(string: "mailto://sumulang.apps@gmail.com")!)
             })
         alert.addAction(UIAlertAction(title: NSLocalizedString("Maybe Later", comment: ""), style: .default, handler: nil))
         self.presentVC(alert)
